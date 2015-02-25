@@ -17,3 +17,7 @@ nytprof.out
 /pm_to_blib
 *.o
 *.bs
+log
+.c9
+*.production.conf
+*.development.conf
