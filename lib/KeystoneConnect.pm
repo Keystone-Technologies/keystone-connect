@@ -12,7 +12,8 @@ sub startup {
   my $r = $self->routes;
 
   # Normal route to controller
-  $r->get('/')->to('example#welcome');
+  #$r->get('/')->to('example#welcome');
+  $r->get('/')->to(cb => sub { shift->redirect_to('/index.html') });
 }
 
 1;
