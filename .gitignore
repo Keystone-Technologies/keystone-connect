@@ -21,3 +21,4 @@ log
 .c9
 *.production.conf
 *.development.conf
+.idea/workspace.xml
