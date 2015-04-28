@@ -1,4 +1,4 @@
-
+var gridster;
 
 $(function () {
 
@@ -30,9 +30,14 @@ $(function () {
     //    drop: function() { alert('dropped'); }
     //});
 
-    $(".gridster ul").gridster({
+    gridster = $(".gridster ul").gridster({
         widget_margins: [8, 8],
         widget_base_dimensions: [90, 90],
-        min_cols: 8
-    })
+        min_cols: 8,
+        helper: 'clone',
+        resize: {
+            enabled: true
+        }
+    }).data('gridster');
+
 });

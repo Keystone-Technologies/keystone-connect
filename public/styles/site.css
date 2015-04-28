@@ -13,6 +13,28 @@
   height: auto;
   width: 100%;
 }
+#home .carousel {
+  height: 100%;
+  margin-bottom: 30px;
+  min-height: 550px;
+}
+#home .carousel .carousel-indicators {
+  bottom: -40px;
+}
+#home .item {
+  min-height: 400px;
+  height: 100%;
+}
+#home .folder {
+  background: #7eb0db;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+}
+#home .folder h2 {
+  margin: 0;
+  text-align: center;
+}
 #home .gridster li {
   background: rgba(126, 176, 219, 0.4);
   list-style: none;
