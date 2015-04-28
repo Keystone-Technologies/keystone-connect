@@ -1,7 +1,7 @@
 
 .container{
   background: @kt-blue-23 url("../img/logo.png") bottom right no-repeat;
-  height: 800px;
+  height: 100%;
 }
 
 #home {
@@ -16,6 +16,31 @@
 
   .icon{
     height: auto;
-    width: 90px;
+    width: 100%;
+  }
+
+  .gridster{
+
+    li{
+      background: fade(@kt-blue-7e, 40%);
+      list-style: none;
+    }
+
+  }
+
+  .app-drawer{
+    background: fade(@kt-black, 10%);
+    border-radius: 4px;
+    height: 106px;
+    margin: 0 auto;
+    width: 420px;
+
+    li{
+      margin: 2%;
+    }
+
+    .icon{
+      width: 90px;
+    }
   }
 }

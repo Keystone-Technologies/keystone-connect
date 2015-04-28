@@ -1,6 +1,6 @@
 .container {
   background: #23789e url("../img/logo.png") bottom right no-repeat;
-  height: 800px;
+  height: 100%;
 }
 #home .snap {
   background-color: #000000;
@@ -11,6 +11,23 @@
 }
 #home .icon {
   height: auto;
+  width: 100%;
+}
+#home .gridster li {
+  background: rgba(126, 176, 219, 0.4);
+  list-style: none;
+}
+#home .app-drawer {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height: 106px;
+  margin: 0 auto;
+  width: 420px;
+}
+#home .app-drawer li {
+  margin: 2%;
+}
+#home .app-drawer .icon {
   width: 90px;
 }
 .banner {
