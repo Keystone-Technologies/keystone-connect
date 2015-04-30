@@ -1,10 +1,68 @@
-
 .container{
   background: @kt-blue-23 url("../img/logo.png") bottom right no-repeat;
   height: 100%;
 }
 
 #home {
+
+  #trash{
+    background-color:rgba(0,0,0,.6);
+    display:none;
+    height:80px;
+    padding-top:25px;
+    position:fixed;
+    width:100%;
+    z-index:2;
+
+
+    h2{
+      color:white;
+    }
+  }
+  #create-folder{
+    background-color:rgba(0,0,0,.6);
+    bottom:0px;
+    display:none;
+    height:80px;
+    padding-top:25px;
+    position:fixed;
+    width:100%;
+    z-index:2;
+
+
+    h2{
+      color:white;
+    }
+  }
+
+  .modal{
+    .modal-dialog{
+      .modal-content{
+        .modal-header{
+
+        }
+        ul{
+          margin:0 auto;
+          max-width:532px;
+          li{
+            height:90px;
+            margin:10px 20px;
+            padding:0px;
+            width:90px;
+            img{
+              width:100%;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .grid-container{
+    z-index:30;
+  }
+
   .snap{
     background-color: @kt-black;
     border: 1px solid yellow;
@@ -28,6 +86,10 @@
     .carousel-indicators{
       bottom: -40px;
     }
+
+    .carousel-inner{
+      overflow:visible;
+    }
   }
 
   .item{
@@ -38,6 +100,7 @@
   .folder{
     background: @kt-blue-7e;
     border-radius: 8px;
+    cursor:pointer;
     height: 100%;
     width: 100%;
 
@@ -52,6 +115,14 @@
     li{
       background: fade(@kt-blue-7e, 40%);
       list-style: none;
+      z-index:999;
+    }
+
+
+
+    .draggable{
+      z-index:999;
+      opacity:.999;
     }
 
   }
