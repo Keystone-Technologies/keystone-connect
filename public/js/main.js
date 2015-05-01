@@ -75,5 +75,5 @@ $(function () {
             enabled: true
         }
     }).data('gridster');
-
+    console.log(JSON.stringify(gridster.serialize()));
 });
