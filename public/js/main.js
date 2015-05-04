@@ -109,7 +109,7 @@ $(function () {
         //helper: 'clone',
         resize: {
             enabled: true
-        },
+        }
     }).data('gridster1');
 
     gridster2 = $("#grid-2 ul").gridster({
@@ -120,7 +120,7 @@ $(function () {
         //helper: 'clone',
         resize: {
             enabled: true
-        },
+        }
     }).data('gridster2');
 
 
@@ -133,7 +133,7 @@ $(function () {
             //helper: 'clone',
             resize: {
                 enabled: true
-            },
+            }
         }).data('gridster3');
     };
 
