@@ -1,7 +1,7 @@
 .container {
   background: #23789e url("../img/logo.png") bottom right no-repeat;
   height: 100%;
-  width: 100%;
+  padding: 0px;
 }
 #home #trash {
   background-color: rgba(0, 0, 0, 0.6);
@@ -20,8 +20,8 @@
   bottom: 0px;
   display: none;
   height: 80px;
-  padding-top: 25px;
-  position: fixed;
+  padding: 0px;
+  position: relative;
   width: 100%;
   z-index: 2;
 }
@@ -52,8 +52,8 @@
   margin-bottom: 4px;
 }
 #home .icon {
-  height: auto;
-  width: 100%;
+  height: 100%;
+  width: auto;
 }
 #home .carousel {
   height: 100%;

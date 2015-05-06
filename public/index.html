@@ -24,9 +24,7 @@
     <div id="trash" class="gridster">
         <h2 class="text-center"><i class="glyphicon glyphicon-trash"></i> Remove</h2>
     </div>
-    <div id="create-folder" class="gridster">
-        <h2 class="text-center"><i class="glyphicon glyphicon-folder-open"></i> Create a Folder</h2>
-    </div>
+
     <div class="modal fade folder-modal" tabindex="-1" role="dialog" aria-labelledby="folderModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -141,23 +139,23 @@
                     <!-- Wrapper for pages -->
                     <div class="carousel-inner" role="listbox">
                         <!-- home page -->
-                        <div class="item active">
+                        <div class="item">
                             <div id="grid-1" class="gridster col-xs-12">
                                 <ul>
                                     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" class="gs-w">
-                                        <img class="save-icon" src="img/unlock3.svg" />
+
                                         <img class="icon" src="img/LinkedInAppIcon.png"/>
                                         <span class="gs-resize-handle gs-resize-handle-both"></span>
                                     </li>
 
                                     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" class="gs-w">
-                                        <img class="save-icon" src="img/unlock3.svg" />
+
                                         <img class="icon" src="img/FacebookAppIcon.png"/>
                                         <span class="gs-resize-handle gs-resize-handle-both"></span>
 
                                     </li>
                                     <li data-row="2" data-col="2" data-sizex="2" data-sizey="1" class="gs-w">
-                                        <img class="save-icon" src="img/unlock3.svg" />
+
                                         <img class="icon" src="img/YouTubeAppIcon.png"/>
                                         <span class="gs-resize-handle gs-resize-handle-both"></span>
 
@@ -234,8 +232,6 @@
                                     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" class="gs-w">
                                         <span class="gs-resize-handle gs-resize-handle-both"></span>
                                     </li>
-
-
                                 </ul>
                             </div>
                         </div>
@@ -288,15 +284,13 @@
                             </div>
                         </div>
                         <!-- 3rd page -->
-                        <div  class="item">
+                        <div  class="item active">
                             <div id="grid-3" class="gridster">
                                 <ul>
-
                                 </ul>
                             </div>
                         </div>
                     </div>
-
                     <!-- Controls -->
                     <!--<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">-->
                     <!--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>-->
@@ -308,14 +302,16 @@
                     <!--</a>-->
                 </div>
             </div>
-            <div class="text-center col-xs-12">
+            <div id="app-tray" class="text-center col-xs-12 gridster">
                 <ul class="list-inline app-drawer">
-                    <li></li>
-                    <li><img class="icon" src="img/AppStore_Icon.png" /></li>
-                    <li></li>
+                    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1" class="gs-w">
+                        <span class="gs-resize-handle gs-resize-handle-both"></span>
+                    </li>
                 </ul>
             </div>
-
+        </div>
+        <div id="create-folder" class="col-xs-12">
+            <h2 class="text-center"><i class="glyphicon glyphicon-folder-open"></i> Create a Folder</h2>
         </div>
     </div>
 </div>

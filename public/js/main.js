@@ -109,7 +109,7 @@ $(function () {
         //helper: 'clone',
         resize: {
             enabled: true
-        }
+        },
     }).data('gridster1');
 
     gridster2 = $("#grid-2 ul").gridster({
@@ -120,7 +120,7 @@ $(function () {
         //helper: 'clone',
         resize: {
             enabled: true
-        }
+        },
     }).data('gridster2');
 
 
@@ -133,27 +133,27 @@ $(function () {
             //helper: 'clone',
             resize: {
                 enabled: true
-            }
+            },
         }).data('gridster3');
     };
 
     initGrid3();
 
-//    console.log(JSON.stringify(gridster.serialize()));
-
-//    $.ajax({
-//       type: 'GET',
-//       url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
-//       success: function(data) {
-//           console.log('success', data);
-//       },
-//       dataType: 'jsonp'
-//       
-//    });
-
-
-//$.getJSON( "serialize.json" , function( result ){
-//        alert(result.start.count);
-//    });
+    //console.log(JSON.stringify(gridster.serialize()));
+    //
+    //$.ajax({
+    //   type: 'GET',
+    //   url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
+    //   success: function(data) {
+    //       console.log('success', data);
+    //   },
+    //   dataType: 'json'
+    //
+    //});
+    //
+    //
+    //$.getJSON( "serialize.json" , function( result ){
+    //    alert(result.start.count);
+    //});
 
 });
