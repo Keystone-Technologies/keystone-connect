@@ -28,6 +28,11 @@
 #home #create-folder h2 {
   color: white;
 }
+#home .modal .modal-dialog .modal-content .modal-header input {
+  font-size: 36px;
+  font-weight: 500;
+  text-align: center;
+}
 #home .modal .modal-dialog .modal-content ul {
   margin: 0 auto;
   max-width: 532px;
