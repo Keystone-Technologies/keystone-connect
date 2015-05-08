@@ -2,6 +2,8 @@ var gridster1;
 var gridster2;
 var gridster3;
 var appTray;
+var folderNameAvail = false;
+
 var json =
     [
         { "size_y": 2, "row": 1, "col": 1, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
@@ -29,6 +31,10 @@ var json =
         { "size_y": 1, "row": 2, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
         { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 }
     ];
+
+function addLock() {
+    $(".gs-w").append("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
+}
 
 function thumbnailDraggable($thumb) {
     $thumb.draggable({
@@ -104,7 +110,7 @@ function LockClickEvents($object) {
     console.log('attach lock click event again ' + $object);
 
     $object.children('.save-icon').on("click", function () {
-        if($(this).hasClass("icon-locked")){
+        if ($(this).hasClass("icon-locked")) {
             $(this)
                 .attr("src", "img/unlock3.svg")
                 .removeClass("icon-locked")
@@ -112,7 +118,7 @@ function LockClickEvents($object) {
                 .addClass("gs-w")
                 .draggable("enable");
         }
-        else{
+        else {
             $(this)
                 .attr("src", "img/lock24.svg")
                 .addClass("icon-locked");
@@ -124,12 +130,46 @@ function LockClickEvents($object) {
     });
 }
 
-
-
 function showModal() {
     $(".folder").dblclick(function () {
+        var folderName;
+        var startingName;
         $(".folder-modal").modal('show');
+        foldername = folderRename();
+        folderRename(startingName);
     });
+}
+
+function folderRename() {
+    $(".folder-name").on("dblclick", function () {
+        var titleVal = $(this).text();
+        var inputVal;
+        $(this).addClass("hidden");
+        $(".folder-input")
+            .val(titleVal)
+            .removeClass("hidden")
+            .keyup(function (event) {
+                if (event.keyCode == 13) {
+                    inputVal = $(".folder-input").val();
+                    $(".folder-input")
+                      .addClass("hidden");
+                    $(".folder-name")
+                      .removeClass("hidden")
+                      .html(inputVal);
+                }
+            });
+
+        folderNameAvailable();
+        folderNameAvail = true;
+        return inputVal;
+    });
+};
+
+function folderNameAvailable() {
+    if (folderNameAvail) {
+        folderNameAvail = false;
+        console.log("wazuuuuup");
+    }
 }
 
 function loadSerial($gridId) {    //holds data and loads serialized objects
@@ -210,17 +250,25 @@ function initAppTray() {
 
 $(function () {
     loadSerial($("#grid-3 ul"));
+    addLock();
     initGrid1();
     initGrid2();
     initGrid3();
     initAppTray();
+    //    folderNameAvailable();
     thumbnailDraggable($(".gs-w"));
     trashDroppable();
-//    appTrayDroppable();
+    //    appTrayDroppable();
+
     createFolderDroppable();
     LockClickEvents($("#grid-1 .gs-w"));
+})
 
-});
+
+
+//$(".folder-input").bind("submit", function() {
+//    console.log("Form Submitted");
+//})
 
 
 //    console.log(JSON.stringify(gridster.serialize()));
