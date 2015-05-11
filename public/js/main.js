@@ -1,8 +1,11 @@
+var appTray;
+var folderName;
+var folderNameAvail = false;
 var gridster1;
 var gridster2;
 var gridster3;
-var appTray;
-var folderNameAvail = false;
+
+
 
 var json =
     [
@@ -32,10 +35,6 @@ var json =
         { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 }
     ];
 
-function addLock() {
-    $(".gs-w").append("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
-}
-
 function thumbnailDraggable($thumb) {
     $thumb.draggable({
         containment: "#home",
@@ -45,9 +44,9 @@ function thumbnailDraggable($thumb) {
         },
         axis: "y",
         stop: function () {
-            $(this).children(".save-icon").remove();
-            $(this).prepend("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
+            addLocks($(this));
             LockClickEvents($(this));
+//            $("#create-folder").hide();
         },
         drag: function (event, ui) {
             var margin = ui.offset.top;
@@ -57,58 +56,22 @@ function thumbnailDraggable($thumb) {
             else {
                 $("#trash").hide();
             }
-            if (margin > $(window).height() - 100) {
-                $("#create-folder").show();
+            if (margin > $("body").height() - 100) {
+                $("#create-folder").css("display", "block");
             }
-            else {
-                $("#create-folder").hide();
-            };
+            //            else {
+            //                $("#create-folder").hide();
+            //            };
         }
     });
 }
 
-function trashDroppable() {
-    $("#trash").droppable({
-        tolerance: "touch",
-        drop: function (event, ui) {
-            $(ui.draggable).empty();
-            $(ui.draggable).append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
-            $("#trash").hide();
-        }
-    });
-}
-
-//function appTrayDroppable() {
-//    $("#app-tray").droppable({
-//        tolerance: "touch",
-//        drop: function (event, ui) {
-//            //            $(ui.draggable).empty();
-//            $(ui.draggable).appendTo("#app-tray")
-//                .attr("data-row", 1)
-//                .attr("data-col", 6);
-//            //            thumbnailDraggable($(".gs-w"));
-//            //            initAppTray();
-//        }
-//    });
-//}
-
-function createFolderDroppable() {
-    $("#create-folder").droppable({
-        tolerance: "touch",
-        drop: function (event, ui) {
-            $(ui.draggable).empty();
-            $(ui.draggable).append("<div class=\"folder\"><h2>folder</h2></div>");
-            $(ui.draggable).append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
-            $("#create-folder").hide();
-            //            initGrid3();
-            showModal();
-        }
-    });
+function addLocks($object) {
+    $object.children(".save-icon").remove();
+    $object.prepend("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
 }
 
 function LockClickEvents($object) {
-    console.log('attach lock click event again ' + $object);
-
     $object.children('.save-icon').on("click", function () {
         if ($(this).hasClass("icon-locked")) {
             $(this)
@@ -130,52 +93,80 @@ function LockClickEvents($object) {
     });
 }
 
-function showModal() {
-    $(".folder").dblclick(function () {
-        var folderName;
-        var startingName;
-        $(".folder-modal").modal('show');
-        foldername = folderRename();
-        folderRename(startingName);
+
+
+//function appTrayDroppable() {
+//    $("#app-tray").droppable({
+//        tolerance: "touch",
+//        drop: function (event, ui) {
+//            //            $(ui.draggable).empty();
+//            $(ui.draggable).appendTo("#app-tray")
+//                .attr("data-row", 1)
+//                .attr("data-col", 6);
+//            //            thumbnailDraggable($(".gs-w"));
+//            //            initAppTray();
+//        }
+//    });
+//}
+
+function trashDroppable() {
+    $("#trash").droppable({
+        tolerance: "touch",
+        drop: function (event, ui) {
+            $(ui.draggable).empty();
+            $(ui.draggable).append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
+            $("#trash").hide();
+        }
     });
 }
 
-function folderRename() {
-    $(".folder-name").on("dblclick", function () {
-        var titleVal = $(this).text();
-        var inputVal;
-        $(this).addClass("hidden");
-        $(".folder-input")
-            .val(titleVal)
-            .removeClass("hidden")
-            .keyup(function (event) {
-                if (event.keyCode == 13) {
-                    inputVal = $(".folder-input").val();
-                    $(".folder-input")
-                      .addClass("hidden");
-                    $(".folder-name")
-                      .removeClass("hidden")
-                      .html(inputVal);
-                }
-            });
-
-        folderNameAvailable();
-        folderNameAvail = true;
-        return inputVal;
+function createFolderDroppable() {
+    console.log("drop function running");
+    $("#create-folder").droppable({
+        tolerance: "touch",
+        drop: function (event, ui) {
+            console.log("icon dropped");
+            $(ui.draggable).empty();
+            $(ui.draggable).append("<div class=\"folder\"><h2>folder</h2></div>");
+            $(ui.draggable).append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
+            $("#create-folder").hide();
+            showModal();
+        }
     });
-};
+}
 
-function folderNameAvailable() {
-    if (folderNameAvail) {
-        folderNameAvail = false;
-        console.log("wazuuuuup");
-    }
+
+
+function showModal() {
+    $(".folder").dblclick(function () {
+        var newName;
+        var inputVal;
+        var startingName = $(this).children("h2").html();
+        $(".folder-modal").modal('show');
+        $(".folder-name").html(startingName);
+        $(".folder-name").on("dblclick", function () {
+            $(this).addClass("hidden");
+            $(".folder-input")
+                .attr("value", startingName)
+                .removeClass("hidden")
+                .keyup(function (event) {
+                    if (event.keyCode == 13) {
+                        inputVal = $(".folder-input").val();
+                        $(".folder-input")
+                            .addClass("hidden");
+                        $(".folder-name")
+                            .removeClass("hidden")
+                            .html(inputVal);
+                        console.log(inputVal);
+                        newName = inputVal;
+                    }
+                });
+        });
+    });
 }
 
 function loadSerial($gridId) {    //holds data and loads serialized objects
     //        gridster.remove_all_widgets();
-    console.log("Adding grid 3 thumbnails");
-
     $.each(json, function () {
         $gridId.prepend("<li></li>")
             .find("li")
@@ -248,20 +239,21 @@ function initAppTray() {
     }).data('appTray');
 }
 
+
 $(function () {
     loadSerial($("#grid-3 ul"));
-    addLock();
+
     initGrid1();
     initGrid2();
     initGrid3();
     initAppTray();
-    //    folderNameAvailable();
     thumbnailDraggable($(".gs-w"));
     trashDroppable();
     //    appTrayDroppable();
-
     createFolderDroppable();
-    LockClickEvents($("#grid-1 .gs-w"));
+    addLocks($(".gs-w"));
+    LockClickEvents($(".gs-w"));
+    showModal();
 })
 
 

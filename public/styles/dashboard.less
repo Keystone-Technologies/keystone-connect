@@ -3,9 +3,9 @@
   height: 100%;
   padding:0px;
 }
- 
+
 #home {
- 
+
   #trash{
     background-color:rgba(0,0,0,.6);
     display:none;
@@ -14,8 +14,8 @@
     position:fixed;
     width:100%;
     z-index:2;
- 
- 
+
+
     h2{
       color:white;
     }
@@ -33,22 +33,22 @@
       color:white;
     }
   }
- 
+
   .modal{
     .modal-dialog{
       .modal-content{
         .modal-header{
-           input{
- 
-              font-size: 36px;
-              font-weight: 500;
-              text-align: center;
-                
-              -webkit-user-select: none; /* Chrome/Safari */       
-              -moz-user-select: none; /* Firefox */
-              -ms-user-select: none; /* IE10+ */
-              user-select: none;
-           }
+          input{
+
+            font-size: 36px;
+            font-weight: 500;
+            text-align: center;
+
+            -webkit-user-select: none; /* Chrome/Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* IE10+ */
+            user-select: none;
+          }
         }
         ul{
           margin:0 auto;
@@ -63,15 +63,15 @@
             }
           }
         }
- 
+
       }
     }
   }
- 
+
   .grid-container{
     z-index:30;
   }
- 
+
   .snap{
     background-color: @kt-black;
     border: 1px solid yellow;
@@ -79,99 +79,100 @@
     width: 90px;
     margin-bottom: 4px;
   }
- 
+
   .icon {
     height: 100%;
     width: auto;
   }
-   
+
   .carousel {
     height: 100%;
     margin-bottom: 30px;
     min-height: 550px;
- 
+
     .carousel-indicators{
       bottom: -40px;
     }
- 
+
     .carousel-inner{
       overflow:visible;
     }
   }
- 
+
   .item{
     min-height: 400px;
     height: 100%;
   }
- 
+
   .folder{
     background: @kt-blue-7e;
     border-radius: 8px;
     cursor:pointer;
     height: 100%;
     width: 100%;
- 
+
     h2{
       margin: 0;
       text-align: center;
     }
   }
- 
+
   .gridster{
- 
+
     li{
       background: fade(@kt-blue-7e, 40%);
       list-style: none;
+      position:absolute;
       z-index:999;
-          .save-icon {
-          cursor: pointer;
-          height: 20px;
-          position: absolute;
-          right: 0;
-          top: 8px;
-          width: 20px;
-          z-index: 1000;
-        }
-//        .saved{
-//          background-image: url("../img/unlock3.svg");
-//          cursor: pointer;
-//          height: 20px;
-//          position:absolute;
-//          right: 0;
-//          top: 8px;
-//          width: 20px;
-//          z-index: 1000;
-         
-       
-       
+      .save-icon {
+        cursor: pointer;
+        height: 20px;
+        position: absolute;
+        right: 0;
+        top: 8px;
+        width: 20px;
+        z-index: 1000;
+      }
+      //        .saved{
+      //          background-image: url("../img/unlock3.svg");
+      //          cursor: pointer;
+      //          height: 20px;
+      //          position:absolute;
+      //          right: 0;
+      //          top: 8px;
+      //          width: 20px;
+      //          z-index: 1000;
+
+
+
     }
- 
- 
- 
+
+
+
     .draggable{
       z-index:999;
       opacity:.999;
     }
- 
+
   }
- 
+
   .app-drawer{
     background: fade(@kt-black, 10%);
     border-radius: 4px;
     height: 106px;
     margin: 0 auto;
     width: 420px;
- 
+
     li{
       margin: 2%;
     }
- 
+
     .icon{
       width: 90px;
     }
   }
 }
- 
+
 .hidden{
   display:none;
 }
