@@ -1,9 +1,12 @@
 var appTray;
-var folderName;
-var folderNameAvail = false;
 var gridster1;
 var gridster2;
 var gridster3;
+
+var newName;
+var inputVal;
+var startingName;
+var $currentFolder;
 
 
 
@@ -139,30 +142,44 @@ function createFolderDroppable() {
 
 function showModal() {
     $(".folder").dblclick(function () {
-        var newName;
-        var inputVal;
-        var startingName = $(this).children("h2").html();
+//        newName;
+//        inputVal;
+        startingName = $(this).children("h2").text();
+        $currentFolder = $(this);
         $(".folder-modal").modal('show');
         $(".folder-name").html(startingName);
         $(".folder-name").on("dblclick", function () {
             $(this).addClass("hidden");
             $(".folder-input")
-                .attr("value", startingName)
+//                .attr("value", startingName)
+//                .attr("placeholder", startingName)
+                .val(startingName)
                 .removeClass("hidden")
                 .keyup(function (event) {
                     if (event.keyCode == 13) {
                         inputVal = $(".folder-input").val();
                         $(".folder-input")
-                            .addClass("hidden");
+                            .addClass("hidden")
+                            .val(null);
                         $(".folder-name")
                             .removeClass("hidden")
                             .html(inputVal);
                         console.log(inputVal);
                         newName = inputVal;
+                        $currentFolder.children("h2").html(newName);
+                        resetVariables();
                     }
                 });
         });
     });
+}
+
+function resetVariables(){
+    newName = null;
+    inputVal = null;
+    startingName = null;
+    $currentFolder = null;
+    showModal();
 }
 
 function loadSerial($gridId) {    //holds data and loads serialized objects
