@@ -50,18 +50,22 @@ function thumbnailDraggable($thumb) {
             addLocks($(this));
             LockClickEvents($(this));
 //            $("#create-folder").hide();
+            $("#trash").hide();
+            $("#create-folder").hide();
         },
         drag: function (event, ui) {
             var margin = ui.offset.top;
-            if (margin < 125) {
-                $("#trash").show();
-            }
-            else {
-                $("#trash").hide();
-            }
-            if (margin > $("body").height() - 100) {
-                $("#create-folder").css("display", "block");
-            }
+            $("#trash").show();
+            $("#create-folder").css("display", "block");
+//            if (margin < 125) {
+//                $("#trash").show();
+//            }
+//            else {
+//                $("#trash").hide();
+//            }
+//            if (margin > $("body").height() - 100) {
+//                $("#create-folder").css("display", "block");
+//            }
             //            else {
             //                $("#create-folder").hide();
             //            };
@@ -72,6 +76,14 @@ function thumbnailDraggable($thumb) {
 function addLocks($object) {
     $object.children(".save-icon").remove();
     $object.prepend("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
+    $(".icon").siblings(".save-icon")
+        .css({"visibility": "visible"});
+    $(".folder").siblings(".save-icon")
+        .css({"visibility": "visible"});
+    $(".icon").siblings(".gs-resize-handle")
+        .css({"visibility": "visible"});
+    $(".folder").siblings(".gs-resize-handle")
+        .css({"visibility": "visible"});
 }
 
 function LockClickEvents($object) {
@@ -117,7 +129,7 @@ function trashDroppable() {
         tolerance: "touch",
         drop: function (event, ui) {
             $(ui.draggable).empty();
-            $(ui.draggable).append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
+//            $(ui.draggable).append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
             $("#trash").hide();
         }
     });
@@ -144,8 +156,8 @@ function showModal() {
     $(".folder").dblclick(function () {
 //        newName;
 //        inputVal;
-        startingName = $(this).children("h2").text();
         $currentFolder = $(this);
+        startingName = $currentFolder.children("h2").text();
         $(".folder-modal").modal('show');
         $(".folder-name").html(startingName);
         $(".folder-name").on("dblclick", function () {

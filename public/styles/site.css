@@ -94,10 +94,12 @@
   text-align: center;
 }
 #home .gridster li {
-  background: rgba(126, 176, 219, 0.4);
   list-style: none;
   position: absolute;
   z-index: 999;
+}
+#home .gridster li .gs-resize-handle {
+  visibility: hidden;
 }
 #home .gridster li .save-icon {
   cursor: pointer;
@@ -106,6 +108,7 @@
   right: 0;
   top: 8px;
   width: 20px;
+  visibility: hidden;
   z-index: 1000;
 }
 #home .gridster .draggable {
