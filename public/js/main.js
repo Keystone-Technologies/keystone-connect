@@ -12,30 +12,30 @@ var $currentFolder;
 
 var json =
     [
-        { "size_y": 2, "row": 1, "col": 1, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 2, "row": 2, "col": 3, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 2, "row": 3, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2 },
-        { "size_y": 2, "row": 1, "col": 3, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 2, "row": 2, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 3, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 1, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 2, "row": 4, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2 },
-        { "size_y": 1, "row": 3, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 2, "row": 1, "col": 7, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2 },
-        { "size_y": 1, "row": 2, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 3, "col": 7, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 1, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 2, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 3, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 1, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 2, "col": 1, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 3, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 1, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 2, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 1, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 2, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 },
-        { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1 }
+        { "size_y": 2, "row": 1, "col": 1, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com" },
+        { "size_y": 2, "row": 2, "col": 3, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 2, "row": 3, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2, "url": "http://facebook.com"  },
+        { "size_y": 2, "row": 1, "col": 3, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 2, "row": 2, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 3, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 1, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 2, "row": 4, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 3, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 2, "row": 1, "col": 7, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 2, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 3, "col": 7, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 1, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 2, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 3, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 1, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 2, "col": 1, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 3, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 1, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 2, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 1, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 2, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+        { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  }
     ];
 
 function thumbnailDraggable($thumb) {
@@ -205,10 +205,13 @@ function loadSerial($gridId) {    //holds data and loads serialized objects
             .attr("data-col", this.col)
             .addClass("gs-w");
 
-        $gridId.find("li:first-child").prepend("<img />")
+
+        $gridId.find("li:first-child").prepend("<a><img /></a>")
             .find("img")
             .addClass("icon")
-            .attr("src", this.img);
+            .attr("src", this.img)
+            .parent()
+            .attr("href", this.url);
     });
 }
 
@@ -218,11 +221,9 @@ function initGrid1() {
         widget_base_dimensions: [90, 90],
         min_cols: 8,
         max_cols: 8,
-        //helper: 'clone',
-        //        namespace: '#grid-1',
         resize: {
             enabled: true
-        },
+        }
     }).data('gridster1');
 }
 
@@ -232,11 +233,9 @@ function initGrid2() {
         widget_base_dimensions: [90, 90],
         min_cols: 8,
         max_cols: 8,
-        //helper: 'clone',
-        //        namespace: '#grid-2',
         resize: {
             enabled: true
-        },
+        }
     }).data('gridster2');
 }
 
@@ -246,11 +245,9 @@ function initGrid3() {
         widget_base_dimensions: [90, 90],
         min_cols: 8,
         max_cols: 8,
-        //helper: 'clone',
-        //        namespace: '#grid-3',
         resize: {
             enabled: true
-        },
+        }
     }).data('gridster3');
 }
 
@@ -260,11 +257,9 @@ function initAppTray() {
         widget_base_dimensions: [90, 90],
         min_cols: 3,
         max_cols: 3,
-        //helper: 'clone',
-        //        namespace: '#app-Tray',
         resize: {
             enabled: true
-        },
+        }
     }).data('appTray');
 }
 
