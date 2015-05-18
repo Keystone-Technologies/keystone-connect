@@ -47,28 +47,22 @@ function thumbnailDraggable($thumb) {
         },
         axis: "y",
         stop: function () {
-            addLocks($(this));
+//            addLocks($(this));
             LockClickEvents($(this));
 //            $("#create-folder").hide();
             $("#trash").hide();
             $("#create-folder").hide();
+            $("#app-tray").droppable("destroy");
+
         },
         drag: function (event, ui) {
+
+            appTrayDroppable();
+            grid1Droppable();
+
             var margin = ui.offset.top;
             $("#trash").show();
             $("#create-folder").css("display", "block");
-//            if (margin < 125) {
-//                $("#trash").show();
-//            }
-//            else {
-//                $("#trash").hide();
-//            }
-//            if (margin > $("body").height() - 100) {
-//                $("#create-folder").css("display", "block");
-//            }
-            //            else {
-            //                $("#create-folder").hide();
-            //            };
         }
     });
 }
@@ -110,25 +104,76 @@ function LockClickEvents($object) {
 
 
 
-//function appTrayDroppable() {
-//    $("#app-tray").droppable({
-//        tolerance: "touch",
-//        drop: function (event, ui) {
-//            //            $(ui.draggable).empty();
-//            $(ui.draggable).appendTo("#app-tray")
-//                .attr("data-row", 1)
-//                .attr("data-col", 6);
-//            //            thumbnailDraggable($(".gs-w"));
-//            //            initAppTray();
-//        }
-//    });
-//}
+function appTrayDroppable($droppable,$accept) {
+    $droppable.droppable({
+        accept: $accept,
+
+        tolerance: "touch",
+        drop: function (event, ui) {
+            if($droppable.find("li").hasClass('thumb-empty')) {
+                var thumbCopy = $(ui.draggable).contents().clone();
+                $(ui.draggable).empty();
+                thumbCopy.appendTo($droppable.find("thumb-empty").first());
+                $droppable.find("thumb-empty").first()
+                    .removeClass("thumb-empty")
+                    .addClass("thumb-occupied");
+            }
+        }
+    });
+}
+
+function appTrayDroppable() {
+    $("#app-tray").droppable({
+        accept: "#grid-1 li, #grid-2 li, #grid-3 li",
+
+        tolerance: "touch",
+        drop: function (event, ui) {
+            if($("#app-tray li").hasClass('thumb-empty')) {
+                var thumbCopy = $(ui.draggable).contents().clone();
+                $(ui.draggable)
+                    .empty()
+                    .addClass("thumb-empty")
+                    .removeClass("thumb-occupied");
+                thumbCopy.appendTo($("#app-tray .thumb-empty").first());
+                $("#app-tray .thumb-empty").first()
+                    .removeClass("thumb-empty")
+                    .addClass("thumb-occupied");
+            }
+        }
+    });
+}
+function grid1Droppable() {
+    $("#grid-1").droppable({
+        accept: "#app-tray li",
+
+        tolerance: "touch",
+        drop: function (event, ui) {
+            if($("#grid-1 li").hasClass('thumb-empty')) {
+                var thumbCopy = $(ui.draggable).contents().clone();
+                $(ui.draggable)
+                    .empty()
+                    .addClass("thumb-empty")
+                    .removeClass("thumb-occupied");
+                thumbCopy.appendTo($("#grid-1 .thumb-empty").first());
+                $("#grid-1 .thumb-empty").first()
+                    .removeClass("thumb-empty")
+                    .addClass("thumb-occupied");
+            }
+        }
+    });
+}
+
+
+
 
 function trashDroppable() {
     $("#trash").droppable({
         tolerance: "touch",
         drop: function (event, ui) {
-            $(ui.draggable).empty();
+            $(ui.draggable)
+                .empty()
+                .addClass("thumb-empty")
+                .removeClass("thumb-occupied");
 //            $(ui.draggable).append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
             $("#trash").hide();
         }
@@ -139,14 +184,19 @@ function createFolderDroppable() {
     console.log("drop function running");
     $("#create-folder").droppable({
         tolerance: "touch",
+        hoverClass: ".dropzone-active",
         drop: function (event, ui) {
-            console.log("icon dropped");
             $(ui.draggable).empty();
-            $(ui.draggable).append("<div class=\"folder\"><h2>folder</h2></div>");
-            $(ui.draggable).append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
+            $(ui.draggable)
+                .append("<div class=\"folder\"><h2>folder</h2></div>")
+                .addClass("thumb-occupied")
+                .removeClass("thumb-empty");
+            $(ui.draggable)
+                .append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
             $("#create-folder").hide();
             showModal();
         }
+
     });
 }
 
@@ -225,6 +275,7 @@ function initGrid1() {
             enabled: true
         }
     }).data('gridster1');
+    console.log(gridster1);
 }
 
 function initGrid2() {
@@ -261,19 +312,18 @@ function initAppTray() {
             enabled: true
         }
     }).data('appTray');
-}
 
+}
 
 $(function () {
     loadSerial($("#grid-3 ul"));
-
     initGrid1();
     initGrid2();
     initGrid3();
     initAppTray();
     thumbnailDraggable($(".gs-w"));
     trashDroppable();
-    //    appTrayDroppable();
+
     createFolderDroppable();
     addLocks($(".gs-w"));
     LockClickEvents($(".gs-w"));
