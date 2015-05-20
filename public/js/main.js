@@ -1,14 +1,16 @@
+//var ajaxData;
 var appTray;
+
 var gridster1;
 var gridster2;
 var gridster3;
-
+var gridster4;
+var gridster5;
+//var json = testAjax();
 var newName;
 var inputVal;
 var startingName;
 var $currentFolder;
-
-
 
 var json =
     [
@@ -126,7 +128,7 @@ function appTrayDroppable() {
     $("#app-tray").droppable({
         accept: "#grid-1 li, #grid-2 li, #grid-3 li",
 
-        tolerance: "touch",
+        tolerance: "pointer",
         drop: function (event, ui) {
             if($("#app-tray li").hasClass('thumb-empty')) {
                 var thumbCopy = $(ui.draggable).contents().clone();
@@ -142,6 +144,7 @@ function appTrayDroppable() {
         }
     });
 }
+
 function grid1Droppable() {
     $("#grid-1").droppable({
         accept: "#app-tray li",
@@ -163,9 +166,6 @@ function grid1Droppable() {
     });
 }
 
-
-
-
 function trashDroppable() {
     $("#trash").droppable({
         tolerance: "touch",
@@ -183,7 +183,7 @@ function trashDroppable() {
 function createFolderDroppable() {
     console.log("drop function running");
     $("#create-folder").droppable({
-        tolerance: "touch",
+        tolerance: "pointer",
         hoverClass: ".dropzone-active",
         drop: function (event, ui) {
             $(ui.draggable).empty();
@@ -263,9 +263,13 @@ function loadSerial($gridId) {    //holds data and loads serialized objects
             .parent()
             .attr("href", this.url);
     });
+    initGrid3();
+    initGrid4();
+    initGrid5();
 }
 
 function initGrid1() {
+    console.log("grid 1 initializing");
     gridster1 = $("#grid-1 ul").gridster({
         widget_margins: [8, 8],
         widget_base_dimensions: [90, 90],
@@ -275,10 +279,10 @@ function initGrid1() {
             enabled: true
         }
     }).data('gridster1');
-    console.log(gridster1);
 }
 
 function initGrid2() {
+    console.log("grid 2 initializing");
     gridster2 = $("#grid-2 ul").gridster({
         widget_margins: [8, 8],
         widget_base_dimensions: [90, 90],
@@ -291,6 +295,7 @@ function initGrid2() {
 }
 
 function initGrid3() {
+    console.log("grid 3 initializing");
     gridster3 = $("#grid-3 ul").gridster({
         widget_margins: [8, 8],
         widget_base_dimensions: [90, 90],
@@ -300,6 +305,32 @@ function initGrid3() {
             enabled: true
         }
     }).data('gridster3');
+}
+
+function initGrid4() {
+    console.log("grid 4 initializing");
+    gridster4 = $("#grid-4 ul").gridster({
+        widget_margins: [8, 8],
+        widget_base_dimensions: [90, 90],
+        min_cols: 8,
+        max_cols: 8,
+        resize: {
+            enabled: true
+        }
+    }).data('gridster4');
+}
+
+function initGrid5() {
+    console.log("grid 5 initializing");
+    gridster5 = $("#grid-5 ul").gridster({
+        widget_margins: [8, 8],
+        widget_base_dimensions: [90, 90],
+        min_cols: 8,
+        max_cols: 8,
+        resize: {
+            enabled: true
+        }
+    }).data('gridster5');
 }
 
 function initAppTray() {
@@ -312,22 +343,41 @@ function initAppTray() {
             enabled: true
         }
     }).data('appTray');
-
 }
 
+//function testAjax() {
+//    console.log('test ajax');
+//    $.ajax({
+//       type: 'POST',
+//       dataType: 'json',
+//       url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
+//       success: function(data) {
+//           console.log('success', data);
+//           json = data;
+//           
+//           //initGrid3();
+//       },
+//       error: function(data) {
+//           console.log('error', data );
+//       }
+//    }); 
+//    return json;
+//}
+
 $(function () {
-    loadSerial($("#grid-3 ul"));
+//    testAjax();
+    loadSerial($("#grid-3 ul,#grid-4 ul,#grid-5 ul"));
     initGrid1();
     initGrid2();
-    initGrid3();
+
     initAppTray();
     thumbnailDraggable($(".gs-w"));
     trashDroppable();
-
     createFolderDroppable();
     addLocks($(".gs-w"));
     LockClickEvents($(".gs-w"));
     showModal();
+
 })
 
 
@@ -339,15 +389,7 @@ $(function () {
 
 //    console.log(JSON.stringify(gridster.serialize()));
 
-//    $.ajax({
-//       type: 'GET',
-//       url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
-//       success: function(data) {
-//           console.log('success', data);
-//       },
-//       dataType: 'jsonp'
-//       
-//    });
+
 
 
 //$.getJSON( "serialize.json" , function( result ){
