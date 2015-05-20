@@ -7,7 +7,8 @@ sub startup {
 
   # Documentation browser under "/perldoc"
   $self->plugin('PODRenderer');
-
+  $self->plugin(JSONP => callback => 'callback');
+  
   # Router
   my $r = $self->routes;
 
@@ -29,7 +30,7 @@ sub startup {
       $img = 'img/SpotifyAppIcon.png';
       $label = 'spotify';
     }
-    $c->render(json => [
+    $c->render_jsonp([
       {"col"=>1,"row"=>1,"size_x"=>1,"size_y"=>1,img=>$img,label=>$label},
       {"col"=>3,"row"=>2,"size_x"=>1,"size_y"=>1,img=>$img,label=>$label},
       {"col"=>2,"row"=>3,"size_x"=>2,"size_y"=>1,img=>$img,label=>$label},
