@@ -1,4 +1,3 @@
-//var ajaxData;
 var appTray;
 
 var gridster1;
@@ -126,7 +125,7 @@ function appTrayDroppable($droppable,$accept) {
 
 function appTrayDroppable() {
     $("#app-tray").droppable({
-        accept: "#grid-1 li, #grid-2 li, #grid-3 li",
+        accept: "#grid-1 li, #grid-2 li, #grid-3 li, #grid-4 li, #grid-5 li",
 
         tolerance: "pointer",
         drop: function (event, ui) {
@@ -148,8 +147,7 @@ function appTrayDroppable() {
 function grid1Droppable() {
     $("#grid-1").droppable({
         accept: "#app-tray li",
-
-        tolerance: "touch",
+        tolerance: "pointer",
         drop: function (event, ui) {
             if($("#grid-1 li").hasClass('thumb-empty')) {
                 var thumbCopy = $(ui.draggable).contents().clone();
@@ -168,7 +166,7 @@ function grid1Droppable() {
 
 function trashDroppable() {
     $("#trash").droppable({
-        tolerance: "touch",
+        tolerance: "pointer     ",
         drop: function (event, ui) {
             $(ui.draggable)
                 .empty()
@@ -188,15 +186,16 @@ function createFolderDroppable() {
         drop: function (event, ui) {
             $(ui.draggable).empty();
             $(ui.draggable)
+
+
                 .append("<div class=\"folder\"><h2>folder</h2></div>")
-                .addClass("thumb-occupied")
+//                .addClass("thumb-occupied")
                 .removeClass("thumb-empty");
             $(ui.draggable)
                 .append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
             $("#create-folder").hide();
             showModal();
         }
-
     });
 }
 
@@ -245,8 +244,8 @@ function resetVariables(){
 }
 
 function loadSerial($gridId) {    //holds data and loads serialized objects
-    //        gridster.remove_all_widgets();
     $.each(json, function () {
+        console.log("running");
         $gridId.prepend("<li></li>")
             .find("li")
             .attr("data-sizex", this.size_x)
@@ -255,13 +254,14 @@ function loadSerial($gridId) {    //holds data and loads serialized objects
             .attr("data-col", this.col)
             .addClass("gs-w");
 
-
         $gridId.find("li:first-child").prepend("<a><img /></a>")
             .find("img")
             .addClass("icon")
-            .attr("src", this.img)
-            .parent()
-            .attr("href", this.url);
+            .attr("src", this.img);
+
+
+//            .parent()
+//            .attr("href", this.url);
     });
     initGrid3();
     initGrid4();
@@ -346,30 +346,29 @@ function initAppTray() {
 }
 
 function testAjax() {
-    console.log('test ajax');
+//    console.log('test ajax');
     $.ajax({
-       type: 'POST',
-       dataType: 'jsonp',
-       url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
-       success: function(data) {
-           console.log('success', data);
-           json = data;
-           return json;
-           //initGrid3();
-       },
-       error: function(data) {
-           console.log('error', data );
-       }
+        type: 'POST',
+        dataType: 'jsonp',
+        url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
+        success: function(data) {
+//           console.log('success', data);
+            json = data;
+            console.log(json[0].label);
+            loadSerial($("#grid-3 ul,#grid-4 ul,#grid-5 ul"));
+            return json;
+            //initGrid3();
+        },
+        error: function(data) {
+            console.log('error', data );
+        }
     });
-
 }
 
 $(function () {
-//    testAjax();
-    loadSerial($("#grid-3 ul,#grid-4 ul,#grid-5 ul"));
+
     initGrid1();
     initGrid2();
-
     initAppTray();
     thumbnailDraggable($(".gs-w"));
     trashDroppable();
