@@ -6,39 +6,39 @@ var gridster2;
 var gridster3;
 var gridster4;
 var gridster5;
-//var json = testAjax();
+var json = testAjax();
 var newName;
 var inputVal;
 var startingName;
 var $currentFolder;
 
-var json =
-    [
-        { "size_y": 2, "row": 1, "col": 1, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com" },
-        { "size_y": 2, "row": 2, "col": 3, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 2, "row": 3, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2, "url": "http://facebook.com"  },
-        { "size_y": 2, "row": 1, "col": 3, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 2, "row": 2, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 3, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 1, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 2, "row": 4, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 3, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 2, "row": 1, "col": 7, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 2, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 3, "col": 7, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 1, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 2, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 3, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 1, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 2, "col": 1, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 3, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 1, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 2, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 1, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 2, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
-        { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  }
-    ];
+//var json =
+//    [
+//        { "size_y": 2, "row": 1, "col": 1, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com" },
+//        { "size_y": 2, "row": 2, "col": 3, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 2, "row": 3, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2, "url": "http://facebook.com"  },
+//        { "size_y": 2, "row": 1, "col": 3, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 2, "row": 2, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 3, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 1, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 2, "row": 4, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 3, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 2, "row": 1, "col": 7, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 2, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 2, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 3, "col": 7, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 1, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 2, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 3, "col": 6, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 1, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 2, "col": 1, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 3, "col": 5, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 1, "col": 4, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 2, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 1, "col": 2, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 2, "col": 9, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  },
+//        { "size_y": 1, "row": 3, "col": 8, "label": "facebook", "img": "img\/FacebookAppIcon.png", "size_x": 1, "url": "http://facebook.com"  }
+//    ];
 
 function thumbnailDraggable($thumb) {
     $thumb.draggable({
@@ -345,24 +345,24 @@ function initAppTray() {
     }).data('appTray');
 }
 
-//function testAjax() {
-//    console.log('test ajax');
-//    $.ajax({
-//       type: 'POST',
-//       dataType: 'json',
-//       url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
-//       success: function(data) {
-//           console.log('success', data);
-//           json = data;
-//           
-//           //initGrid3();
-//       },
-//       error: function(data) {
-//           console.log('error', data );
-//       }
-//    }); 
-//    return json;
-//}
+function testAjax() {
+    console.log('test ajax');
+    $.ajax({
+       type: 'POST',
+       dataType: 'jsonp',
+       url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
+       success: function(data) {
+           console.log('success', data);
+           json = data;
+           return json;
+           //initGrid3();
+       },
+       error: function(data) {
+           console.log('error', data );
+       }
+    });
+
+}
 
 $(function () {
 //    testAjax();
