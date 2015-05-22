@@ -48,9 +48,7 @@ function thumbnailDraggable($thumb) {
         },
         axis: "y",
         stop: function () {
-//            addLocks($(this));
             LockClickEvents($(this));
-//            $("#create-folder").hide();
             $("#trash").hide();
             $("#create-folder").hide();
             $("#app-tray").droppable("destroy");
@@ -257,11 +255,9 @@ function loadSerial($gridId) {    //holds data and loads serialized objects
         $gridId.find("li:first-child").prepend("<a><img /></a>")
             .find("img")
             .addClass("icon")
-            .attr("src", this.img);
-
-
-//            .parent()
-//            .attr("href", this.url);
+            .attr("src", this.img)
+            .parent()
+            .attr("href", this.url);
     });
     initGrid3();
     initGrid4();
