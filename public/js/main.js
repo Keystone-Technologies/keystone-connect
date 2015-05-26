@@ -219,7 +219,7 @@ function requestPassword() {
 }
 
 function showFolderModal() {
-    $(".folder").dblclick(function () {
+    $(".folder").click(function () {
 //        newName;
 //        inputVal;
         $currentFolder = $(this);
