@@ -69,11 +69,11 @@ function thumbnailDraggable($thumb) {
 function addLocks($object) {
     $object.children(".save-icon").remove();
     $object.prepend("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
-    $(".icon").siblings(".save-icon")
+    $(".icon").parent().siblings(".save-icon")
         .css({"visibility": "visible"});
     $(".folder").siblings(".save-icon")
         .css({"visibility": "visible"});
-    $(".icon").siblings(".gs-resize-handle")
+    $(".icon").parent().siblings(".gs-resize-handle")
         .css({"visibility": "visible"});
     $(".folder").siblings(".gs-resize-handle")
         .css({"visibility": "visible"});
@@ -192,14 +192,33 @@ function createFolderDroppable() {
             $(ui.draggable)
                 .append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
             $("#create-folder").hide();
-            showModal();
+            showFolderModal();
         }
     });
 }
 
+function requestPassword() {
+//    var pass = $(".password-input").text();
+//    var user = $(".username-input").text();
 
+    $("#password-modal").modal({
+        backdrop : 'static',
+        keyboard : false
+    })
+        .modal('show');
 
-function showModal() {
+    $("#login-button").click(function() {
+
+        if($(".password-input").val() === "test" && $(".username-input").val() === "test"){
+            console.log("modal closed");
+            $("#password-modal").modal("hide");
+        }
+
+    });
+
+}
+
+function showFolderModal() {
     $(".folder").dblclick(function () {
 //        newName;
 //        inputVal;
@@ -238,7 +257,7 @@ function resetVariables(){
     inputVal = null;
     startingName = null;
     $currentFolder = null;
-    showModal();
+    showFolderModal();
 }
 
 function loadSerial($gridId) {    //holds data and loads serialized objects
@@ -362,7 +381,7 @@ function testAjax() {
 }
 
 $(function () {
-
+    requestPassword();
     initGrid1();
     initGrid2();
     initAppTray();
@@ -371,22 +390,5 @@ $(function () {
     createFolderDroppable();
     addLocks($(".gs-w"));
     LockClickEvents($(".gs-w"));
-    showModal();
-
-})
-
-
-
-//$(".folder-input").bind("submit", function() {
-//    console.log("Form Submitted");
-//})
-
-
-//    console.log(JSON.stringify(gridster.serialize()));
-
-
-
-
-//$.getJSON( "serialize.json" , function( result ){
-//        alert(result.start.count);
-//    });
+    showFolderModal();
+});

@@ -131,6 +131,36 @@
 .hidden {
   display: none;
 }
+#password-modal .modal-content .modal-header {
+  border-bottom: transparent;
+}
+#password-modal .modal-content .modal-footer {
+  border-top: transparent;
+}
+#password-modal h1 {
+  color: #23789e;
+  font-family: arial, sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+#password-modal p {
+  padding: 2% .5%;
+}
+#password-modal img {
+  margin-top: 1.5%;
+}
+#password-modal .form-group {
+  padding: 1% 2%;
+}
+#password-modal .form-group label {
+  padding-bottom: 8px;
+}
+#password-modal .btn-primary {
+  background: #23789e;
+}
+#password-modal .btn-default {
+  border-color: #7eb0db;
+}
 .banner {
   background: #ffffff;
   border: 1px solid #c3c3c3;
