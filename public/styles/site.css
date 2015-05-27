@@ -131,6 +131,9 @@
 .hidden {
   display: none;
 }
+#password-modal {
+  background: #23789e url("../img/logo.png") bottom right no-repeat;
+}
 #password-modal .modal-content .modal-header {
   border-bottom: transparent;
 }
