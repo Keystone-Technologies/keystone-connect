@@ -1,7 +1,6 @@
-.container {
+body {
   background: #23789e url("../img/logo.png") bottom right no-repeat;
   height: 100%;
-  padding: 0px;
 }
 #home #trash {
   background-color: rgba(0, 0, 0, 0.6);
