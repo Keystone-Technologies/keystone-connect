@@ -163,6 +163,28 @@ body {
 #password-modal .btn-default {
   border-color: #7eb0db;
 }
+#app-store-modal {
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+#app-store-modal h1 {
+  color: #204d74;
+  font-size: 58px;
+}
+#app-store-modal h1 img {
+  height: auto;
+  width: 80px;
+}
+#app-store-modal p {
+  color: #23789e;
+  margin: 4px 10px;
+}
+#app-store-modal img {
+  height: auto;
+  width: 100px;
+  padding-right: 10px;
+}
 .banner {
   background: #ffffff;
   border: 1px solid #c3c3c3;
