@@ -205,12 +205,13 @@ body {
   padding: 0 4%;
 }
 #app-store-modal #app-nav li {
-  background: #c3c3c3;
-  height: 60px;
+  height: 50px;
   margin: 6px;
 }
 #app-store-modal #app-nav .active {
   background: #245269;
+}
+#app-store-modal #app-nav .active a {
   color: #000000;
 }
 #app-store-modal #app-nav #search-nav {
