@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b345c8d5-4822-411d-8b26-8441dd2718ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/dashboard.less" afterPath="$PROJECT_DIR$/public/styles/dashboard.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/site.css" afterPath="$PROJECT_DIR$/public/styles/site.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/variables.less" afterPath="$PROJECT_DIR$/public/styles/variables.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Keystone-Connect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-34.115383" vertical-offset="5250" max-vertical-offset="7922">
-              <caret line="400" column="50" selection-start-line="400" selection-start-column="50" selection-end-line="400" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.42604503" vertical-offset="5454" max-vertical-offset="7905">
+              <caret line="391" column="82" selection-start-line="391" selection-start-column="82" selection-end-line="391" selection-end-column="82" />
               <folding>
                 <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -42,10 +38,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dashboard.less" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/styles/dashboard.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.93237865" vertical-offset="2823" max-vertical-offset="4148">
+            <state vertical-scroll-proportion="-45.076923" vertical-offset="2823" max-vertical-offset="4148">
               <caret line="235" column="13" selection-start-line="235" selection-start-column="13" selection-end-line="235" selection-end-column="13" />
               <folding />
             </state>
@@ -86,8 +82,8 @@
         <option value="$PROJECT_DIR$/public/js/jquery.gridster.js" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/public/styles/variables.less" />
-        <option value="$PROJECT_DIR$/public/index.html" />
         <option value="$PROJECT_DIR$/public/styles/dashboard.less" />
+        <option value="$PROJECT_DIR$/public/index.html" />
       </list>
     </option>
   </component>
@@ -690,21 +686,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
+    <entry file="file://$PROJECT_DIR$/public/styles/dashboard.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-34.115383" vertical-offset="5250" max-vertical-offset="7922">
-          <caret line="400" column="50" selection-start-line="400" selection-start-column="50" selection-end-line="400" selection-end-column="50" />
-          <folding>
-            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-45.076923" vertical-offset="2823" max-vertical-offset="4148">
+          <caret line="235" column="13" selection-start-line="235" selection-start-column="13" selection-end-line="235" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/styles/dashboard.less">
+    <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.93237865" vertical-offset="2823" max-vertical-offset="4148">
-          <caret line="235" column="13" selection-start-line="235" selection-start-column="13" selection-end-line="235" selection-end-column="13" />
-          <folding />
+        <state vertical-scroll-proportion="0.42604503" vertical-offset="5454" max-vertical-offset="7905">
+          <caret line="391" column="82" selection-start-line="391" selection-start-column="82" selection-end-line="391" selection-end-column="82" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
