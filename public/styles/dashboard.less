@@ -219,11 +219,12 @@ body{
 
   h1 {
     color: @kt-blue-74;
-    font-size: 58px;
+    margin-bottom: 20px;
 
     img{
       height: auto;
-      width: 80px;
+      padding-right: 10px;
+      width: 46px;
     }
   }
 
@@ -231,9 +232,63 @@ body{
     color: @kt-blue-23;
     margin: 4px 10px;
   }
-  img {
+  .app-store-icon {
     height: auto;
     width: 100px;
     padding-right: 10px;
+  }
+
+  .modal-content{
+
+    .modal-header{
+      border-bottom: transparent;
+    }
+    .modal-footer{
+      border-top: transparent;
+    }
+  }
+
+  #apps-container {
+    border-top: 2px solid @kt-blue-74;
+    max-width: 100%;
+    padding: 0 4%;
+
+    li{
+      margin: 10px;
+      width: 98px;
+    }
+  }
+
+  #app-nav {
+    padding: 0 4%;
+
+    li {
+      background: @kt-grey-c3;
+      height: 60px;
+      margin: 6px;
+    }
+
+    .active {
+      background: #245269;
+      color: @kt-black;
+    }
+
+    #search-nav {
+      margin-top: 18px;
+      i {
+        color: @kt-blue-74;
+        padding-right: 10px;
+
+      }
+    }
+
+  }
+
+  .btn-primary{
+    background: @kt-blue-23;
+  }
+
+  .btn-default {
+    border-color: @kt-blue-7e;
   }
 }

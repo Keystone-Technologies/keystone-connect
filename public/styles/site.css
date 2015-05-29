@@ -170,20 +170,61 @@ body {
 }
 #app-store-modal h1 {
   color: #204d74;
-  font-size: 58px;
+  margin-bottom: 20px;
 }
 #app-store-modal h1 img {
   height: auto;
-  width: 80px;
+  padding-right: 10px;
+  width: 46px;
 }
 #app-store-modal p {
   color: #23789e;
   margin: 4px 10px;
 }
-#app-store-modal img {
+#app-store-modal .app-store-icon {
   height: auto;
   width: 100px;
   padding-right: 10px;
+}
+#app-store-modal .modal-content .modal-header {
+  border-bottom: transparent;
+}
+#app-store-modal .modal-content .modal-footer {
+  border-top: transparent;
+}
+#app-store-modal #apps-container {
+  border-top: 2px solid #204d74;
+  max-width: 100%;
+  padding: 0 4%;
+}
+#app-store-modal #apps-container li {
+  margin: 10px;
+  width: 98px;
+}
+#app-store-modal #app-nav {
+  padding: 0 4%;
+}
+#app-store-modal #app-nav li {
+  background: #c3c3c3;
+  height: 60px;
+  margin: 6px;
+}
+#app-store-modal #app-nav .active {
+  background: #245269;
+  color: #000000;
+}
+#app-store-modal #app-nav #search-nav {
+  margin-top: 18px;
+}
+#app-store-modal #app-nav #search-nav i {
+  color: #204d74;
+  padding-right: 10px;
+}
+#app-store-modal .btn-primary {
+  background: #23789e;
+}
+#app-store-modal .btn-default {
+  border-color: #7eb0db;
 }
 .banner {
   background: #ffffff;
