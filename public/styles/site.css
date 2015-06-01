@@ -1,5 +1,5 @@
 body {
-  background: #23789e url("../img/logo.png") bottom right no-repeat;
+  background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
   height: 100%;
 }
 #home #trash {
@@ -9,7 +9,7 @@ body {
   padding-top: 25px;
   position: fixed;
   width: 100%;
-  z-index: 2;
+  z-index: 999999;
 }
 #home #trash h2 {
   color: white;
@@ -53,6 +53,7 @@ body {
   width: 100%;
 }
 #home .grid-container {
+  margin-top: 70px;
   z-index: 30;
 }
 #home .snap {
