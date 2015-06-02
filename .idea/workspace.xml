@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b345c8d5-4822-411d-8b26-8441dd2718ec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/dashboard.less" afterPath="$PROJECT_DIR$/public/styles/dashboard.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
     </list>
     <ignored path="Keystone-Connect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,8 +62,8 @@
       <file leaf-file-name="dashboard.less" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/styles/dashboard.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15315315" vertical-offset="0" max-vertical-offset="5287">
-              <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.6822277" vertical-offset="510" max-vertical-offset="5287">
+              <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -758,8 +757,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/dashboard.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15315315" vertical-offset="0" max-vertical-offset="5287">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.6822277" vertical-offset="510" max-vertical-offset="5287">
+          <caret line="79" column="18" selection-start-line="79" selection-start-column="18" selection-end-line="79" selection-end-column="18" />
           <folding />
         </state>
       </provider>
