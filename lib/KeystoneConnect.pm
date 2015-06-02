@@ -16,7 +16,7 @@ sub startup {
   #$r->get('/')->to('example#welcome');
   $r->get('/')->to(cb => sub { shift->redirect_to('/index.html') });
 
-  $r->get('/api/grid/:page')->to(cb => sub {
+  $r->any('/api/grid/:page')->to(cb => sub {
     my $c = shift;
     my $img = 'img/TwitterAppIcon.png';
     my $label = 'twitter';
