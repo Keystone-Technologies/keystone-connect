@@ -5,6 +5,7 @@ body {
 #home .banner {
   background: #23789e;
   color: #ffffff;
+  margin: 0 auto;
   height: 40px;
   width: 400px;
 }
