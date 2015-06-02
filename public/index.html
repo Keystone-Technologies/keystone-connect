@@ -257,15 +257,16 @@
                         <div class="item active">
                             <div id="grid-1" class="gridster col-xs-12">
                                 <ul>
-                                    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" class="gs-w thumb-occupied">
-                                        <a href="http://linkedin.com"><img class="icon" src="img/LinkedInAppIcon.png" /></a>
+                                    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2" class="gs-w thumb-occupied">
+                                        <div class="widget text-center">
+                                            <h2><span class="glyphicon glyphicon-calendar"></span> Keystone RSS</h2>
+                                            <div id="keystone-rss" class="rss-feed">
+
+                                            </div>
+                                        </div>
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
-                                    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" class="gs-w thumb-occupied">
-                                        <a href="http://facebook.com"><img class="icon" src="img/FacebookAppIcon.png" /></a>
-                                        <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
-                                    </li>
-                                    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1" class="gs-w thumb-occupied">
+                                    <li data-row="4" data-col="2" data-sizex="1" data-sizey="1" class="gs-w thumb-occupied">
                                         <a href="http://youtube.com"><img class="icon" src="img/YouTubeAppIcon.png" /></a>
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
@@ -276,6 +277,7 @@
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
                                     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" class="gs-w thumb-empty">
+                                        <a href="http://facebook.com"><img class="icon" src="img/FacebookAppIcon.png" /></a>
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
                                     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" class="gs-w thumb-empty">
@@ -299,11 +301,18 @@
                                         <a href="http://twitter.com"><img class="icon" src="img/TwitterAppIcon.png" /></a>
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
-                                    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" class="gs-w thumb-empty">
+                                    <li data-row="3" data-col="1" data-sizex=1" data-sizey="1" class="gs-w thumb-empty">
+                                        <a href="http://bbc.com"><img class="icon" src="img/RSSAppIcon.png" /></a>
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
-                                    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" class="gs-w thumb-occupied">
-                                        <a href="http://bbc.com"><img class="icon" src="img/RSSAppIcon.png" /></a>
+                                    <li data-row="1" data-col="1" data-sizex="3" data-sizey="4" class="gs-w thumb-occupied">
+                                        <div class="widget text-center">
+                                            <h2><span class="glyphicon glyphicon-cutlery"></span> Food Menu</h2>
+                                            <div id="food-rss" class="rss-feed">
+
+                                            </div>
+                                        </div>
+
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
                                     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" class="gs-w thumb-empty">
@@ -316,6 +325,7 @@
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
                                     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1" class="gs-w thumb-empty">
+                                        <a href="http://linkedin.com"><img class="icon" src="img/LinkedInAppIcon.png" /></a>
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
                                     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1" class="gs-w thumb-empty">
@@ -386,14 +396,22 @@
                                         <div class="folder"></div>
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
-                                    <li data-row="4" data-col="4" data-sizex="1" data-sizey="1" class="gs-w thumb-occupied">
-                                        <div class="folder">
-                                            <h2>folder</h2>
+                                    <li data-row="4" data-col="4" data-sizex="3" data-sizey="3" class="gs-w thumb-occupied">
+                                        <div class="widget text-center">
+                                            <h2><span class="glyphicon glyphicon-scale"></span> Health Menu</h2>
+                                            <div id="health-rss" class="rss-feed">
+
+                                            </div>
                                         </div>
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
                                     <li data-row="1" data-col="5" data-sizex="3" data-sizey="3" class="gs-w thumb-occupied">
-                                        <a href="http://kayak.com"><img class="icon" src="img/FlightsAppIcon.png" /></a>
+                                        <div class="widget text-center">
+                                            <h2><span class="glyphicon glyphicon-usd"></span> Finance Menu</h2>
+                                            <div id="finance-rss" class="rss-feed">
+
+                                            </div>
+                                        </div>
                                         <!-- <span class="gs-resize-handle gs-resize-handle-both"></span>-->
                                     </li>
                                 </ul>
@@ -542,7 +560,10 @@
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="plugins/jquery-ui-1.11.4/jquery-ui.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
 <script src="js/jquery.gridster.js"></script>
+<script src="js/jquery.rss.js"></script>
+<script src="js/widget.js"></script>
 <script src="js/main.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
