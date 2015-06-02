@@ -27,4 +27,13 @@ $(function () {
         limit: 5,
         effect: 'slideFastSynced'
     });
+
+    /* banner */
+    $.get("http://rss.dev.kit.cm/ticker", function(data){
+        if ( data.title ) {
+            $(".breakingNews>.bn-title>h2").html(data.title);
+            $(".breakingNews>ul").append('<li><a href="'+data.url+'">'+data.text+'</a></li>').show();
+            $(".breakingNews>ul>li").show();
+        }
+    });
 });
