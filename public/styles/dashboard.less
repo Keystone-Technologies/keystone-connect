@@ -16,12 +16,12 @@ body{
 
   #trash{
     background-color:rgba(0,0,0,.6);
-    display:none;
     height:80px;
     padding-top:25px;
     position:fixed;
     width:100%;
-    z-index:999999;
+    visibility:hidden;
+    z-index:2;
 
 
     h2{
@@ -31,15 +31,22 @@ body{
   #create-folder {
     background-color:rgba(0,0,0,.6);
     bottom:0px;
-    display:none;
     height:80px;
     padding:0px;
     position:relative;
     width:100%;
+    visibility:hidden;
     z-index:2;
     h2{
       color:white;
     }
+  }
+
+  .dropzone-hover{
+    background-color:red !important;
+  }
+  .dropzone-active{
+    visibility:visible !important;
   }
 
   .modal{

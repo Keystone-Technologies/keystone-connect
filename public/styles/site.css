@@ -11,12 +11,12 @@ body {
 }
 #home #trash {
   background-color: rgba(0, 0, 0, 0.6);
-  display: none;
   height: 80px;
   padding-top: 25px;
   position: fixed;
   width: 100%;
-  z-index: 999999;
+  visibility: hidden;
+  z-index: 2;
 }
 #home #trash h2 {
   color: white;
@@ -24,15 +24,21 @@ body {
 #home #create-folder {
   background-color: rgba(0, 0, 0, 0.6);
   bottom: 0px;
-  display: none;
   height: 80px;
   padding: 0px;
   position: relative;
   width: 100%;
+  visibility: hidden;
   z-index: 2;
 }
 #home #create-folder h2 {
   color: white;
+}
+#home .dropzone-hover {
+  background-color: red !important;
+}
+#home .dropzone-active {
+  visibility: visible !important;
 }
 #home .modal .modal-dialog .modal-content .modal-header input {
   font-size: 36px;
