@@ -6,6 +6,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/main.js" afterPath="$PROJECT_DIR$/public/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/styles/site.css" afterPath="$PROJECT_DIR$/public/styles/site.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Keystone-Connect.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="5.7392" vertical-offset="0" max-vertical-offset="7310">
-              <caret line="578" column="7" selection-start-line="578" selection-start-column="7" selection-end-line="578" selection-end-column="7" />
+            <state vertical-scroll-proportion="-2.4615386" vertical-offset="4" max-vertical-offset="7310">
+              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
               <folding>
                 <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -70,8 +71,8 @@
       <file leaf-file-name="dashboard.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/styles/dashboard.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.581818" vertical-offset="4117" max-vertical-offset="5406">
-              <caret line="312" column="1" selection-start-line="312" selection-start-column="1" selection-end-line="312" selection-end-column="1" />
+            <state vertical-scroll-proportion="-91.23077" vertical-offset="3136" max-vertical-offset="5610">
+              <caret line="324" column="1" selection-start-line="324" selection-start-column="1" selection-end-line="324" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -87,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="10913" max-vertical-offset="12257">
-              <caret line="715" column="3" selection-start-line="715" selection-start-column="3" selection-end-line="715" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.773511" vertical-offset="11117" max-vertical-offset="12393">
+              <caret line="712" column="4" selection-start-line="712" selection-start-column="4" selection-end-line="712" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -114,9 +115,9 @@
         <option value="$PROJECT_DIR$/public/js/jquery.rss.js" />
         <option value="$PROJECT_DIR$/public/styles/widget.less" />
         <option value="$PROJECT_DIR$/public/js/widget.js" />
-        <option value="$PROJECT_DIR$/public/js/main.js" />
         <option value="$PROJECT_DIR$/public/styles/dashboard.less" />
         <option value="$PROJECT_DIR$/public/index.html" />
+        <option value="$PROJECT_DIR$/public/js/main.js" />
       </list>
     </option>
   </component>
@@ -394,8 +395,13 @@
           <line>43</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/public/index.html</url>
+          <line>575</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -747,32 +753,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="10913" max-vertical-offset="12257">
-          <caret line="715" column="3" selection-start-line="715" selection-start-column="3" selection-end-line="715" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/dashboard.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.581818" vertical-offset="4117" max-vertical-offset="5406">
-          <caret line="312" column="1" selection-start-line="312" selection-start-column="1" selection-end-line="312" selection-end-column="1" />
+        <state vertical-scroll-proportion="-91.23077" vertical-offset="3136" max-vertical-offset="5610">
+          <caret line="324" column="1" selection-start-line="324" selection-start-column="1" selection-end-line="324" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="5.7392" vertical-offset="0" max-vertical-offset="7310">
-          <caret line="578" column="7" selection-start-line="578" selection-start-column="7" selection-end-line="578" selection-end-column="7" />
+        <state vertical-scroll-proportion="-2.4615386" vertical-offset="4" max-vertical-offset="7310">
+          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
           <folding>
             <element signature="n#head#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#a#2;n#div#0;n#nav#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.773511" vertical-offset="11117" max-vertical-offset="12393">
+          <caret line="712" column="4" selection-start-line="712" selection-start-column="4" selection-end-line="712" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>

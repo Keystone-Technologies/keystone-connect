@@ -2,12 +2,21 @@ body {
   background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
   height: 100%;
 }
-#home .banner {
+.banner {
   background: #23789e;
   color: #ffffff;
   margin: 0 auto;
   height: 40px;
+  position: relative;
   width: 400px;
+}
+.banner .close-banner {
+  color: #23789e;
+  cursor: pointer;
+  font-size: 20px;
+  right: 8px;
+  position: absolute;
+  top: 5px;
 }
 #home #trash {
   background-color: rgba(0, 0, 0, 0.6);

@@ -356,6 +356,10 @@
 356
 357
 358
+359
+360
+361
+362
 var appTray;
 
 var gridster1;
@@ -582,6 +586,12 @@ function resetVariables(){
     showFolderModal();
 }
 
+function bannerCloseEvent(){
+    $(".close-banner").click(function(){
+        $(".banner").hide();
+    });
+};
+
 function loadSerial($gridId) {    //holds data and loads serialized objects
     $.each(json, function () {
         console.log("running");
@@ -683,18 +693,15 @@ function initAppTray() {
 }
 
 function testAjax() {
-//    console.log('test ajax');
     $.ajax({
         type: 'POST',
         dataType: 'jsonp',
         url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
         success: function(data) {
-//           console.log('success', data);
             json = data;
             console.log(json[0].label);
             loadSerial($("#grid-3 ul,#grid-4 ul,#grid-5 ul"));
             return json;
-            //initGrid3();
         },
         error: function(data) {
             console.log('error', data );
@@ -713,4 +720,5 @@ $(function () {
     addLocks($(".gs-w"));
     LockClickEvents($(".gs-w"));
     showFolderModal();
+    bannerCloseEvent();
 });
