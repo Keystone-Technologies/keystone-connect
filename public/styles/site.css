@@ -39,31 +39,15 @@ body {
   -webkit-transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s;
 }
 #home .grid-container {
-  height: 800px;
+  height: 100%;
   padding-top: 120px;
   overflow-y: scroll;
   width: 4000px;
   z-index: 30;
 }
-#home .grid-container #freewall1 {
-  left: 0px;
-  top: 200px;
-}
-#home .grid-container #freewall2 {
-  left: 500px;
-  top: 200px;
-}
-#home .grid-container #freewall3 {
-  left: 1000px;
-  top: 200px;
-}
-#home .grid-container #freewall4 {
-  left: 1500px;
-  top: 200px;
-}
 #home .grid-container .free-wall {
   margin: 15px 50px;
-  position: absolute;
+  float: left;
   width: 400px;
 }
 #home .grid-container .free-wall .brick {
