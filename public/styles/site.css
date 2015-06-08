@@ -49,13 +49,18 @@ body {
   height: 100%;
   margin-top: 120px;
   overflow-y: scroll;
-  width: 4000px;
+  width: 2000px;
   z-index: 30;
 }
 #home .grid-container .free-wall {
   margin: 15px 50px;
   float: left;
-  width: 400px;
+  width: 2000px;
+}
+#home .grid-container .free-wall .folder {
+  background-color: #23789e !important;
+  content: "Folder";
+  text-align: center;
 }
 #home .grid-container .free-wall .brick {
   background: rgba(126, 176, 219, 0.2);

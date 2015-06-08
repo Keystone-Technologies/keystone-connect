@@ -9,7 +9,7 @@ body{
   //    color: @kt-white;
   //    margin: 0 auto;
   //    height: 40px;
-        position:relative;
+  position:relative;
   //    width: 400px;
   .close-banner{
     color: @kt-blue-23;
@@ -65,32 +65,18 @@ body{
     height: 100%;
     margin-top: 120px;
     overflow-y: scroll;
-    width: 4000px;
+    width: 2000px;
     z-index:30;
 
-    #freewall1 {
-      //left:0px;
-      //top:200px;
-    }
-    #freewall2 {
-      //left:500px;
-      //top:200px;
-    }
-    #freewall3 {
-      //left:1000px;
-      //top:200px;
-    }
-    #freewall4 {
-      //left:1500px;
-      //top:200px;
-    }
-
     .free-wall {
-      //background-color: yellowgreen;
       margin: 15px 50px;
       float: left;
-      //position:absolute;
-      width:400px;
+      width:2000px;
+      .folder{
+        background-color:@kt-blue-23 !important;
+        content: "Folder";
+        text-align:center;
+      }
 
       .brick {
         background:fade(@kt-blue-7e, 20%);
@@ -358,68 +344,68 @@ body{
   }
 }
 
-  p {
-    color: @kt-blue-23;
-    margin: 4px 10px;
+p {
+  color: @kt-blue-23;
+  margin: 4px 10px;
+}
+.app-store-icon {
+  height: auto;
+  width: 100px;
+  padding-right: 10px;
+}
+
+.modal-content{
+
+  .modal-header{
+    border-bottom: transparent;
   }
-  .app-store-icon {
-    height: auto;
-    width: 100px;
-    padding-right: 10px;
+  .modal-footer{
+    border-top: transparent;
+  }
+}
+
+#apps-container {
+  border-top: 2px solid @kt-blue-74;
+  max-width: 100%;
+  padding: 0 4%;
+
+  li{
+    margin: 10px;
+    width: 98px;
+  }
+}
+
+#app-nav {
+  padding: 0 4%;
+
+  li {
+    height: 50px;
+    margin: 6px;
   }
 
-  .modal-content{
-
-    .modal-header{
-      border-bottom: transparent;
-    }
-    .modal-footer{
-      border-top: transparent;
-    }
-  }
-
-  #apps-container {
-    border-top: 2px solid @kt-blue-74;
-    max-width: 100%;
-    padding: 0 4%;
-
-    li{
-      margin: 10px;
-      width: 98px;
-    }
-  }
-
-  #app-nav {
-    padding: 0 4%;
-
-    li {
-      height: 50px;
-      margin: 6px;
-    }
-
-    .active {
-      background: #245269;
-      a{
-        color: @kt-black;
-      }
-
-    }
-
-    #search-nav {
-      margin-top: 18px;
-      i {
-        color: @kt-blue-74;
-        padding-right: 10px;
-
-      }
+  .active {
+    background: #245269;
+    a{
+      color: @kt-black;
     }
 
   }
 
-  .btn-primary{
-    background: @kt-blue-23;
+  #search-nav {
+    margin-top: 18px;
+    i {
+      color: @kt-blue-74;
+      padding-right: 10px;
+
+    }
   }
 
-  .btn-default {
-    border-color: @kt-blue-7e;
-  }
+}
+
+.btn-primary{
+  background: @kt-blue-23;
+}
+
+.btn-default {
+  border-color: @kt-blue-7e;
+}

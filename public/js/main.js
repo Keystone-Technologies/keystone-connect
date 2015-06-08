@@ -265,27 +265,62 @@ function bannerCloseEvent(){
 
 function freewallAddCells(){
     var temp =
-        "<div class='brick' style='width:{width}px; height:{height}px;'><img src={src} /></div>";
+        "<div class='brick {class}' style='width:{width}px; height:{height}px;'>{text}<img src={src} /></div>";
 //          var w = 1, h = 1, html = '', limitItem = 10;
 
 
     var tempJSON = [
-        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png"},
-        {"width":100, "height":100, "src":"img/GmailAppIcon.png"},
-        {"width":100, "height":100, "src":"img/FlightsAppIcon.png"},
-        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png"},
-        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png"},
-        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png"},
-        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png"},
-        {"width":200, "height":100, "src":"img/Forum_AppIcon.png"},
-        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png"},
-        {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png"},
-        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png"},
-        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png"},
-        {"width":200, "height":100, "src":"img/InformationAppIcon.png"},
-        {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png"},
-        {"width":200, "height":100, "src":"img/Nest_AppIcon.png"},
-        {"width":200, "height":100, "src":"img/OpenActivitiesCalendar_AppIcon.png"}
+        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Home"},
+        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Health"},
+        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "text":""},
+        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "text":""},
+        {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/InformationAppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Office"},
+        {"width":200, "height":200, "src":"", "class":"folder", "text":"My Connect"},
+        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Home"},
+        {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/Nest_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/OpenActivitiesCalendar_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "text":""},
+        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "text":""},
+        {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Finances"},
+        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Faith"},
+        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/InformationAppIcon.png", "text":""},
+        {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Photos & Videos"},
+        {"width":200, "height":100, "src":"", "class":"folder", "text":"My News & Entertainment"},
+        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "text":""},
+        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "text":""},
+        {"width":200, "height":100, "src":"img/InformationAppIcon.png", "text":""}
     ];
     var w = 1, h = 1, html = '', limitItem = tempJSON.length;
 
@@ -293,13 +328,16 @@ function freewallAddCells(){
         html += temp
             .replace(/\{width\}/, tempJSON[i].width)
             .replace("{height}", tempJSON[i].height)
-            .replace("{src}", tempJSON[i].src);
+            .replace("{src}", tempJSON[i].src)
+            .replace("{class}", tempJSON[i].class)
+            .replace("{text}", tempJSON[i].text);
     }
 
+
     $("#freewall1").html(html);
-    $("#freewall2").html(html);
-    $("#freewall3").html(html);
-    $("#freewall4").html(html);
+    $(".folder").children("img").remove();
+//    $(".my-home").fixPos(10);
+
 }
 
 function freewallInit() {
@@ -312,105 +350,24 @@ function freewallInit() {
         fixSize:0,
         cellW: 100,
         cellH: 100,
+//        rightToLeft: true,
         onResize: function() {
             wall.fitWidth();
         }
     });
     wall.fitWidth();
-
-    var wall2 = new freewall("#freewall2");
-    wall2.reset({
-        draggable: true,
-        selector: '.brick',
-        animate: true,
-        fixSize:0,
-        cellW: 100,
-        cellH: 100,
-        onResize: function() {
-            wall.fitWidth();
-        }
-    });
-    wall2.fitWidth();
-
-    var wall3 = new freewall("#freewall3");
-    wall3.reset({
-        draggable: true,
-        selector: '.brick',
-        animate: true,
-        fixSize:0,
-        cellW: 100,
-        cellH: 100,
-        onResize: function() {
-            wall.fitWidth();
-        }
-    });
-    wall3.fitWidth();
-
-    var wall4 = new freewall("#freewall4");
-    wall4.reset({
-        draggable: true,
-        selector: '.brick',
-        animate: true,
-        fixSize:0,
-        cellW: 100,
-        cellH: 100,
-        onResize: function() {
-            wall.fitWidth();
-        }
-    });
-    wall4.fitWidth();
-
     console.log("grids loaded");
-    brickDraggable($(".brick"));
 }
 
-function brickDraggable($thumb) {
-    $thumb.draggable({
-        containment: "#home",
-        scroll: false,
-//        cursorAt: {
-//            top: -15
-//        },
-        stop: function () {
-            console.log("dragging stopped");
-            freewallInit();
-//            $thumb.draggable("destroy");
-        },
-        drag: function (event, ui) {
-            console.log("dragging");
-        }
+function testResize(){
+    $("#test-button").click(function() {
+        freewallInit();
     });
 }
-
-function wall2Droppable() {
-    $("#freewall2").droppable({
-        accept: "#freewall1 .brick",
-        hoverClass: "dropzone-hover",
-        activeClass: "dropzone-active",
-        tolerance: "pointer",
-        drop: function (event, ui) {
-            $(ui.draggable)
-                .attr("data-delay", "")
-                .attr("data-position", "")
-                .prependTo($("#freewall2"));
-            var wall1Clone = $("#freewall1").clone();
-            var wall2Clone = $("#freewall2").clone();
-            $("#freewall1").remove();
-            $("#freewall2").remove();
-            wall1Clone.appendTo($(".grid-container"));
-            wall2Clone.appendTo($(".grid-container"));
-//                $("#freewall1").clone().appendTo($(".grid-container"));
-//                $("#freewall2").clone().appendTo($(".grid-container"));
-            freewallInit();
-        }
-    });
-}
-
 
 $(function () {
     freewallAddCells();
     freewallInit();
-    wall2Droppable();
 //    requestPassword();
 //    thumbnailDraggable($(".gs-w"));
     trashDroppable();
@@ -420,3 +377,47 @@ $(function () {
 //    showFolderModal();
     bannerCloseEvent();
 });
+
+//Archived functions for later stages of development
+
+//function wall2Droppable() {
+//    $("#freewall2").droppable({
+//        accept: "#freewall1 .brick",
+//        hoverClass: "dropzone-hover",
+//        activeClass: "dropzone-active",
+//        tolerance: "pointer",
+//        drop: function (event, ui) {
+//            $(ui.draggable)
+//                .attr("data-delay", "")
+//                .attr("data-position", "")
+//                .prependTo($("#freewall2"));
+//            var wall1Clone = $("#freewall1").clone();
+//            var wall2Clone = $("#freewall2").clone();
+//            $("#freewall1").remove();
+//            $("#freewall2").remove();
+//            wall1Clone.appendTo($(".grid-container"));
+//            wall2Clone.appendTo($(".grid-container"));
+////                $("#freewall1").clone().appendTo($(".grid-container"));
+////                $("#freewall2").clone().appendTo($(".grid-container"));
+//            freewallInit();
+//        }
+//    });
+//}
+
+//function brickDraggable($thumb) {
+//    $thumb.draggable({
+//        containment: "#home",
+//        scroll: false,
+////        cursorAt: {
+////            top: -15
+////        },
+//        stop: function () {
+//            console.log("dragging stopped");
+//            freewallInit();
+////            $thumb.draggable("destroy");
+//        },
+//        drag: function (event, ui) {
+//            console.log("dragging");
+//        }
+//    });
+//}
