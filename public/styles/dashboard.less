@@ -5,12 +5,12 @@ body{
 
 
 .banner{
-  background: @kt-blue-23;
-  color: @kt-white;
-  margin: 0 auto;
-  height: 40px;
-  position:relative;
-  width: 400px;
+  //    background: @kt-blue-23;
+  //    color: @kt-white;
+  //    margin: 0 auto;
+  //    height: 40px;
+  //    position:relative;
+  //    width: 400px;
   .close-banner{
     color: @kt-blue-23;
     cursor:pointer;
@@ -23,7 +23,81 @@ body{
 
 #home {
 
+  @keyframes start {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
 
+
+  @-webkit-keyframes start {
+    from {
+      -webkit-transform: scale(0);
+    }
+    to {
+      -webkit-transform: scale(1);
+    }
+  }
+
+  .free-wall .cell[data-state="init"] {
+    display: none;
+  }
+
+  .free-wall .cell[data-state="start"]  {
+    display: block;
+    animation: start 0.5s;
+    -webkit-animation: start 0.5s;
+  }
+
+  .free-wall .cell[data-state="move"]  {
+    transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s;
+    -webkit-transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s;
+  }
+
+  .grid-container{
+    height:800px;
+    padding-top: 120px;
+    overflow-y: scroll;
+    width: 4000px;
+    z-index:30;
+
+    #freewall1 {
+      left:0px;
+      top:80px;
+    }
+    #freewall2 {
+      left:500px;
+      top:80px;
+    }
+    #freewall3 {
+      left:1000px;
+      top:80px;
+    }
+    #freewall4 {
+      left:1500px;
+      top:80px;
+    }
+
+    .free-wall {
+      background-color: yellowgreen;
+      margin: 15px 50px;
+      position:absolute;
+      width:400px;
+
+      .brick {
+        background-color:green;
+
+        img{
+          height:100%;
+          margin: 0 auto;
+          width:auto;
+        }
+      }
+    }
+  }
 
 
   #trash{
@@ -95,10 +169,7 @@ body{
     }
   }
 
-  .grid-container{
-    margin-top: 120px;
-    z-index:30;
-  }
+
 
   .snap{
     background-color: @kt-black;
@@ -113,24 +184,7 @@ body{
     width: auto;
   }
 
-  .carousel {
-    height: 100%;
-    margin-bottom: 30px;
-    min-height: 550px;
 
-    .carousel-indicators{
-      bottom: -40px;
-    }
-
-    .carousel-inner{
-      overflow:visible;
-    }
-  }
-
-  .item{
-    min-height: 800px;
-    height: 100%;
-  }
 
   .folder{
     background: @kt-blue-7e;
@@ -145,37 +199,12 @@ body{
     }
   }
 
-  .gridster{
 
-    li{
-      //      background: fade(@kt-blue-7e, 40%);
-      list-style: none;
-      position:absolute;
-      z-index:999;
-      .gs-resize-handle{
-        visibility: hidden;
-      }
-      .save-icon {
-        cursor: pointer;
-        height: 20px;
-        position: absolute;
-        right: 0;
-        top: 8px;
-        width: 20px;
-        visibility:hidden;
-        z-index: 1000;
-      }
-    }
-
-
-
-    .draggable{
-      z-index:999;
-      opacity:.999;
-    }
+  #app-tray {
+    bottom: 0;
+    position: fixed;
 
   }
-
   .app-drawer{
     background: fade(@kt-black, 10%);
     border-radius: 4px;
@@ -184,11 +213,11 @@ body{
     width: 420px;
 
     li{
-      margin: 2%;
+      margin: .5%;
     }
 
     .icon{
-      width: 90px;
+      width: 100px;
     }
   }
 }
@@ -323,3 +352,69 @@ body{
     border-color: @kt-blue-7e;
   }
 }
+
+  p {
+    color: @kt-blue-23;
+    margin: 4px 10px;
+  }
+  .app-store-icon {
+    height: auto;
+    width: 100px;
+    padding-right: 10px;
+  }
+
+  .modal-content{
+
+    .modal-header{
+      border-bottom: transparent;
+    }
+    .modal-footer{
+      border-top: transparent;
+    }
+  }
+
+  #apps-container {
+    border-top: 2px solid @kt-blue-74;
+    max-width: 100%;
+    padding: 0 4%;
+
+    li{
+      margin: 10px;
+      width: 98px;
+    }
+  }
+
+  #app-nav {
+    padding: 0 4%;
+
+    li {
+      height: 50px;
+      margin: 6px;
+    }
+
+    .active {
+      background: #245269;
+      a{
+        color: @kt-black;
+      }
+
+    }
+
+    #search-nav {
+      margin-top: 18px;
+      i {
+        color: @kt-blue-74;
+        padding-right: 10px;
+
+      }
+    }
+
+  }
+
+  .btn-primary{
+    background: @kt-blue-23;
+  }
+
+  .btn-default {
+    border-color: @kt-blue-7e;
+  }
