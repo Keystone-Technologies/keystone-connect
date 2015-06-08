@@ -62,13 +62,12 @@ body {
   top: 80px;
 }
 #home .grid-container .free-wall {
-  background-color: yellowgreen;
   margin: 15px 50px;
   position: absolute;
   width: 400px;
 }
 #home .grid-container .free-wall .brick {
-  background-color: green;
+  background: rgba(126, 176, 219, 0.2);
 }
 #home .grid-container .free-wall .brick img {
   height: 100%;
