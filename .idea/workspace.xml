@@ -65,8 +65,8 @@
       <file leaf-file-name="dashboard.less" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/styles/dashboard.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.22276822" vertical-offset="0" max-vertical-offset="7259">
-              <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.54299754" vertical-offset="408" max-vertical-offset="7259">
+              <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -752,8 +752,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/styles/dashboard.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22276822" vertical-offset="0" max-vertical-offset="7259">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        <state vertical-scroll-proportion="0.54299754" vertical-offset="408" max-vertical-offset="7259">
+          <caret line="63" column="18" selection-start-line="63" selection-start-column="18" selection-end-line="63" selection-end-column="18" />
           <folding />
         </state>
       </provider>
