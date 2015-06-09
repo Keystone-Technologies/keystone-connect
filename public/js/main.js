@@ -1,3 +1,4 @@
+
 var appTray;
 
 var gridster1;
@@ -11,26 +12,7 @@ var inputVal;
 var startingName;
 var $currentFolder;
 
-function thumbnailDraggable($thumb) {
-    $thumb.draggable({
-        containment: "#home",
-        scroll: false,
-        cursorAt: {
-            top: -15
-        },
-        axis: "y",
-        stop: function () {
-            LockClickEvents($(this));
-            $("#app-tray").droppable("destroy");
 
-        },
-        drag: function (event, ui) {
-            appTrayDroppable();
-            grid1Droppable();
-            var margin = ui.offset.top;
-        }
-    });
-}
 
 function addLocks($object) {
     $object.children(".save-icon").remove();
@@ -67,23 +49,7 @@ function LockClickEvents($object) {
     });
 }
 
-//function appTrayDroppable($droppable,$accept) {
-//    $droppable.droppable({
-//        accept: $accept,
-//
-//        tolerance: "touch",
-//        drop: function (event, ui) {
-//            if($droppable.find("li").hasClass('thumb-empty')) {
-//                var thumbCopy = $(ui.draggable).contents().clone();
-//                $(ui.draggable).empty();
-//                thumbCopy.appendTo($droppable.find("thumb-empty").first());
-//                $droppable.find("thumb-empty").first()
-//                    .removeClass("thumb-empty")
-//                    .addClass("thumb-occupied");
-//            }
-//        }
-//    });
-//}
+
 
 function appTrayDroppable() {
     $("#app-tray").droppable({
@@ -175,6 +141,225 @@ function requestPassword() {
     });
 }
 
+
+function bannerCloseEvent(){
+    $(".close-banner").click(function(){
+        $(".banner").hide();
+    });
+};
+
+
+
+
+
+function freewallAddCells(){
+    var temp =
+        "<div class='brick {class}' style='width:{width}px; height:{height}px;'>{text}<img src={src} /></div>";
+//          var w = 1, h = 1, html = '', limitItem = 10;
+
+
+    var tempJSON = [
+        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Home"},
+        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Health"},
+        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Office"},
+        {"width":200, "height":200, "src":"", "class":"folder", "text":"My Connect"},
+        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Home"},
+        {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/Nest_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Finances"},
+        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Faith"},
+        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""},
+        {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Photos & Videos"},
+        {"width":200, "height":100, "src":"", "class":"folder", "text":"My News & Entertainment"},
+        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
+        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
+        {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""}
+    ];
+    var w = 1, h = 1, html = '', limitItem = tempJSON.length;
+
+    for (var i = 0; i < limitItem; ++i){
+        html += temp
+            .replace(/\{width\}/, tempJSON[i].width)
+            .replace("{height}", tempJSON[i].height)
+            .replace("{src}", tempJSON[i].src)
+            .replace("{class}", tempJSON[i].class)
+            .replace("{text}", tempJSON[i].text);
+    }
+
+
+    $("#freewall1").html(html);
+    $(".folder").children("img").remove();
+//    $(".my-home").fixPos(10);
+    addMenuToIcons();
+
+}
+
+function addMenuToIcons() {
+    var dropdownHtml = "<div class=\"dropdown icon-menu\"><a class=\"fa fa-bars dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" aria-expanded=\"true\"></a><ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu2\"></ul></div>";
+    var deleteItem = "<li role=\"presentation\"><a class=\"delete-icon\" role=\"menuitem\" tabindex=\"-1\">Delete</a></li>";
+
+    $(".brick").append(dropdownHtml);
+    $(".icon-menu ul").append(deleteItem);
+}
+
+
+function deleteItem(){
+    $('.delete-icon').click(function() {
+        console.log("Icon Deleted");
+//        $(this).parent().parent().parent().parent().remove();
+        $(this).parentsUntil($(".free-wall")).remove();
+    });
+};
+
+function freewallInit() {
+
+    var wall = new freewall("#freewall1");
+    wall.reset({
+        draggable: true,
+        selector: '.brick',
+        animate: true,
+        fixSize:0,
+        cellW: 100,
+        cellH: 100,
+//        rightToLeft: true,
+        onResize: function() {
+            wall.fitWidth();
+        }
+    });
+    wall.fitWidth();
+    console.log("grids loaded");
+}
+
+$(function () {
+    freewallAddCells();
+    freewallInit();
+    deleteItem();
+//    requestPassword();
+//    thumbnailDraggable($(".gs-w"));
+    trashDroppable();
+//    createFolderDroppable();
+//    showFolderModal();
+    bannerCloseEvent();
+});
+
+
+
+//Archived functions for later stages of development
+
+//function wall2Droppable() {
+//    $("#freewall2").droppable({
+//        accept: "#freewall1 .brick",
+//        hoverClass: "dropzone-hover",
+//        activeClass: "dropzone-active",
+//        tolerance: "pointer",
+//        drop: function (event, ui) {
+//            $(ui.draggable)
+//                .attr("data-delay", "")
+//                .attr("data-position", "")
+//                .prependTo($("#freewall2"));
+//            var wall1Clone = $("#freewall1").clone();
+//            var wall2Clone = $("#freewall2").clone();
+//            $("#freewall1").remove();
+//            $("#freewall2").remove();
+//            wall1Clone.appendTo($(".grid-container"));
+//            wall2Clone.appendTo($(".grid-container"));
+////                $("#freewall1").clone().appendTo($(".grid-container"));
+////                $("#freewall2").clone().appendTo($(".grid-container"));
+//            freewallInit();
+//        }
+//    });
+//}
+
+//function brickDraggable($thumb) {
+//    $thumb.draggable({
+//        containment: "#home",
+//        scroll: false,
+////        cursorAt: {
+////            top: -15
+////        },
+//        stop: function () {
+//            console.log("dragging stopped");
+//            freewallInit();
+////            $thumb.draggable("destroy");
+//        },
+//        drag: function (event, ui) {
+//            console.log("dragging");
+//        }
+//    });
+//}
+
+//function testAjax() {
+//    $.ajax({
+//        type: 'POST',
+//        dataType: 'jsonp',
+//        url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
+//        success: function(data) {
+//            json = data;
+//            console.log(json[0].label);
+//            loadSerial($("#grid-3 ul,#grid-4 ul,#grid-5 ul"));
+//            return json;
+//        },
+//        error: function(data) {
+//            console.log('error', data );
+//        }
+//    });
+//}
+
+//function appTrayDroppable($droppable,$accept) {
+//    $droppable.droppable({
+//        accept: $accept,
+//
+//        tolerance: "touch",
+//        drop: function (event, ui) {
+//            if($droppable.find("li").hasClass('thumb-empty')) {
+//                var thumbCopy = $(ui.draggable).contents().clone();
+//                $(ui.draggable).empty();
+//                thumbCopy.appendTo($droppable.find("thumb-empty").first());
+//                $droppable.find("thumb-empty").first()
+//                    .removeClass("thumb-empty")
+//                    .addClass("thumb-occupied");
+//            }
+//        }
+//    });
+//}
+
+
 //function showFolderModal() {
 //    $(".folder").click(function () {
 ////        newName;
@@ -217,207 +402,23 @@ function requestPassword() {
 //    showFolderModal();
 //}
 
-function bannerCloseEvent(){
-    $(".close-banner").click(function(){
-        $(".banner").hide();
-    });
-};
-
-//function loadSerial($gridId) {    //holds data and loads serialized objects
-//    $.each(json, function () {
-//        console.log("running");
-//        $gridId.prepend("<li></li>")
-//            .find("li")
-//            .attr("data-sizex", this.size_x)
-//            .attr("data-sizey", this.size_y)
-//            .attr("data-row", this.row)
-//            .attr("data-col", this.col)
-//            .addClass("gs-w");
-//
-//        $gridId.find("li:first-child").prepend("<a><img /></a>")
-//            .find("img")
-//            .addClass("icon")
-//            .attr("src", this.img)
-//            .parent()
-//            .attr("href", this.url);
-//    });
-//}
-
-
-//function testAjax() {
-//    $.ajax({
-//        type: 'POST',
-//        dataType: 'jsonp',
-//        url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
-//        success: function(data) {
-//            json = data;
-//            console.log(json[0].label);
-//            loadSerial($("#grid-3 ul,#grid-4 ul,#grid-5 ul"));
-//            return json;
-//        },
-//        error: function(data) {
-//            console.log('error', data );
-//        }
-//    });
-//}
-
-
-
-function freewallAddCells(){
-    var temp =
-        "<div class='brick {class}' style='width:{width}px; height:{height}px;'>{text}<img src={src} /></div>";
-//          var w = 1, h = 1, html = '', limitItem = 10;
-
-
-    var tempJSON = [
-        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Home"},
-        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Health"},
-        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "text":""},
-        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "text":""},
-        {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/InformationAppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Office"},
-        {"width":200, "height":200, "src":"", "class":"folder", "text":"My Connect"},
-        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Home"},
-        {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/Nest_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/OpenActivitiesCalendar_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "text":""},
-        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "text":""},
-        {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Finances"},
-        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Faith"},
-        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/InformationAppIcon.png", "text":""},
-        {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Photos & Videos"},
-        {"width":200, "height":100, "src":"", "class":"folder", "text":"My News & Entertainment"},
-        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "text":""},
-        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "text":""},
-        {"width":200, "height":100, "src":"img/InformationAppIcon.png", "text":""}
-    ];
-    var w = 1, h = 1, html = '', limitItem = tempJSON.length;
-
-    for (var i = 0; i < limitItem; ++i){
-        html += temp
-            .replace(/\{width\}/, tempJSON[i].width)
-            .replace("{height}", tempJSON[i].height)
-            .replace("{src}", tempJSON[i].src)
-            .replace("{class}", tempJSON[i].class)
-            .replace("{text}", tempJSON[i].text);
-    }
-
-
-    $("#freewall1").html(html);
-    $(".folder").children("img").remove();
-//    $(".my-home").fixPos(10);
-
-}
-
-function freewallInit() {
-
-    var wall = new freewall("#freewall1");
-    wall.reset({
-        draggable: true,
-        selector: '.brick',
-        animate: true,
-        fixSize:0,
-        cellW: 100,
-        cellH: 100,
-//        rightToLeft: true,
-        onResize: function() {
-            wall.fitWidth();
-        }
-    });
-    wall.fitWidth();
-    console.log("grids loaded");
-}
-
-function testResize(){
-    $("#test-button").click(function() {
-        freewallInit();
-    });
-}
-
-$(function () {
-    freewallAddCells();
-    freewallInit();
-//    requestPassword();
-//    thumbnailDraggable($(".gs-w"));
-    trashDroppable();
-//    createFolderDroppable();
-//    addLocks($(".gs-w"));
-//    LockClickEvents($(".gs-w"));
-//    showFolderModal();
-    bannerCloseEvent();
-});
-
-//Archived functions for later stages of development
-
-//function wall2Droppable() {
-//    $("#freewall2").droppable({
-//        accept: "#freewall1 .brick",
-//        hoverClass: "dropzone-hover",
-//        activeClass: "dropzone-active",
-//        tolerance: "pointer",
-//        drop: function (event, ui) {
-//            $(ui.draggable)
-//                .attr("data-delay", "")
-//                .attr("data-position", "")
-//                .prependTo($("#freewall2"));
-//            var wall1Clone = $("#freewall1").clone();
-//            var wall2Clone = $("#freewall2").clone();
-//            $("#freewall1").remove();
-//            $("#freewall2").remove();
-//            wall1Clone.appendTo($(".grid-container"));
-//            wall2Clone.appendTo($(".grid-container"));
-////                $("#freewall1").clone().appendTo($(".grid-container"));
-////                $("#freewall2").clone().appendTo($(".grid-container"));
-//            freewallInit();
-//        }
-//    });
-//}
-
-//function brickDraggable($thumb) {
+//function thumbnailDraggable($thumb) {
 //    $thumb.draggable({
 //        containment: "#home",
 //        scroll: false,
-////        cursorAt: {
-////            top: -15
-////        },
+//        cursorAt: {
+//            top: -15
+//        },
+//        axis: "y",
 //        stop: function () {
-//            console.log("dragging stopped");
-//            freewallInit();
-////            $thumb.draggable("destroy");
+//            LockClickEvents($(this));
+//            $("#app-tray").droppable("destroy");
+//
 //        },
 //        drag: function (event, ui) {
-//            console.log("dragging");
+//            appTrayDroppable();
+//            grid1Droppable();
+//            var margin = ui.offset.top;
 //        }
 //    });
 //}

@@ -13,10 +13,6 @@ body {
   position: absolute;
   top: 5px;
 }
-.container {
-  width: 1400px;
-  overflow-y: scroll;
-}
 @keyframes start {
   from {
     transform: scale(0);
