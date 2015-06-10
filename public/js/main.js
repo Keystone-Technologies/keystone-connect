@@ -1,4 +1,3 @@
-
 var appTray;
 
 var gridster1;
@@ -222,27 +221,34 @@ function freewallAddCells(){
             .replace("{text}", tempJSON[i].text);
     }
 
-
     $("#freewall1").html(html);
     $(".folder").children("img").remove();
-//    $(".my-home").fixPos(10);
     addMenuToIcons();
-
 }
 
 function addMenuToIcons() {
     var dropdownHtml = "<div class=\"dropdown icon-menu\"><a class=\"fa fa-bars dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" aria-expanded=\"true\"></a><ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu2\"></ul></div>";
     var deleteItem = "<li role=\"presentation\"><a class=\"delete-icon\" role=\"menuitem\" tabindex=\"-1\">Delete</a></li>";
-
+    var addToItem = "<li class=\"dropdown add-dropdown\" role=\"presentation\"><a class=\"add-to-menu-item\">Add To</a><ul class=\"add-flyout\"></ul></li>";
+    var addToDropdown = "";
     $(".brick").append(dropdownHtml);
     $(".icon-menu ul").append(deleteItem);
+    $(".icon-menu ul").append(addToItem);
+
+    $("#freewall1 .folder").each(function(){
+        var $this = $(this).clone().children().remove().end().text();
+        $(".add-flyout").append("<li class=\"add-flyout-item list-unstyled\">" + $this + "</li>");
+    });
 }
 
 
 function deleteItem(){
     $('.delete-icon').click(function() {
         console.log("Icon Deleted");
-//        $(this).parent().parent().parent().parent().remove();
+        $(this).parentsUntil($(".free-wall")).remove();
+    });
+    $('.add-flyout-item').click(function() {
+        console.log("Icon Deleted");
         $(this).parentsUntil($(".free-wall")).remove();
     });
 };
@@ -260,8 +266,16 @@ function freewallInit() {
 //        rightToLeft: true,
         onResize: function() {
             wall.fitWidth();
+//            wall.setHoles({
+//             top:0,
+//             left:0,
+//             width:4,
+//             height:5
+//            });
+//            $(".folder").removeClass("brick");
         }
     });
+
     wall.fitWidth();
     console.log("grids loaded");
 }
