@@ -12,6 +12,7 @@ var startingName;
 var $currentFolder;
 
     var tempJSON = [
+        {"width":200, "height":200, "src":"temp/images-1.jpg", "class": "", "text":"Kellie", "email":"ktravis@connexinsoftware.com "},
         {"width":200, "height":200, "src":"temp/images-1.jpg", "class": "", "text":"Scott", "email":"stravis@keystone-technologies.com"},
         {"width":200, "height":200, "src":"temp/images-2.jpg", "class": "", "text":"Andy", "email":"abelval@keystone-technologies.com"},
         {"width":200, "height":200, "src":"temp/images-3.jpg", "class": "", "text":"Stefan", "email":"sadams@keystone-technologies.com"},
