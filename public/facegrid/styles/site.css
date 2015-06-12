@@ -150,3 +150,10 @@ p {
 .btn-default {
   border-color: #7eb0db;
 }
+#app-tray {
+  background: rgba(0, 0, 0, 0.2);
+}
+#app-tray #app-drawer img {
+  height: auto;
+  width: 100px;
+}
