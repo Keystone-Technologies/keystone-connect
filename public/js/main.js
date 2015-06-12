@@ -270,7 +270,7 @@ function freewallInit() {
 //             top:0,
 //             left:0,
 //             width:4,
-//             height:5
+//             height:5   
 //            });
 //            $(".folder").removeClass("brick");
         }
