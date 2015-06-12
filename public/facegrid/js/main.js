@@ -12,22 +12,26 @@ var startingName;
 var $currentFolder;
 
     var tempJSON = [
-        {"width":200, "height":200, "src":"temp/images-1.jpg", "class": "", "text":"Jane"},
-        {"width":200, "height":200, "src":"temp/images-2.jpg", "class": "", "text":"Katie"},
-        {"width":200, "height":200, "src":"temp/images-3.jpg", "class": "", "text":"David"},
-        {"width":200, "height":200, "src":"temp/images-4.jpg", "class": "", "text":"Dad"},
-        {"width":200, "height":200, "src":"temp/images-5.jpg", "class": "", "text":"Lynn"},
-        {"width":200, "height":200, "src":"temp/images-6.jpg", "class": "", "text":"Alice"},
-        {"width":200, "height":200, "src":"temp/images-7.jpg", "class": "", "text":"Mike"},
-        {"width":200, "height":200, "src":"temp/images-8.jpg", "class": "", "text":"Marcus"},
-        {"width":200, "height":200, "src":"temp/images-9.jpg", "class": "", "text":"Layla"},
-        {"width":200, "height":200, "src":"temp/imgres-10.jpg", "class": "", "text":"Chase"},
-        {"width":200, "height":200, "src":"temp/imgres-11.jpg", "class": "", "text":"Jake"},
-        {"width":200, "height":200, "src":"temp/imgres-12.jpg", "class": "", "text":"Jackie"}
+        {"width":200, "height":200, "src":"temp/images-1.jpg", "class": "", "text":"Kellie", "email":"ktravis@connexinsoftware.com "},
+        {"width":200, "height":200, "src":"temp/images-1.jpg", "class": "", "text":"Scott", "email":"stravis@keystone-technologies.com"},
+        {"width":200, "height":200, "src":"temp/images-2.jpg", "class": "", "text":"Andy", "email":"abelval@keystone-technologies.com"},
+        {"width":200, "height":200, "src":"temp/images-3.jpg", "class": "", "text":"Stefan", "email":"sadams@keystone-technologies.com"},
+        {"width":200, "height":200, "src":"temp/images-4.jpg", "class": "", "text":"Mason", "email":"mdrothert@gmail.com"},
+        {"width":200, "height":200, "src":"temp/images-5.jpg", "class": "", "text":"Jason", "email":"thejasonslewis@gmail.com"},
+        {"width":200, "height":200, "src":"temp/images-6.jpg", "class": "", "text":"Ben", "email":"bnolen@keystone-it.com"},
+        {"width":200, "height":200, "src":"temp/images-7.jpg", "class": "", "text":"Rob", "email":"rt@keystone-it.com"},
+        {"width":200, "height":200, "src":"temp/imgres-12.jpg", "class": "", "text":"Eric", "email":"ehumes@keystone-it.com"},
+        {"width":200, "height":200, "src":"temp/images-8.jpg", "class": "", "text":"Caleb", "email":"calbers@keystone-it.com"},
+        {"width":200, "height":200, "src":"temp/images-9.jpg", "class": "", "text":"Adam", "email":"asloggett@keystone-it.com"},
+        {"width":200, "height":200, "src":"temp/imgres-10.jpg", "class": "", "text":"Montez", "email":"mfitzpatrick@keystone-it.com"},
+        {"width":200, "height":200, "src":"temp/imgres-11.jpg", "class": "", "text":"Dave", "email":"dhaas@keystone-it.com"},
+        {"width":200, "height":200, "src":"temp/imgres-11.jpg", "class": "", "text":"Cody", "email":"ckniffen@keystone-it.com"},
+        {"width":200, "height":200, "src":"temp/imgres-11.jpg", "class": "", "text":"Josh", "email":"jgraham@keystone-it.com"},
+        {"width":200, "height":200, "src":"temp/imgres-11.jpg", "class": "", "text":"Keith", "email":"kmayfield@keystone-it.com"}
     ];
 
 
-
+/*
 function trashDroppable() {
     $("#trash").droppable({
         accept: ".brick",
@@ -65,6 +69,7 @@ function bannerCloseEvent(){
         $(".banner").hide();
     });
 };
+*/
 
 
 
@@ -72,7 +77,7 @@ function bannerCloseEvent(){
 
 function freewallAddCells(){
     var temp =
-        "<div class='brick {class}' style='width:{width}px; height:{height}px;'><img src={src} /><h1>{text}</h1></div>";
+        "<div class='brick {class}' style='width:{width}px; height:{height}px;' name='{text}' email='{email}'><img src={src} /><h1>{text}</h1></div>";
 //          var w = 1, h = 1, html = '', limitItem = 10;
 
     var w = 1, h = 1, html = '', limitItem = tempJSON.length;
@@ -83,6 +88,8 @@ function freewallAddCells(){
             .replace("{height}", tempJSON[i].height)
             .replace("{src}", tempJSON[i].src)
             .replace("{class}", tempJSON[i].class)
+            .replace("{email}", tempJSON[i].email)
+            .replace("{text}", tempJSON[i].text)
             .replace("{text}", tempJSON[i].text);
     }
 
@@ -156,13 +163,13 @@ function freewallInit() {
 $(function () {
     freewallAddCells();
     freewallInit();
-    deleteItem();
+//    deleteItem();
 //    requestPassword();
 //    thumbnailDraggable($(".gs-w"));
-    trashDroppable();
+//    trashDroppable();
 //    createFolderDroppable();
 //    showFolderModal();
-    bannerCloseEvent();
+//    bannerCloseEvent();
 });
 
 

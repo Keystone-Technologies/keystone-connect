@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html class="no-js" id="startme" lang="en">
     
     <head>
@@ -24,6 +24,8 @@
     </head>
     
     <body>
+        <div id="message" style="color:white;font-size:18px"></div>
+        <div id="appearin" style="color:white;font-size:18px"><a href="http://appear.in/scotttravis">Click here to go to your Video Room</a></div>
         <div id="home">
             <div class="container">
                 <div class="col-xs-12">
@@ -41,12 +43,26 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
         <script src="js/freewall.js"></script>
-        <script src="js/jquery.rss.js"></script>
-        <script src="js/widget.js"></script>
         <script src="js/main.js"></script>
         <script type="text/javascript">
             $(document).ready(function(){
-        
+                $(".brick").each(function(){
+                    var name = $(this).attr('name');
+                    var email = $(this).attr('email');
+                    console.log(email);
+                    $(this).click(function(){
+                        console.log("Clicked "+name+" "+email);
+                        $.get("/videocall/"+name+"/"+email, function(data){
+                            if ( data.message == "success" ) {
+                                console.log("Emailed "+name+" "+email);
+                                $("#message").html("Emailed "+name+" "+email).show();
+                                $("#message").delay(3000).hide(0);
+                            } else {
+                                console.log("Did NOT email "+name+" "+email);
+                            }
+                        });
+                    });
+                });
             });
         </script>
     </body>
