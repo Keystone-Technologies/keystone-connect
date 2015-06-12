@@ -11,104 +11,66 @@ var inputVal;
 var startingName;
 var $currentFolder;
 
+var tempJSON = [
+    {"width":200, "height":100, "src":"", "class":"folder", "text":"My Home"},
+    {"width":200, "height":100, "src":"", "class":"folder", "text":"My Health"},
+    {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"", "class":"folder", "text":"My Office"},
+    {"width":200, "height":200, "src":"", "class":"folder", "text":"My Connect"},
+    {"width":100, "height":100, "src":"", "class":"folder", "text":"My Home"},
+    {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/Nest_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"", "class":"folder", "text":"My Finances"},
+    {"width":100, "height":100, "src":"", "class":"folder", "text":"My Faith"},
+    {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""},
+    {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"", "class":"folder", "text":"My Photos & Videos"},
+    {"width":200, "height":100, "src":"", "class":"folder", "text":"My News & Entertainment"},
+    {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
+    {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""}
+];
 
 
-function addLocks($object) {
-    $object.children(".save-icon").remove();
-    $object.prepend("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
-    $(".icon").parent().siblings(".save-icon")
-        .css({"visibility": "visible"});
-    $(".folder").siblings(".save-icon")
-        .css({"visibility": "visible"});
-    $(".icon").parent().siblings(".gs-resize-handle")
-        .css({"visibility": "visible"});
-    $(".folder").siblings(".gs-resize-handle")
-        .css({"visibility": "visible"});
-}
+var appTrayJSON = [
+    {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
+    {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""}
+];
 
-function LockClickEvents($object) {
-    $object.children('.save-icon').on("click", function () {
-        if ($(this).hasClass("icon-locked")) {
-            $(this)
-                .attr("src", "img/unlock3.svg")
-                .removeClass("icon-locked")
-                .parent()
-                .addClass("gs-w")
-                .draggable("enable");
-        }
-        else {
-            $(this)
-                .attr("src", "img/lock24.svg")
-                .addClass("icon-locked");
-            $(this)
-                .parent()
-                .removeClass('gs-w')
-                .draggable("disable");
-        }
-    });
-}
-
-
-
-function appTrayDroppable() {
-    $("#app-tray").droppable({
-        accept: "#grid-1 li, #grid-2 li, #grid-3 li, #grid-4 li, #grid-5 li",
-
-        tolerance: "pointer",
-        drop: function (event, ui) {
-            if($("#app-tray li").hasClass('thumb-empty')) {
-                var thumbCopy = $(ui.draggable).contents().clone();
-                $(ui.draggable)
-                    .empty()
-                    .addClass("thumb-empty")
-                    .removeClass("thumb-occupied");
-                thumbCopy.appendTo($("#app-tray .thumb-empty").first());
-                $("#app-tray .thumb-empty").first()
-                    .removeClass("thumb-empty")
-                    .addClass("thumb-occupied");
-            }
-        }
-    });
-}
-
-function grid1Droppable() {
-    $("#grid-1").droppable({
-        accept: "#app-tray li",
-        tolerance: "pointer",
-        drop: function (event, ui) {
-            if($("#grid-1 li").hasClass('thumb-empty')) {
-                var thumbCopy = $(ui.draggable).contents().clone();
-                $(ui.draggable)
-                    .empty()
-                    .addClass("thumb-empty")
-                    .removeClass("thumb-occupied");
-                thumbCopy.appendTo($("#grid-1 .thumb-empty").first());
-                $("#grid-1 .thumb-empty").first()
-                    .removeClass("thumb-empty")
-                    .addClass("thumb-occupied");
-            }
-        }
-    });
-}
-
-function createFolderDroppable() {
-    console.log("drop function running");
-    $("#create-folder").droppable({
-        tolerance: "pointer",
-        hoverClass: "dropzone-hover",
-        activeClass: "dropzone-active",
-        drop: function (event, ui) {
-            $(ui.draggable).empty();
-            $(ui.draggable)
-                .append("<div class=\"folder\"><h2>folder</h2></div>")
-//                .addClass("thumb-occupied")
-                .removeClass("thumb-empty");
-            $(ui.draggable)
-                .append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
-            showFolderModal();
-        }
-    });
-}
 function trashDroppable() {
     $("#trash").droppable({
         accept: ".brick",
@@ -156,60 +118,6 @@ function freewallAddCells(){
         "<div class='brick {class}' style='width:{width}px; height:{height}px;'>{text}<img src={src} /></div>";
 //          var w = 1, h = 1, html = '', limitItem = 10;
 
-
-    var tempJSON = [
-        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Home"},
-        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Health"},
-        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Office"},
-        {"width":200, "height":200, "src":"", "class":"folder", "text":"My Connect"},
-        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Home"},
-        {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/Nest_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Finances"},
-        {"width":100, "height":100, "src":"", "class":"folder", "text":"My Faith"},
-        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""},
-        {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"", "class":"folder", "text":"My Photos & Videos"},
-        {"width":200, "height":100, "src":"", "class":"folder", "text":"My News & Entertainment"},
-        {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
-        {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
-        {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""}
-    ];
     var w = 1, h = 1, html = '', limitItem = tempJSON.length;
 
     for (var i = 0; i < limitItem; ++i){
@@ -227,18 +135,25 @@ function freewallAddCells(){
 }
 
 function addMenuToIcons() {
-    var dropdownHtml = "<div class=\"dropdown icon-menu\"><a class=\"fa fa-bars dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" aria-expanded=\"true\"></a><ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"dropdownMenu2\"></ul></div>";
+    var dropdownHtml = "<div class=\"dropdown icon-menu\"><a class=\"fa fa-bars dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" aria-expanded=\"true\"></a><ul class=\"dropdown-menu list-unstyled\" role=\"menu\" aria-labelledby=\"dropdownMenu2\"></ul></div>";
     var deleteItem = "<li role=\"presentation\"><a class=\"delete-icon\" role=\"menuitem\" tabindex=\"-1\">Delete</a></li>";
-    var addToItem = "<li class=\"dropdown add-dropdown\" role=\"presentation\"><a class=\"add-to-menu-item\">Add To</a><ul class=\"add-flyout\"></ul></li>";
+    var addToItem = "<li class=\"dropdown add-dropdown\" role=\"presentation\"><a class=\"add-to-menu-item\">Add To</a><ul class=\"add-flyout list-unstyled\"></ul></li>";
     var addToDropdown = "";
     $(".brick").append(dropdownHtml);
     $(".icon-menu ul").append(deleteItem);
     $(".icon-menu ul").append(addToItem);
+    populateAddTo();
 
+}
+
+function populateAddTo() {
+    $(".add-flyout").empty();
     $("#freewall1 .folder").each(function(){
         var $this = $(this).clone().children().remove().end().text();
-        $(".add-flyout").append("<li class=\"add-flyout-item list-unstyled\">" + $this + "</li>");
+        $(".add-flyout").append("<li class=\"add-flyout-item\">" + $this + "</li>");
     });
+    $(".add-flyout").prepend("<li class=\"add-to-app-tray\">App Tray</li>");
+    deleteItem();
 }
 
 
@@ -246,15 +161,34 @@ function deleteItem(){
     $('.delete-icon').click(function() {
         console.log("Icon Deleted");
         $(this).parentsUntil($(".free-wall")).remove();
+        populateAddTo();
     });
+
+    $('.add-to-app-tray').click(function() {
+        console.log("Icon added to app tray");
+        $(this)
+            .parent().parent().parent().parent().parent()
+            .removeAttr("data-delay")
+            .removeAttr("data-position")
+            .attr("data-height", "85")
+            .attr("data-width", "85")
+            .appendTo($("#app-drawer"));
+        // $(this).parentsUntil($(".free-wall")).appendTo("#app-drawer");
+        populateAddTo();
+        appTrayInit();
+    });
+
     $('.add-flyout-item').click(function() {
-        console.log("Icon Deleted");
+        console.log("Icon added to folder");
         $(this).parentsUntil($(".free-wall")).remove();
+        populateAddTo();
     });
+    freewallInit();
+    appTrayInit();
+
 };
 
 function freewallInit() {
-
     var wall = new freewall("#freewall1");
     wall.reset({
         draggable: true,
@@ -270,7 +204,7 @@ function freewallInit() {
 //             top:0,
 //             left:0,
 //             width:4,
-//             height:5   
+//             height:5
 //            });
 //            $(".folder").removeClass("brick");
         }
@@ -280,9 +214,53 @@ function freewallInit() {
     console.log("grids loaded");
 }
 
+function appTrayInit() {
+    var appTray = new freewall("#app-drawer");
+    appTray.reset({
+        draggable: true,
+        selector: '.brick',
+        animate: true,
+        fixSize:0,
+        cellW: 100,
+        cellH: 100,
+//        rightToLeft: true,
+        onResize: function() {
+            appTray.fitWidth();
+//            appTray.setHoles({
+//             top:0,
+//             left:0,
+//             width:4,
+//             height:5
+//            });
+//            $(".folder").removeClass("brick");
+        }
+    });
+
+    appTray.fitWidth();
+    console.log("app tray loaded");
+}
+
+function staticEventListeners(){
+    var $gridContainer = $('.grid-container');
+    var gridScroll = $('#freewall1').outerWidth() - $gridContainer.width() + 50;
+    $("#left-full").click(function() {
+        $gridContainer.animate( { scrollLeft: '0' }, 1000, 'easeOutQuad' );
+    });
+    $("#left-slow").click(function() {
+        $gridContainer.animate( { scrollLeft: '+=-200' }, 1000, 'easeOutQuad' );
+    });
+    $("#right-slow").click(function() {
+        $gridContainer.animate( { scrollLeft: '+=200' }, 1000, 'easeOutQuad' );
+    });
+    $("#right-full").click(function() {
+        $gridContainer.animate( { scrollLeft: '+=' + gridScroll }, 1000, 'easeOutQuad' );
+    });
+}
+
 $(function () {
     freewallAddCells();
     freewallInit();
+    // appTrayInit();
     deleteItem();
 //    requestPassword();
 //    thumbnailDraggable($(".gs-w"));
@@ -290,6 +268,7 @@ $(function () {
 //    createFolderDroppable();
 //    showFolderModal();
     bannerCloseEvent();
+    staticEventListeners();
 });
 
 
@@ -433,6 +412,83 @@ $(function () {
 //            appTrayDroppable();
 //            grid1Droppable();
 //            var margin = ui.offset.top;
+//        }
+//    });
+//}
+
+//function addLocks($object) {
+//    $object.children(".save-icon").remove();
+//    $object.prepend("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
+//    $(".icon").parent().siblings(".save-icon")
+//        .css({"visibility": "visible"});
+//    $(".folder").siblings(".save-icon")
+//        .css({"visibility": "visible"});
+//    $(".icon").parent().siblings(".gs-resize-handle")
+//        .css({"visibility": "visible"});
+//    $(".folder").siblings(".gs-resize-handle")
+//        .css({"visibility": "visible"});
+//}
+//
+//function LockClickEvents($object) {
+//    $object.children('.save-icon').on("click", function () {
+//        if ($(this).hasClass("icon-locked")) {
+//            $(this)
+//                .attr("src", "img/unlock3.svg")
+//                .removeClass("icon-locked")
+//                .parent()
+//                .addClass("gs-w")
+//                .draggable("enable");
+//        }
+//        else {
+//            $(this)
+//                .attr("src", "img/lock24.svg")
+//                .addClass("icon-locked");
+//            $(this)
+//                .parent()
+//                .removeClass('gs-w')
+//                .draggable("disable");
+//        }
+//    });
+//}
+//
+//
+//
+//function appTrayDroppable() {
+//    $("#app-tray").droppable({
+//        accept: "#grid-1 li, #grid-2 li, #grid-3 li, #grid-4 li, #grid-5 li",
+//
+//        tolerance: "pointer",
+//        drop: function (event, ui) {
+//            if($("#app-tray li").hasClass('thumb-empty')) {
+//                var thumbCopy = $(ui.draggable).contents().clone();
+//                $(ui.draggable)
+//                    .empty()
+//                    .addClass("thumb-empty")
+//                    .removeClass("thumb-occupied");
+//                thumbCopy.appendTo($("#app-tray .thumb-empty").first());
+//                $("#app-tray .thumb-empty").first()
+//                    .removeClass("thumb-empty")
+//                    .addClass("thumb-occupied");
+//            }
+//        }
+//    });
+//}
+//
+//function createFolderDroppable() {
+//    console.log("drop function running");
+//    $("#create-folder").droppable({
+//        tolerance: "pointer",
+//        hoverClass: "dropzone-hover",
+//        activeClass: "dropzone-active",
+//        drop: function (event, ui) {
+//            $(ui.draggable).empty();
+//            $(ui.draggable)
+//                .append("<div class=\"folder\"><h2>folder</h2></div>")
+////                .addClass("thumb-occupied")
+//                .removeClass("thumb-empty");
+//            $(ui.draggable)
+//                .append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
+//            showFolderModal();
 //        }
 //    });
 //}
