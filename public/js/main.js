@@ -110,8 +110,49 @@ function bannerCloseEvent(){
 };
 
 
+function showFolderModal() {
+    $(".folder").dblclick(function () {
+        $currentFolder = $(this);
+        $(".folder-modal").modal('show');
+        startingName = $currentFolder.clone().children().remove().end().text();
+        $(".folder-name").html(startingName);
+        $(".folder-name").on("dblclick", function () {
+            startingName = $currentFolder.clone().children().remove().end().text();
+            $(this).addClass("hidden");
+            $(".folder-input")
+                .val("")
+                .val(startingName)
+                .removeClass("hidden")
+                .keyup(function (event) {
+                    if (event.keyCode == 13) {
+                        inputVal = $(".folder-input").val();
+                        $(".folder-input")
+                            .addClass("hidden");
+                        $(".folder-name")
+                            .removeClass("hidden")
+                            .empty()
+                            .append(inputVal);
+                        console.log(inputVal);
+                        newName = inputVal;
 
+                        $currentFolder.contents().filter(function(){
+                            return (this.nodeType == 3);
+                        }).remove();
+                        $currentFolder.append(newName);
+                        // resetVariables();
+                    }
+                });
+        });
+    });
+}
 
+// function resetVariables(){
+//    newName = "";
+//    inputVal = "";
+//    startingName = "";
+//    $currentFolder = "";
+//    showFolderModal();
+// }
 
 function freewallAddCells(){
     var temp =
@@ -137,10 +178,12 @@ function freewallAddCells(){
 function addMenuToIcons() {
     var dropdownHtml = "<div class=\"dropdown icon-menu\"><a class=\"fa fa-bars dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" aria-expanded=\"true\"></a><ul class=\"dropdown-menu list-unstyled\" role=\"menu\" aria-labelledby=\"dropdownMenu2\"></ul></div>";
     var deleteItem = "<li role=\"presentation\"><a class=\"delete-icon\" role=\"menuitem\" tabindex=\"-1\">Delete</a></li>";
+    var renameItem = "<li role=\"presentation\"><a class=\"rename-folder-menu-item\" role=\"menuitem\" tabindex=\"-1\">Rename Folder</a></li>";
     var addToItem = "<li class=\"dropdown add-dropdown\" role=\"presentation\"><a class=\"add-to-menu-item\">Add To</a><ul class=\"add-flyout list-unstyled\"></ul></li>";
     var addToDropdown = "";
     $(".brick").append(dropdownHtml);
     $(".icon-menu ul").append(deleteItem);
+    $(".folder .icon-menu ul").append(renameItem);
     $(".icon-menu ul").append(addToItem);
     populateAddTo();
 
@@ -153,21 +196,37 @@ function populateAddTo() {
         $(".add-flyout").append("<li class=\"add-flyout-item\">" + $this + "</li>");
     });
     $(".add-flyout").prepend("<li class=\"add-to-app-tray\">App Tray</li>");
-    deleteItem();
+    iconMenuListeners();
 }
 
 
-function deleteItem(){
+function iconMenuListeners(){
     $('.delete-icon').click(function() {
         console.log("Icon Deleted");
         $(this).parentsUntil($(".free-wall")).remove();
         populateAddTo();
     });
 
+    $('.rename-folder-menu-item').click(function() {
+        var folderName = $(this).parents(':eq(3)').clone().children().remove().end().text();
+        $(".folder-rename-input").remove();
+        $(this).parents(':eq(3)').append("<input class=\"folder-rename-input\" value=\"" + folderName + "\"></input>")
+            .contents().filter(function(){
+                return (this.nodeType == 3);
+            }).remove();
+        $(".folder-rename-input").keyup(function (event) {
+            if (event.keyCode == 13) {
+                $(this).parent().append($(this).val());
+                $(this).remove();
+            }
+        });
+        populateAddTo();
+    });
+
     $('.add-to-app-tray').click(function() {
         console.log("Icon added to app tray");
         $(this)
-            .parent().parent().parent().parent().parent()
+            .parents(':eq(3)')
             .removeAttr("data-delay")
             .removeAttr("data-position")
             .attr("data-height", "85")
@@ -204,7 +263,7 @@ function freewallInit() {
 //             top:0,
 //             left:0,
 //             width:4,
-//             height:5
+//             height:5   
 //            });
 //            $(".folder").removeClass("brick");
         }
@@ -230,7 +289,7 @@ function appTrayInit() {
 //             top:0,
 //             left:0,
 //             width:4,
-//             height:5
+//             height:5   
 //            });
 //            $(".folder").removeClass("brick");
         }
@@ -261,12 +320,12 @@ $(function () {
     freewallAddCells();
     freewallInit();
     // appTrayInit();
-    deleteItem();
+    iconMenuListeners();
 //    requestPassword();
 //    thumbnailDraggable($(".gs-w"));
     trashDroppable();
 //    createFolderDroppable();
-//    showFolderModal();
+    showFolderModal();
     bannerCloseEvent();
     staticEventListeners();
 });
@@ -352,48 +411,6 @@ $(function () {
 //    });
 //}
 
-
-//function showFolderModal() {
-//    $(".folder").click(function () {
-////        newName;
-////        inputVal;
-//        $currentFolder = $(this);
-//        startingName = $currentFolder.children("h2").text();
-//        $(".folder-modal").modal('show');
-//        $(".folder-name").html(startingName);
-//        $(".folder-name").on("dblclick", function () {
-//            $(this).addClass("hidden");
-//            $(".folder-input")
-////                .attr("value", startingName)
-////                .attr("placeholder", startingName)
-//                .val(startingName)
-//                .removeClass("hidden")
-//                .keyup(function (event) {
-//                    if (event.keyCode == 13) {
-//                        inputVal = $(".folder-input").val();
-//                        $(".folder-input")
-//                            .addClass("hidden")
-//                            .val(null);
-//                        $(".folder-name")
-//                            .removeClass("hidden")
-//                            .html(inputVal);
-//                        console.log(inputVal);
-//                        newName = inputVal;
-//                        $currentFolder.children("h2").html(newName);
-//                        resetVariables();
-//                    }
-//                });
-//        });
-//    });
-//}
-
-//function resetVariables(){
-//    newName = null;
-//    inputVal = null;
-//    startingName = null;
-//    $currentFolder = null;
-//    showFolderModal();
-//}
 
 //function thumbnailDraggable($thumb) {
 //    $thumb.draggable({

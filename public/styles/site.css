@@ -13,6 +13,10 @@ body {
   position: absolute;
   top: 5px;
 }
+.container {
+  width: 1400px;
+  overflow-y: scroll;
+}
 @keyframes start {
   from {
     transform: scale(0);
@@ -45,7 +49,6 @@ body {
   height: 100%;
   margin-top: 120px;
   overflow-y: scroll;
-  width: 100%;
   z-index: 30;
 }
 #home .grid-container .free-wall {
@@ -58,6 +61,9 @@ body {
   content: "Folder";
   text-align: center;
 }
+#home .grid-container .free-wall .folder input {
+  max-width: 95%;
+}
 #home .grid-container .free-wall .brick {
   background: rgba(126, 176, 219, 0.2);
 }
@@ -65,6 +71,37 @@ body {
   height: 100%;
   margin: 0 auto;
   width: auto;
+}
+#home .grid-container .free-wall .brick .icon-menu {
+  bottom: 5px;
+  color: white;
+  height: 20px;
+  right: 5px;
+  position: absolute;
+  width: 20px;
+}
+#home .grid-container .free-wall .brick .icon-menu .dropdown-toggle {
+  color: white;
+}
+#home .grid-container .free-wall .brick .icon-menu .add-dropdown {
+  color: black;
+  position: relative;
+}
+#home .grid-container .free-wall .brick .icon-menu .add-dropdown .add-flyout {
+  background-color: white;
+  display: none;
+  right: -200px;
+  height: auto;
+  padding-left: 10px;
+  position: absolute;
+  top: 0;
+  width: 200px;
+}
+#home .grid-container .free-wall .brick .icon-menu .add-dropdown .add-flyout .add-flyout-item:hover {
+  background-color: #e8e8e8;
+}
+#home .grid-container .free-wall .brick .icon-menu .add-dropdown:hover .add-flyout {
+  display: block;
 }
 #home #trash {
   background-color: rgba(0, 0, 0, 0.6);
@@ -148,17 +185,78 @@ body {
   bottom: 0;
   position: fixed;
 }
-#home .app-drawer {
+#home #app-tray #grid-pagination {
+  margin: -24px 0px 0px 0px;
+}
+#home #app-tray #grid-pagination ul li {
+  color: white;
+  opacity: .4;
+}
+#home #app-tray #grid-pagination ul li:hover {
+  opacity: .05;
+}
+#home #app-tray #grid-pagination ul #left-slow {
+  -ms-transform: rotate(180eg);
+  /* IE 9 */
+  -webkit-transform: rotate(180deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+}
+#home #app-tray .free-wall .folder {
+  background-color: #23789e !important;
+  content: "Folder";
+  text-align: center;
+}
+#home #app-tray .free-wall .brick {
+  background: rgba(126, 176, 219, 0.2);
+}
+#home #app-tray .free-wall .brick img {
+  height: 100%;
+  margin: 0 auto;
+  width: auto;
+}
+#home #app-tray .free-wall .brick .icon-menu {
+  bottom: 5px;
+  color: white;
+  height: 20px;
+  right: 5px;
+  position: absolute;
+  width: 20px;
+}
+#home #app-tray .free-wall .brick .icon-menu .dropdown-toggle {
+  color: white;
+}
+#home #app-tray .free-wall .brick .icon-menu .add-dropdown {
+  color: black;
+  position: relative;
+}
+#home #app-tray .free-wall .brick .icon-menu .add-dropdown .add-flyout {
+  background-color: white;
+  display: none;
+  right: -200px;
+  height: auto;
+  padding-left: 10px;
+  position: absolute;
+  top: 0;
+  width: 200px;
+}
+#home #app-tray .free-wall .brick .icon-menu .add-dropdown .add-flyout .add-flyout-item:hover {
+  background-color: #e8e8e8;
+}
+#home #app-tray .free-wall .brick .icon-menu .add-dropdown:hover .add-flyout {
+  display: block;
+}
+#home #app-tray #app-drawer {
   background: rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   height: 106px;
   margin: 0 auto;
   width: 420px;
 }
-#home .app-drawer li {
+#home #app-tray #app-drawer li {
   margin: .5%;
 }
-#home .app-drawer .icon {
+#home #app-tray #app-drawer .icon {
   width: 100px;
 }
 .hidden {

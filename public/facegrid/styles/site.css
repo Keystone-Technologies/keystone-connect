@@ -44,6 +44,8 @@ body {
 #home .grid-container {
   height: 100%;
   margin-top: 0px;
+  max-width: 600px;
+  width: 100%;
   z-index: 30;
 }
 #home .grid-container .free-wall {

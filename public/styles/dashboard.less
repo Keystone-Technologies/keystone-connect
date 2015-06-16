@@ -1,5 +1,6 @@
 body{
   background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
+  // background-color:@kt-blue-74;
   height: 100%;
 }
 
@@ -21,6 +22,10 @@ body{
   }
 }
 
+.container {
+  width: 1400px;
+  overflow-y: scroll;
+}
 #home {
 
   @keyframes start {
@@ -61,18 +66,20 @@ body{
     height: 100%;
     margin-top: 120px;
     overflow-y: scroll;
-    width: 100%;
+    //    width: 2000px;
     z-index:30;
 
     .free-wall {
       margin: 15px 50px;
       float: left;
       width:2000px;
-
       .folder{
         background-color:@kt-blue-23 !important;
         content: "Folder";
         text-align:center;
+        input{
+          max-width:95%;
+        }
       }
 
       .brick {
@@ -83,9 +90,51 @@ body{
           margin: 0 auto;
           width:auto;
         }
+
+        .icon-menu{
+          bottom:5px;
+          color:white;
+          height:20px;
+          right:5px;
+          position:absolute;
+          width:20px;
+          .dropdown-toggle{
+            color:white;
+
+          }
+          .add-dropdown{
+            color:black;
+            position:relative;
+            .add-flyout{
+              background-color:white;
+              display:none;
+              right:-200px;
+              height:auto;
+              padding-left:10px;
+              position:absolute;
+              top:0;
+              width:200px;
+              .add-flyout-item{
+                &:hover{
+                  background-color:#e8e8e8;
+                }
+              }
+            }
+
+            &:hover{
+              .add-flyout{
+                display:block;
+              }
+            }
+          }
+        }
       }
     }
+
+
   }
+
+
 
 
   #trash{
@@ -190,22 +239,105 @@ body{
 
   #app-tray {
     bottom: 0;
+    // display:none;
     position: fixed;
 
-  }
-  .app-drawer{
-    background: fade(@kt-black, 10%);
-    border-radius: 4px;
-    height: 106px;
-    margin: 0 auto;
-    width: 420px;
-
-    li{
-      margin: .5%;
+    #grid-pagination{
+      margin:-24px 0px 0px 0px;
+      ul{
+        li{
+          color:white;
+          opacity:.4;
+          &:hover{
+            opacity:.05;
+          }
+        }
+        #left-slow{
+          -ms-transform: rotate(180eg); /* IE 9 */
+          -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+          transform: rotate(180deg);
+        }
+      }
     }
 
-    .icon{
-      width: 100px;
+    .free-wall {
+      // margin: 15px 50px;
+      // float: left;
+      // width:2000px;
+      .folder{
+        background-color:@kt-blue-23 !important;
+        content: "Folder";
+        text-align:center;
+      }
+
+      .brick {
+        background:fade(@kt-blue-7e, 20%);
+
+        img{
+          height:100%;
+          margin: 0 auto;
+          width:auto;
+        }
+
+        .icon-menu{
+          bottom:5px;
+          color:white;
+          height:20px;
+          right:5px;
+          position:absolute;
+          width:20px;
+          .dropdown-toggle{
+            color:white;
+
+          }
+          .add-dropdown{
+            color:black;
+            position:relative;
+            .add-flyout{
+              background-color:white;
+              display:none;
+              right:-200px;
+              height:auto;
+              padding-left:10px;
+              position:absolute;
+              top:0;
+              width:200px;
+              .add-flyout-item{
+                &:hover{
+                  background-color:#e8e8e8;
+                }
+              }
+            }
+
+            &:hover{
+              .add-flyout{
+                display:block;
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+
+
+
+
+    #app-drawer{
+      background: fade(@kt-black, 10%);
+      border-radius: 4px;
+      height: 106px;
+      margin: 0 auto;
+      width: 420px;
+
+      li{
+        margin: .5%;
+      }
+
+      .icon{
+        width: 100px;
+      }
     }
   }
 }
