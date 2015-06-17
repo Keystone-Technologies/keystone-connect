@@ -1,10 +1,4 @@
 var appTray;
-
-var gridster1;
-var gridster2;
-var gridster3;
-var gridster4;
-var gridster5;
 //var json = testAjax();
 var newName;
 var inputVal;
@@ -171,20 +165,49 @@ function freewallAddCells(){
     }
 
     $("#freewall1").html(html);
+    freewallInit();
     $(".folder").children("img").remove();
     addMenuToIcons();
 }
+
 
 function addMenuToIcons() {
     var dropdownHtml = "<div class=\"dropdown icon-menu\"><a class=\"fa fa-bars dropdown-toggle\" type=\"button\" id=\"dropdownMenu2\" data-toggle=\"dropdown\" aria-expanded=\"true\"></a><ul class=\"dropdown-menu list-unstyled\" role=\"menu\" aria-labelledby=\"dropdownMenu2\"></ul></div>";
     var deleteItem = "<li role=\"presentation\"><a class=\"delete-icon\" role=\"menuitem\" tabindex=\"-1\">Delete</a></li>";
     var renameItem = "<li role=\"presentation\"><a class=\"rename-folder-menu-item\" role=\"menuitem\" tabindex=\"-1\">Rename Folder</a></li>";
+    var makeLargerItem = "<li role=\"presentation\"><a class=\"make-larger-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon large</a></li>";
+    var makeWiderItem = "<li role=\"presentation\"><a class=\"make-wider-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon wider</a></li>";
+    var makeSmallerItem = "<li role=\"presentation\"><a class=\"make-smaller-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon small</a></li>";
+    var makeShorterItem = "<li role=\"presentation\"><a class=\"make-shorter-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon shorter</a></li>";
     var addToItem = "<li class=\"dropdown add-dropdown\" role=\"presentation\"><a class=\"add-to-menu-item\">Add To</a><ul class=\"add-flyout list-unstyled\"></ul></li>";
-    var addToDropdown = "";
+    // var addToDropdown = "";
     $(".brick").append(dropdownHtml);
-    $(".icon-menu ul").append(deleteItem);
+    // $(".icon-menu ul").each(function(){
+    //         console.log($(this).children("data-height"));
+    // if($(this).children("data-height").attr("data-height") == 100){
+    // }
+    // });
+
+
+    $(".brick").each(function() {
+        if ($(this).attr("data-height") == 100 && $(this).attr("data-width") == 100){
+            $(this).find("ul").append(makeWiderItem);
+            $(this).find("ul").append(makeLargerItem);
+        }
+        if ($(this).attr("data-height") == 100 && $(this).attr("data-width") == 200){
+            $(this).find("ul").append(makeLargerItem);
+            $(this).find("ul").append(makeSmallerItem);
+        }
+        if ($(this).attr("data-height") == 200 && $(this).attr("data-width") == 200){
+            $(this).find("ul").append(makeSmallerItem);
+            $(this).find("ul").append(makeShorterItem);
+        }
+
+    });
+
     $(".folder .icon-menu ul").append(renameItem);
     $(".icon-menu ul").append(addToItem);
+    $(".icon-menu ul").append(deleteItem);
     populateAddTo();
 
 }
@@ -205,6 +228,44 @@ function iconMenuListeners(){
         console.log("Icon Deleted");
         $(this).parentsUntil($(".free-wall")).remove();
         populateAddTo();
+    });
+
+    $('.make-larger-menu-item').click(function() {
+        $(this)
+            .parents(':eq(3)')
+            .attr("data-height", "200")
+            .attr("data-width", "200");
+        $(".icon-menu")
+            .remove();
+        addMenuToIcons();
+        freewallInit();
+    });
+    $('.make-wider-menu-item').click(function() {
+        $(this)
+            .parents(':eq(3)')
+            .attr("data-height", "100")
+            .attr("data-width", "200");
+        freewallInit();
+    });
+    $('.make-smaller-menu-item').click(function() {
+        $(this)
+            .parents(':eq(3)')
+            .attr("data-height", "100")
+            .attr("data-width", "100");
+        $(".icon-menu")
+            .remove();
+        addMenuToIcons();
+        freewallInit();
+    });
+    $('.make-shorter-menu-item').click(function() {
+        $(this)
+            .parents(':eq(3)')
+            .attr("data-height", "100")
+            .attr("data-width", "200");
+        $(".icon-menu")
+            .remove();
+        addMenuToIcons();
+        freewallInit();
     });
 
     $('.rename-folder-menu-item').click(function() {
