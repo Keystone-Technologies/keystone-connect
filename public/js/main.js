@@ -57,7 +57,11 @@ var tempJSON = [
     { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
     { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 200, "src": "", "class": "widget rss-widget", "text": "" }
+    { "width": 400, "height": 400, "src": "", "class": "rss-feeds widget rss-feed", "text": "" },
+    { "width": 400, "height": 400, "src": "", "class": "food-rss widget rss-feed", "text": "" },
+    { "width": 400, "height": 400, "src": "", "class": "finance-rss widget rss-feed", "text": "" },
+    { "width": 400, "height": 400, "src": "", "class": "health-rss widget rss-feed", "text": "" },
+    { "width": 400, "height": 400, "src": "", "class": "keystone-rss widget rss-feed", "text": "" }
 ];
 
 
