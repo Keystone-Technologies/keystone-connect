@@ -6,63 +6,64 @@ var startingName;
 var $currentFolder;
 
 var tempJSON = [
-    {"width":200, "height":100, "src":"", "class":"folder", "text":"My Home"},
-    {"width":200, "height":100, "src":"", "class":"folder", "text":"My Health"},
-    {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"", "class":"folder", "text":"My Office"},
-    {"width":200, "height":200, "src":"", "class":"folder", "text":"My Connect"},
-    {"width":100, "height":100, "src":"", "class":"folder", "text":"My Home"},
-    {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/Nest_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":200, "src":"img/GoogleEarth_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"", "class":"folder", "text":"My Finances"},
-    {"width":100, "height":100, "src":"", "class":"folder", "text":"My Faith"},
-    {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""},
-    {"width":200, "height":200, "src":"img/JewishFaith_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GoogleBlogs_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GmailAppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/FlightsAppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"", "class":"folder", "text":"My Photos & Videos"},
-    {"width":200, "height":100, "src":"", "class":"folder", "text":"My News & Entertainment"},
-    {"width":100, "height":100, "src":"img/GoogleMaps_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/AdvancedSearch_AppIcon-copy.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/AmazonPrime_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/Flickr_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/Forum_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/GamesOther_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GoogleFinance_AppIcon.png", "class": "", "text":""},
-    {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""}
+    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Home" },
+    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Health" },
+    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 200, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Office" },
+    { "width": 200, "height": 200, "src": "", "class": "folder", "text": "My Connect" },
+    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Home" },
+    { "width": 200, "height": 200, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Nest_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 200, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Finances" },
+    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Faith" },
+    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 200, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Photos & Videos" },
+    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My News & Entertainment" },
+    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 200, "src": "", "class": "widget rss-widget", "text": "" }
 ];
 
 
 var appTrayJSON = [
-    {"width":100, "height":100, "src":"img/GoogleTranslate_AppIcon.png", "class": "", "text":""},
-    {"width":200, "height":100, "src":"img/InformationAppIcon.png", "class": "", "text":""}
+    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" }
 ];
 
 function trashDroppable() {
@@ -82,14 +83,14 @@ function trashDroppable() {
 
 function requestPassword() {
     $("#password-modal").modal({
-        backdrop : 'static',
-        keyboard : false
+        backdrop: 'static',
+        keyboard: false
     })
         .modal('show');
 
-    $("#login-button").click(function() {
+    $("#login-button").click(function () {
 
-        if($(".password-input").val() === "test" && $(".username-input").val() === "test"){
+        if ($(".password-input").val() === "test" && $(".username-input").val() === "test") {
             console.log("modal closed");
             $("#password-modal").modal("hide");
         }
@@ -97,8 +98,8 @@ function requestPassword() {
 }
 
 
-function bannerCloseEvent(){
-    $(".close-banner").click(function(){
+function bannerCloseEvent() {
+    $(".close-banner").click(function () {
         $(".banner").hide();
     });
 };
@@ -129,7 +130,7 @@ function showFolderModal() {
                         console.log(inputVal);
                         newName = inputVal;
 
-                        $currentFolder.contents().filter(function(){
+                        $currentFolder.contents().filter(function () {
                             return (this.nodeType == 3);
                         }).remove();
                         $currentFolder.append(newName);
@@ -148,14 +149,14 @@ function showFolderModal() {
 //    showFolderModal();
 // }
 
-function freewallAddCells(){
+function freewallAddCells() {
     var temp =
         "<div class='brick {class}' style='width:{width}px; height:{height}px;'>{text}<img src={src} /></div>";
-//          var w = 1, h = 1, html = '', limitItem = 10;
+    //          var w = 1, h = 1, html = '', limitItem = 10;
 
     var w = 1, h = 1, html = '', limitItem = tempJSON.length;
 
-    for (var i = 0; i < limitItem; ++i){
+    for (var i = 0; i < limitItem; ++i) {
         html += temp
             .replace(/\{width\}/, tempJSON[i].width)
             .replace("{height}", tempJSON[i].height)
@@ -167,6 +168,7 @@ function freewallAddCells(){
     $("#freewall1").html(html);
     freewallInit();
     $(".folder").children("img").remove();
+    $(".widget").children("img").remove();
     addMenuToIcons();
 }
 
@@ -180,57 +182,52 @@ function addMenuToIcons() {
     var makeSmallerItem = "<li role=\"presentation\"><a class=\"make-smaller-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon small</a></li>";
     var makeShorterItem = "<li role=\"presentation\"><a class=\"make-shorter-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon shorter</a></li>";
     var addToItem = "<li class=\"dropdown add-dropdown\" role=\"presentation\"><a class=\"add-to-menu-item\">Add To</a><ul class=\"add-flyout list-unstyled\"></ul></li>";
-    // var addToDropdown = "";
     $(".brick").append(dropdownHtml);
-    // $(".icon-menu ul").each(function(){
-    //         console.log($(this).children("data-height"));
-    // if($(this).children("data-height").attr("data-height") == 100){
-    // }
-    // });
 
-
-    $(".brick").each(function() {
-        if ($(this).attr("data-height") == 100 && $(this).attr("data-width") == 100){
+    $(".brick").each(function () {
+        if ($(this).attr("data-height") == 100 && $(this).attr("data-width") == 100) {
             $(this).find("ul").append(makeWiderItem);
             $(this).find("ul").append(makeLargerItem);
         }
-        if ($(this).attr("data-height") == 100 && $(this).attr("data-width") == 200){
+        if ($(this).attr("data-height") == 100 && $(this).attr("data-width") == 200) {
             $(this).find("ul").append(makeLargerItem);
             $(this).find("ul").append(makeSmallerItem);
         }
-        if ($(this).attr("data-height") == 200 && $(this).attr("data-width") == 200){
+        if ($(this).attr("data-height") == 200 && $(this).attr("data-width") == 200) {
             $(this).find("ul").append(makeSmallerItem);
             $(this).find("ul").append(makeShorterItem);
         }
-
     });
 
     $(".folder .icon-menu ul").append(renameItem);
     $(".icon-menu ul").append(addToItem);
     $(".icon-menu ul").append(deleteItem);
+
+
     populateAddTo();
 
 }
 
 function populateAddTo() {
     $(".add-flyout").empty();
-    $("#freewall1 .folder").each(function(){
+    $("#app-drawer .add-flyout").prepend("<li class=\"add-to-main-grid\">Main Grid</li>");
+    $("#freewall1 .folder").each(function () {
         var $this = $(this).clone().children().remove().end().text();
         $(".add-flyout").append("<li class=\"add-flyout-item\">" + $this + "</li>");
     });
-    $(".add-flyout").prepend("<li class=\"add-to-app-tray\">App Tray</li>");
+    $("#freewall1 .add-flyout").prepend("<li class=\"add-to-app-tray\">App Tray</li>");
     iconMenuListeners();
 }
 
 
-function iconMenuListeners(){
-    $('.delete-icon').click(function() {
+function iconMenuListeners() {
+    $('.delete-icon').click(function () {
         console.log("Icon Deleted");
         $(this).parentsUntil($(".free-wall")).remove();
         populateAddTo();
     });
 
-    $('.make-larger-menu-item').click(function() {
+    $('.make-larger-menu-item').click(function () {
         $(this)
             .parents(':eq(3)')
             .attr("data-height", "200")
@@ -240,14 +237,14 @@ function iconMenuListeners(){
         addMenuToIcons();
         freewallInit();
     });
-    $('.make-wider-menu-item').click(function() {
+    $('.make-wider-menu-item').click(function () {
         $(this)
             .parents(':eq(3)')
             .attr("data-height", "100")
             .attr("data-width", "200");
         freewallInit();
     });
-    $('.make-smaller-menu-item').click(function() {
+    $('.make-smaller-menu-item').click(function () {
         $(this)
             .parents(':eq(3)')
             .attr("data-height", "100")
@@ -257,7 +254,7 @@ function iconMenuListeners(){
         addMenuToIcons();
         freewallInit();
     });
-    $('.make-shorter-menu-item').click(function() {
+    $('.make-shorter-menu-item').click(function () {
         $(this)
             .parents(':eq(3)')
             .attr("data-height", "100")
@@ -268,11 +265,11 @@ function iconMenuListeners(){
         freewallInit();
     });
 
-    $('.rename-folder-menu-item').click(function() {
+    $('.rename-folder-menu-item').click(function () {
         var folderName = $(this).parents(':eq(3)').clone().children().remove().end().text();
         $(".folder-rename-input").remove();
         $(this).parents(':eq(3)').append("<input class=\"folder-rename-input\" value=\"" + folderName + "\"></input>")
-            .contents().filter(function(){
+            .contents().filter(function () {
                 return (this.nodeType == 3);
             }).remove();
         $(".folder-rename-input").keyup(function (event) {
@@ -284,21 +281,42 @@ function iconMenuListeners(){
         populateAddTo();
     });
 
-    $('.add-to-app-tray').click(function() {
-        console.log("Icon added to app tray");
+    $('.add-to-app-tray').click(function () {
         $(this)
-            .parents(':eq(3)')
+            .parents(':eq(4)')
             .removeAttr("data-delay")
             .removeAttr("data-position")
             .attr("data-height", "85")
             .attr("data-width", "85")
             .appendTo($("#app-drawer"));
+
+        $("#app-tray .icon-menu")
+            .removeClass("dropdown")
+            .addClass("dropup");
+
+        $("#app-tray .add-dropdown")
+            .removeClass("dropdown")
+            .addClass("dropup");
+
         // $(this).parentsUntil($(".free-wall")).appendTo("#app-drawer");
         populateAddTo();
         appTrayInit();
     });
 
-    $('.add-flyout-item').click(function() {
+    // $('.add-to-main-grid').click(function () {
+    //     $(this)
+    //         .parents(':eq(4)')
+    //         .removeAttr("data-delay")
+    //         .removeAttr("data-position")
+    //         .attr("data-height", "85")
+    //         .attr("data-width", "85")
+    //         .appendTo($("#freewall1 ul"));
+
+    //     populateAddTo();
+    //     freewallInit();
+    // });
+
+    $('.add-flyout-item').click(function () {
         console.log("Icon added to folder");
         $(this).parentsUntil($(".free-wall")).remove();
         populateAddTo();
@@ -314,19 +332,19 @@ function freewallInit() {
         draggable: true,
         selector: '.brick',
         animate: true,
-        fixSize:0,
+        fixSize: 0,
         cellW: 100,
         cellH: 100,
-//        rightToLeft: true,
-        onResize: function() {
+        //        rightToLeft: true,
+        onResize: function () {
             wall.fitWidth();
-//            wall.setHoles({
-//             top:0,
-//             left:0,
-//             width:4,
-//             height:5   
-//            });
-//            $(".folder").removeClass("brick");
+            //            wall.setHoles({
+            //             top:0,
+            //             left:0,
+            //             width:4,
+            //             height:5   
+            //            });
+            //            $(".folder").removeClass("brick");
         }
     });
 
@@ -340,19 +358,19 @@ function appTrayInit() {
         draggable: true,
         selector: '.brick',
         animate: true,
-        fixSize:0,
+        fixSize: 0,
         cellW: 100,
         cellH: 100,
-//        rightToLeft: true,
-        onResize: function() {
+        //        rightToLeft: true,
+        onResize: function () {
             appTray.fitWidth();
-//            appTray.setHoles({
-//             top:0,
-//             left:0,
-//             width:4,
-//             height:5   
-//            });
-//            $(".folder").removeClass("brick");
+            //            appTray.setHoles({
+            //             top:0,
+            //             left:0,
+            //             width:4,
+            //             height:5   
+            //            });
+            //            $(".folder").removeClass("brick");
         }
     });
 
@@ -360,20 +378,20 @@ function appTrayInit() {
     console.log("app tray loaded");
 }
 
-function staticEventListeners(){
+function staticEventListeners() {
     var $gridContainer = $('.grid-container');
     var gridScroll = $('#freewall1').outerWidth() - $gridContainer.width() + 50;
-    $("#left-full").click(function() {
-        $gridContainer.animate( { scrollLeft: '0' }, 1000, 'easeOutQuad' );
+    $("#left-full").click(function () {
+        $gridContainer.animate({ scrollLeft: '0' }, 1000, 'easeOutQuad');
     });
-    $("#left-slow").click(function() {
-        $gridContainer.animate( { scrollLeft: '+=-200' }, 1000, 'easeOutQuad' );
+    $("#left-slow").click(function () {
+        $gridContainer.animate({ scrollLeft: '+=-200' }, 1000, 'easeOutQuad');
     });
-    $("#right-slow").click(function() {
-        $gridContainer.animate( { scrollLeft: '+=200' }, 1000, 'easeOutQuad' );
+    $("#right-slow").click(function () {
+        $gridContainer.animate({ scrollLeft: '+=200' }, 1000, 'easeOutQuad');
     });
-    $("#right-full").click(function() {
-        $gridContainer.animate( { scrollLeft: '+=' + gridScroll }, 1000, 'easeOutQuad' );
+    $("#right-full").click(function () {
+        $gridContainer.animate({ scrollLeft: '+=' + gridScroll }, 1000, 'easeOutQuad');
     });
 }
 
@@ -382,10 +400,10 @@ $(function () {
     freewallInit();
     // appTrayInit();
     iconMenuListeners();
-//    requestPassword();
-//    thumbnailDraggable($(".gs-w"));
+    //    requestPassword();
+    //    thumbnailDraggable($(".gs-w"));
     trashDroppable();
-//    createFolderDroppable();
+    //    createFolderDroppable();
     showFolderModal();
     bannerCloseEvent();
     staticEventListeners();
