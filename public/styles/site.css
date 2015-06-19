@@ -92,16 +92,23 @@ body {
   display: none;
   right: -200px;
   height: auto;
-  padding-left: 10px;
   position: absolute;
   top: 0;
   width: 200px;
 }
-#home .grid-container .free-wall .brick .icon-menu .add-dropdown .add-flyout .add-flyout-item:hover {
+#home .grid-container .free-wall .brick .icon-menu .add-dropdown .add-flyout li:hover {
   background-color: #e8e8e8;
+  cursor: pointer;
 }
 #home .grid-container .free-wall .brick .icon-menu .add-dropdown:hover .add-flyout {
   display: block;
+}
+#home .grid-container .free-wall .brick .widget {
+  height: 100%;
+  overflow-y: scroll;
+}
+#home .grid-container .free-wall .brick .widget .rss-feed {
+  max-height: 100%;
 }
 #home #trash {
   background-color: rgba(0, 0, 0, 0.6);
@@ -184,6 +191,7 @@ body {
 #home #app-tray {
   bottom: 0;
   position: fixed;
+  z-index: 30;
 }
 #home #app-tray #grid-pagination {
   margin: -24px 0px 0px 0px;
@@ -232,16 +240,16 @@ body {
 }
 #home #app-tray .free-wall .brick .icon-menu .add-dropdown .add-flyout {
   background-color: white;
+  bottom: 0;
   display: none;
   right: -200px;
   height: auto;
-  padding-left: 10px;
   position: absolute;
-  top: 0;
   width: 200px;
 }
-#home #app-tray .free-wall .brick .icon-menu .add-dropdown .add-flyout .add-flyout-item:hover {
+#home #app-tray .free-wall .brick .icon-menu .add-dropdown .add-flyout li:hover {
   background-color: #e8e8e8;
+  cursor: pointer;
 }
 #home #app-tray .free-wall .brick .icon-menu .add-dropdown:hover .add-flyout {
   display: block;

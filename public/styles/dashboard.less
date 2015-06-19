@@ -110,13 +110,13 @@ body{
               display:none;
               right:-200px;
               height:auto;
-              padding-left:10px;
               position:absolute;
               top:0;
               width:200px;
-              .add-flyout-item{
+              li{
                 &:hover{
                   background-color:#e8e8e8;
+                  cursor:pointer;
                 }
               }
             }
@@ -126,6 +126,14 @@ body{
                 display:block;
               }
             }
+          }
+        }
+
+        .widget{
+          height:100%;
+          overflow-y:scroll;
+          .rss-feed{
+            max-height:100%;// !important;
           }
         }
       }
@@ -241,6 +249,7 @@ body{
     bottom: 0;
     // display:none;
     position: fixed;
+    z-index:30;
 
     #grid-pagination{
       margin:-24px 0px 0px 0px;
@@ -295,16 +304,16 @@ body{
             position:relative;
             .add-flyout{
               background-color:white;
+              bottom:0;
               display:none;
               right:-200px;
               height:auto;
-              padding-left:10px;
               position:absolute;
-              top:0;
               width:200px;
-              .add-flyout-item{
+              li{
                 &:hover{
                   background-color:#e8e8e8;
+                  cursor:pointer;
                 }
               }
             }
