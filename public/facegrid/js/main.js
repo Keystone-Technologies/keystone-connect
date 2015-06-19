@@ -12,64 +12,26 @@ var startingName;
 var $currentFolder;
 
     var tempJSON = [
-        {"width":200, "height":200, "src":"temp/images-1.jpg", "class": "", "text":"Kellie", "email":"ktravis@connexinsoftware.com "},
-        {"width":200, "height":200, "src":"temp/images-1.jpg", "class": "", "text":"Scott", "email":"stravis@keystone-technologies.com"},
-        {"width":200, "height":200, "src":"temp/images-2.jpg", "class": "", "text":"Andy", "email":"abelval@keystone-technologies.com"},
-        {"width":200, "height":200, "src":"temp/images-3.jpg", "class": "", "text":"Stefan", "email":"sadams@keystone-technologies.com"},
-        {"width":200, "height":200, "src":"temp/images-4.jpg", "class": "", "text":"Mason", "email":"mdrothert@gmail.com"},
-        {"width":200, "height":200, "src":"temp/images-5.jpg", "class": "", "text":"Jason", "email":"thejasonslewis@gmail.com"},
-        {"width":200, "height":200, "src":"temp/images-6.jpg", "class": "", "text":"Ben", "email":"bnolen@keystone-it.com"},
-        {"width":200, "height":200, "src":"temp/images-7.jpg", "class": "", "text":"Rob", "email":"rt@keystone-it.com"},
-        {"width":200, "height":200, "src":"temp/imgres-12.jpg", "class": "", "text":"Eric", "email":"ehumes@keystone-it.com"},
-        {"width":200, "height":200, "src":"temp/images-8.jpg", "class": "", "text":"Caleb", "email":"calbers@keystone-it.com"},
-        {"width":200, "height":200, "src":"temp/images-9.jpg", "class": "", "text":"Adam", "email":"asloggett@keystone-it.com"},
-        {"width":200, "height":200, "src":"temp/imgres-10.jpg", "class": "", "text":"Montez", "email":"mfitzpatrick@keystone-it.com"},
-        {"width":200, "height":200, "src":"temp/imgres-11.jpg", "class": "", "text":"Dave", "email":"dhaas@keystone-it.com"},
-        {"width":200, "height":200, "src":"temp/imgres-11.jpg", "class": "", "text":"Cody", "email":"ckniffen@keystone-it.com"},
-        {"width":200, "height":200, "src":"temp/imgres-11.jpg", "class": "", "text":"Josh", "email":"jgraham@keystone-it.com"},
-        {"width":200, "height":200, "src":"temp/imgres-11.jpg", "class": "", "text":"Keith", "email":"kmayfield@keystone-it.com"}
+        {"width":100, "height":100, "src":"temp/images-1.jpg", "class": "", "text":"Mom", "email":"ktravis@connexinsoftware.com "},
+        {"width":100, "height":100, "src":"temp/images-1.jpg", "class": "", "text":"Dad", "email":"stravis@keystone-technologies.com"},
+        {"width":100, "height":100, "src":"temp/images-2.jpg", "class": "", "text":"Andy", "email":"abelval@keystone-technologies.com"},
+        {"width":100, "height":100, "src":"temp/images-3.jpg", "class": "", "text":"Stefan", "email":"sadams@keystone-technologies.com"},
+        {"width":100, "height":100, "src":"temp/images-4.jpg", "class": "", "text":"Mason", "email":"mdrothert@gmail.com"},
+        {"width":100, "height":100, "src":"temp/images-5.jpg", "class": "", "text":"Jason", "email":"thejasonslewis@gmail.com"},
+        {"width":100, "height":100, "src":"temp/images-6.jpg", "class": "", "text":"Ben", "email":"bnolen@keystone-it.com"},
+        {"width":100, "height":100, "src":"temp/images-7.jpg", "class": "", "text":"Rob", "email":"rt@keystone-it.com"},
+        {"width":100, "height":100, "src":"temp/imgres-12.jpg", "class": "", "text":"Eric", "email":"ehumes@keystone-it.com"},
+        {"width":100, "height":100, "src":"temp/images-8.jpg", "class": "", "text":"Caleb", "email":"calbers@keystone-it.com"},
+        {"width":100, "height":100, "src":"temp/images-9.jpg", "class": "", "text":"Adam", "email":"asloggett@keystone-it.com"},
+        {"width":100, "height":100, "src":"temp/imgres-10.jpg", "class": "", "text":"Montez", "email":"mfitzpatrick@keystone-it.com"},
+        {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Dave", "email":"dhaas@keystone-it.com"},
+        {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Cody", "email":"ckniffen@keystone-it.com"},
+        {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Josh", "email":"jgraham@keystone-it.com"},
+        {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Keith", "email":"kmayfield@keystone-it.com"}
     ];
 
 
-/*
-function trashDroppable() {
-    $("#trash").droppable({
-        accept: ".brick",
-        hoverClass: "dropzone-hover",
-        activeClass: "dropzone-active",
-        tolerance: "pointer",
-        drop: function (event, ui) {
-            $(ui.draggable)
-                .empty()
-                .addClass("thumb-empty")
-                .removeClass("thumb-occupied");
-        }
-    });
-}
 
-function requestPassword() {
-    $("#password-modal").modal({
-        backdrop : 'static',
-        keyboard : false
-    })
-        .modal('show');
-
-    $("#login-button").click(function() {
-
-        if($(".password-input").val() === "test" && $(".username-input").val() === "test"){
-            console.log("modal closed");
-            $("#password-modal").modal("hide");
-        }
-    });
-}
-
-
-function bannerCloseEvent(){
-    $(".close-banner").click(function(){
-        $(".banner").hide();
-    });
-};
-*/
 
 
 
