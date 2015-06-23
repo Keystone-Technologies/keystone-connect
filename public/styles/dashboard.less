@@ -25,6 +25,11 @@ body{
 .container {
   width: 1400px;
   overflow-y: scroll;
+  padding:0px;
+
+  .col-xs-12{
+    padding: 0px;
+  }
 }
 #home {
 
@@ -72,7 +77,8 @@ body{
     .free-wall {
       margin: 15px 50px;
       float: left;
-      width:2000px;
+      // width:2000px;
+      width:6000px;
       .folder{
         background-color:@kt-blue-23 !important;
         content: "Folder";
@@ -100,6 +106,7 @@ body{
           width:20px;
           .dropdown-toggle{
             color:white;
+            display:none;
 
           }
           .add-dropdown{
@@ -255,10 +262,10 @@ body{
       margin:-24px 0px 0px 0px;
       ul{
         li{
-          color:white;
-          opacity:.4;
+          color:darkgrey;
+          opacity:.8;
           &:hover{
-            opacity:.05;
+            opacity:.4;
           }
         }
         #left-slow{
@@ -338,7 +345,8 @@ body{
       border-radius: 4px;
       height: 106px;
       margin: 0 auto;
-      width: 420px;
+      // padding:0px 10px;
+      width: 100%;
 
       li{
         margin: .5%;

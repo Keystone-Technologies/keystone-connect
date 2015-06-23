@@ -6,8 +6,12 @@ var startingName;
 var $currentFolder;
 
 var tempJSON = [
+    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-comment\"></span>News RSS</h2><div id=\"rss-feeds\" class=\"rss-feed\"></div></div>" },
+    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-cutlery\"></span>Food Menu</h2><div id=\"food-rss\" class=\"rss-feed\"></div></div>" },
     { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Home" },
     { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Health" },
+    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-usd\"></span>Finance</h2><div id=\"finance-rss\" class=\"rss-feed\"></div></div>" },
+    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-scale\"></span>Health</h2><div id=\"health-rss\" class=\"rss-feed\"></div></div>" },
     { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
@@ -21,9 +25,6 @@ var tempJSON = [
     { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Office" },
-    { "width": 200, "height": 200, "src": "", "class": "folder", "text": "My Connect" },
-    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Home" },
     { "width": 200, "height": 200, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
     { "width": 200, "height": 100, "src": "img/Nest_AppIcon.png", "class": "", "text": "" },
     { "width": 200, "height": 100, "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text": "" },
@@ -38,16 +39,14 @@ var tempJSON = [
     { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
     { "width": 200, "height": 200, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Finances" },
-    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Faith" },
     { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
     { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 200, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Office" },
+    { "width": 200, "height": 200, "src": "", "class": "folder", "text": "My Connect" },
+    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Home" },
     { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Photos & Videos" },
-    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My News & Entertainment" },
     { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
@@ -57,11 +56,81 @@ var tempJSON = [
     { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
     { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-comment\"></span>News RSS</h2><div id=\"rss-feeds\" class=\"rss-feed\"></div></div>" },
-    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-calendar\"></span>Keystone RSS</h2><div id=\"keystone-rss\" class=\"rss-feed\"></div></div>" },
-    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-cutlery\"></span>Food Menu</h2><div id=\"food-rss\" class=\"rss-feed\"></div></div>" },
-    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-usd\"></span>Finance</h2><div id=\"finance-rss\" class=\"rss-feed\"></div></div>" },
-    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-scale\"></span>Health</h2><div id=\"health-rss\" class=\"rss-feed\"></div></div>" }
+    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 200, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Nest_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Finances" },
+    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Faith" },
+    { "width": 200, "height": 100, "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Photos & Videos" },
+    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My News & Entertainment" },
+    { "width": 100, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Nest_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
+    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
+    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
 ];
 
 var appTrayJSON = [
@@ -150,7 +219,7 @@ function appTrayAddCells() {
 function freewallAddCells() {
     console.log("Adding cells to main grid");
     var temp =
-        "<div class='brick {class}' style='width:{width}px; height:{height}px;'>{text}<img src={src} /></div>";
+        "<div class='brick {class}' style='width:{width}px; height:{height}px;' oncontextmenu=\"javascript:iconRightClick($(this));return false;\">{text}<img src={src} /></div>";
     //          var w = 1, h = 1, html = '', limitItem = 10;
 
     var w = 1, h = 1, html = '', limitItem = tempJSON.length;
@@ -345,7 +414,7 @@ function freewallInit() {
             //             top:0,
             //             left:0,
             //             width:4,
-            //             height:5   
+            //             height:5
             //            });
             //            $(".folder").removeClass("brick");
         }
@@ -371,7 +440,7 @@ function appTrayInit() {
             //             top:0,
             //             left:0,
             //             width:4,
-            //             height:5   
+            //             height:5
             //            });
             //            $(".folder").removeClass("brick");
         }
@@ -388,10 +457,10 @@ function staticEventListeners() {
         $gridContainer.animate({ scrollLeft: '0' }, 1000, 'easeOutQuad');
     });
     $("#left-slow").click(function () {
-        $gridContainer.animate({ scrollLeft: '+=-200' }, 1000, 'easeOutQuad');
+        $gridContainer.animate({ scrollLeft: '+=-1200' }, 1000, 'easeOutQuad');
     });
     $("#right-slow").click(function () {
-        $gridContainer.animate({ scrollLeft: '+=200' }, 1000, 'easeOutQuad');
+        $gridContainer.animate({ scrollLeft: '+=1200' }, 1000, 'easeOutQuad');
     });
     $("#right-full").click(function () {
         $gridContainer.animate({ scrollLeft: '+=' + gridScroll }, 1000, 'easeOutQuad');
@@ -404,6 +473,11 @@ function staticEventListeners() {
     });
     console.log("static listeners added");
 
+}
+
+function iconRightClick($button) {
+    $button.find(".dropdown-toggle").dropdown("toggle");//.dropdown("toggle");
+    console.log("toggle");
 }
 
 $(function () {
