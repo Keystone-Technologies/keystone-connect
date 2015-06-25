@@ -5,138 +5,202 @@ var inputVal;
 var startingName;
 var $currentFolder;
 
-var tempJSON = [
-    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-comment\"></span>News RSS</h2><div id=\"rss-feeds\" class=\"rss-feed\"></div></div>" },
-    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-cutlery\"></span>Food Menu</h2><div id=\"food-rss\" class=\"rss-feed\"></div></div>" },
-    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Home" },
-    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Health" },
-    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-usd\"></span>Finance</h2><div id=\"finance-rss\" class=\"rss-feed\"></div></div>" },
-    { "width": 400, "height": 400, "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-scale\"></span>Health</h2><div id=\"health-rss\" class=\"rss-feed\"></div></div>" },
-    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 200, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 200, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Nest_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 200, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Office" },
-    { "width": 200, "height": 200, "src": "", "class": "folder", "text": "My Connect" },
-    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Home" },
-    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 200, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Nest_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Finances" },
-    { "width": 100, "height": 100, "src": "", "class": "folder", "text": "My Faith" },
-    { "width": 200, "height": 100, "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My Photos & Videos" },
-    { "width": 200, "height": 100, "src": "", "class": "folder", "text": "My News & Entertainment" },
-    { "width": 100, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Nest_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GoogleEarth_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleFinance_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleTranslate_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleBlogs_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GmailAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/FlightsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/GoogleMaps_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/AmazonPrime_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "src": "img/Flickr_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/Forum_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/GamesOther_AppIcon.png", "class": "", "text": "" },
-    { "width": 200, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" },
-];
+// var tempJSON = [
+//     { "width": 400, "height": 400, "initialPosition":"0-0", "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-comment\"></span>News RSS</h2><div id=\"rss-feeds\" class=\"rss-feed\"></div></div>" },
+//     { "width": 400, "height": 400, "initialPosition":"0-4", "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-cutlery\"></span>Food Menu</h2><div id=\"food-rss\" class=\"rss-feed\"></div></div>" },
+//     { "width": 200, "height": 100, "initialPosition":"0-8", "src": "", "class": "folder", "text": "My Home" },
+//     { "width": 200, "height": 100, "initialPosition":"0-10", "src": "", "class": "folder", "text": "My Health" },
+//     { "width": 400, "height": 400, "initialPosition":"0-12", "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-usd\"></span>Finance</h2><div id=\"finance-rss\" class=\"rss-feed\"></div></div>" },
+//     { "width": 400, "height": 400, "initialPosition":"0-16", "src": "", "class": "rss", "text": "<div class=\"widget text-center\"><h2><span class=\"glyphicon glyphicon-scale\"></span>Health</h2><div id=\"health-rss\" class=\"rss-feed\"></div></div>" },
+//     { "width": 100, "height": 100, "initialPosition":"1-8", "src": "", "class": "folder", "text": "My Office" },
+//     { "width": 200, "height": 200, "initialPosition":"1-9", "src": "", "class": "folder", "text": "My Connect" },
+//     { "width": 100, "height": 100, "initialPosition":"1-11", "src": "", "class": "folder", "text": "My Home" },
+//     { "width": 100, "height": 100, "initialPosition":"2-8", "src": "", "class": "folder", "text": "My Finances" },
+//     { "width": 100, "height": 100, "initialPosition":"2-11", "src": "", "class": "folder", "text": "My Faith" },
+//     { "width": 200, "height": 100, "initialPosition":"3-8", "src": "", "class": "folder", "text": "My Photos & Videos" },
+//     { "width": 200, "height": 100, "initialPosition":"3-10", "src": "", "class": "folder", "text": "My News & Entertainment" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleMaps_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Flickr_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Forum_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 200, "initialPosition":"", "src": "img/GoogleEarth_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleFinance_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleTranslate_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 200, "initialPosition":"", "src": "img/JewishFaith_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Nest_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleMaps_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Flickr_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Forum_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 200, "initialPosition":"", "src": "img/GoogleEarth_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleFinance_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleTranslate_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleMaps_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Flickr_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Forum_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleFinance_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleTranslate_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleMaps_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 200, "initialPosition":"", "src": "img/JewishFaith_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Flickr_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Forum_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GoogleEarth_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleFinance_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleTranslate_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/JewishFaith_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Nest_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleMaps_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Flickr_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Forum_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GoogleEarth_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleFinance_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleTranslate_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/JewishFaith_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleMaps_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Flickr_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Forum_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleFinance_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleTranslate_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/JewishFaith_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Nest_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleMaps_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Flickr_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Forum_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GoogleEarth_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/JewishFaith_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleFinance_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleTranslate_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/JewishFaith_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleMaps_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Flickr_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/Forum_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 200, "height": 100, "initialPosition":"", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" }
+// ];
 
-var appTrayJSON = [
-    { "width": 100, "height": 100, "src": "img/AppStore_Icon.png", "class": "app-store-icon", "text": "" },
-    { "width": 100, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" }
-];
+// var appTrayJSON = [
+//     { "width": 100, "height": 100, "src": "img/AppStore_Icon.png", "class": "app-store-icon", "text": "" },
+//     { "width": 100, "height": 100, "src": "img/InformationAppIcon.png", "class": "", "text": "" }
+// ];
+// var appStoreJSON = [
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Email.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/YouTubeAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/WebMD_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/TwitterAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/TheSecret_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/SpotifyAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Skype_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/SettingsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/RSSAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/PinterestAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Pandora_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Netflix_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Nest_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/MuslimFaith_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Mediprocity_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Lutron_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/ListsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/LinkedInAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/JewishFaith_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/JesusCalling_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Instagram_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/HolyBible_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GreetingCard_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleWallet_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleTranslate_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleShopping_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleSearch_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GooglePlus_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GooglePlay_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GooglePhotos_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GooglePasswords_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleNews_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleHangouts_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleGroups_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleDrive_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleDocs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleCalendar_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBooks_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Flickr_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FacebookAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/BrainGames_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/DailyNotices_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/CommunityChat_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/ChaseBankAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/CareOptions_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/CalendarAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/BrokerageAccount_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/BankAccounts_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AppearIn_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleMaps_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Forum_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleEarth_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleFinance_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "" },
+//     { "width": 100, "height": 100, "initialPosition":"", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" }
+// ];
 
 
 function requestPassword() {
@@ -219,7 +283,7 @@ function appTrayAddCells() {
 function freewallAddCells() {
     console.log("Adding cells to main grid");
     var temp =
-        "<div class='brick {class}' style='width:{width}px; height:{height}px;' oncontextmenu=\"javascript:iconRightClick($(this));return false;\">{text}<img src={src} /></div>";
+        "<div class='brick {class}' data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;' oncontextmenu=\"javascript:iconRightClick($(this));return false;\">{text}<img src={src} /></div>";
     //          var w = 1, h = 1, html = '', limitItem = 10;
 
     var w = 1, h = 1, html = '', limitItem = tempJSON.length;
@@ -230,6 +294,7 @@ function freewallAddCells() {
             .replace("{height}", tempJSON[i].height)
             .replace("{src}", tempJSON[i].src)
             .replace("{class}", tempJSON[i].class)
+            .replace("{initialPosition}", tempJSON[i].initialPosition)
             .replace("{text}", tempJSON[i].text);
     }
 
@@ -238,6 +303,30 @@ function freewallAddCells() {
     $(".folder").children("img").remove();
     $(".rss").children("img").remove();
     addMenuToIcons();
+}
+
+function appStoreAddCells() {
+    console.log("Adding cells to main grid");
+    var temp =
+        "<div class='brick {class}' data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;' oncontextmenu=\"javascript:iconRightClick($(this));return false;\">{text}<img src={src} /></div>";
+    //          var w = 1, h = 1, html = '', limitItem = 10;
+
+    var w = 1, h = 1, html = '', limitItem = appStoreJSON.length;
+
+    for (var i = 0; i < limitItem; ++i) {
+        html += temp
+            .replace(/\{width\}/, 100)
+            .replace("{height}", 100)
+            .replace("{src}", appStoreJSON[i].src)
+            .replace("{class}", appStoreJSON[i].class)
+            .replace("{initialPosition}", appStoreJSON[i].initialPosition)
+            .replace("{text}", appStoreJSON[i].text);
+    }
+
+    $("#apps-container").html(html);
+    // freewallInit();
+    $("#apps-container .folder").remove();
+    $("#apps-container .rss").remove();
 }
 
 
@@ -369,8 +458,6 @@ function iconMenuListeners() {
         $("#app-tray .add-dropdown")
             .removeClass("dropdown")
             .addClass("dropup");
-
-        // $(this).parentsUntil($(".free-wall")).appendTo("#app-drawer");
         populateAddTo();
         appTrayInit();
     });
@@ -398,6 +485,23 @@ function iconMenuListeners() {
     console.log("menu listeners added");
 };
 
+function appStoreInit() {
+    var appStore = new freewall("#apps-container");
+    appStore.reset({
+        // draggable: true,
+        selector: '.brick',
+        animate: true,
+        fixSize: 0,
+        cellW: 100,
+        cellH: 100,
+        onResize: function () {
+            appStore.fitWidth();
+        }
+    });
+    appStore.fitWidth();
+    console.log("App Store Grid loaded");
+}
+
 function freewallInit() {
     var wall = new freewall("#freewall1");
     wall.reset({
@@ -414,7 +518,7 @@ function freewallInit() {
             //             top:0,
             //             left:0,
             //             width:4,
-            //             height:5
+            //             height:5   
             //            });
             //            $(".folder").removeClass("brick");
         }
@@ -433,16 +537,8 @@ function appTrayInit() {
         fixSize: 0,
         cellW: 100,
         cellH: 100,
-        //        rightToLeft: true,
         onResize: function () {
             appTray.fitWidth();
-            //            appTray.setHoles({
-            //             top:0,
-            //             left:0,
-            //             width:4,
-            //             height:5
-            //            });
-            //            $(".folder").removeClass("brick");
         }
     });
 
@@ -470,6 +566,15 @@ function staticEventListeners() {
     });
     $(".app-store-icon").dblclick(function () {
         $("#app-store-modal").modal("show");
+        setTimeout(function(){ appStoreInit(); }, 200);
+    });
+    $("#apps-container .brick").click(function() {
+        var appCopy = $(this)
+            .attr("data-position", "")
+            .clone();
+        $("#freewall1").append(appCopy);
+        freewallInit();
+        // addMenuToIcons();
     });
     console.log("static listeners added");
 
@@ -481,10 +586,11 @@ function iconRightClick($button) {
 }
 
 $(function () {
+    // requestPassword();
     freewallAddCells();
     appTrayAddCells();
+    appStoreAddCells();
     iconMenuListeners();
-    // requestPassword();
     showFolderModal();
     staticEventListeners();
 });
@@ -506,42 +612,6 @@ $(function () {
 //        },
 //        error: function(data) {
 //            console.log('error', data );
-//        }
-//    });
-//}
-
-
-//function addLocks($object) {
-//    $object.children(".save-icon").remove();
-//    $object.prepend("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
-//    $(".icon").parent().siblings(".save-icon")
-//        .css({"visibility": "visible"});
-//    $(".folder").siblings(".save-icon")
-//        .css({"visibility": "visible"});
-//    $(".icon").parent().siblings(".gs-resize-handle")
-//        .css({"visibility": "visible"});
-//    $(".folder").siblings(".gs-resize-handle")
-//        .css({"visibility": "visible"});
-//}
-//
-//function LockClickEvents($object) {
-//    $object.children('.save-icon').on("click", function () {
-//        if ($(this).hasClass("icon-locked")) {
-//            $(this)
-//                .attr("src", "img/unlock3.svg")
-//                .removeClass("icon-locked")
-//                .parent()
-//                .addClass("gs-w")
-//                .draggable("enable");
-//        }
-//        else {
-//            $(this)
-//                .attr("src", "img/lock24.svg")
-//                .addClass("icon-locked");
-//            $(this)
-//                .parent()
-//                .removeClass('gs-w')
-//                .draggable("disable");
 //        }
 //    });
 //}

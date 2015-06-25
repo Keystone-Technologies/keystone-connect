@@ -16,6 +16,10 @@ body {
 .container {
   width: 1400px;
   overflow-y: scroll;
+  padding: 0px;
+}
+.container .col-xs-12 {
+  padding: 0px;
 }
 @keyframes start {
   from {
@@ -54,7 +58,7 @@ body {
 #home .grid-container .free-wall {
   margin: 15px 50px;
   float: left;
-  width: 2000px;
+  width: 6000px;
 }
 #home .grid-container .free-wall .folder {
   background-color: #23789e !important;
@@ -82,6 +86,7 @@ body {
 }
 #home .grid-container .free-wall .brick .icon-menu .dropdown-toggle {
   color: white;
+  display: none;
 }
 #home .grid-container .free-wall .brick .icon-menu .add-dropdown {
   color: black;
@@ -197,11 +202,11 @@ body {
   margin: -24px 0px 0px 0px;
 }
 #home #app-tray #grid-pagination ul li {
-  color: white;
-  opacity: .4;
+  color: darkgrey;
+  opacity: .8;
 }
 #home #app-tray #grid-pagination ul li:hover {
-  opacity: .05;
+  opacity: .4;
 }
 #home #app-tray #grid-pagination ul #left-slow {
   -ms-transform: rotate(180eg);
@@ -259,7 +264,7 @@ body {
   border-radius: 4px;
   height: 106px;
   margin: 0 auto;
-  width: 420px;
+  width: 100%;
 }
 #home #app-tray #app-drawer li {
   margin: .5%;
@@ -337,9 +342,14 @@ body {
   max-width: 100%;
   padding: 0 4%;
 }
-#app-store-modal #apps-container li {
+#app-store-modal #apps-container .brick {
   margin: 10px;
   width: 98px;
+}
+#app-store-modal #apps-container .brick img {
+  height: auto;
+  max-width: 98px;
+  width: 100%;
 }
 #app-store-modal #app-nav {
   padding: 0 4%;
