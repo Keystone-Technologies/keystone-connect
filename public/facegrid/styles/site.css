@@ -2,6 +2,14 @@ body {
   background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
   height: 100%;
 }
+#header {
+  top: 0;
+  position: fixed;
+}
+#footer {
+  position: fixed;
+  bottom: 0;
+}
 .banner {
   position: relative;
 }
@@ -43,19 +51,20 @@ body {
 }
 #home #vid-container {
   background: #000000;
-  height: 800px;
+  margin-top: 80px;
+  height: 600px;
 }
 #home .grid-container {
-  max-height: 1200px;
+  max-height: 400px;
   margin-top: 0px;
   width: 100%;
+  overflow-x: scroll;
   z-index: 30;
 }
 #home .grid-container .free-wall {
   max-height: 88px;
   margin-top: 10px;
   max-width: 8000px;
-  overflow-x: scroll;
   height: 88px;
   float: left;
   width: 100%;

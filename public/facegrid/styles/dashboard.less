@@ -3,7 +3,15 @@ body{
   height: 100%;
 }
 
+#header {
+  top: 0;
+  position: fixed;
+}
 
+#footer {
+  position: fixed;
+  bottom: 0;
+}
 .banner{
   //    background: @kt-blue-23;
   //    color: @kt-white;
@@ -58,19 +66,21 @@ body{
 
   #vid-container {
     background: @kt-black;
-    height: 800px;
+    margin-top: 80px;
+    height: 600px;
   }
   .grid-container {
-    max-height: 1200px;
+    max-height: 400px;
     margin-top: 0px;
     width: 100%;
+    overflow-x: scroll;
     z-index: 30;
 
     .free-wall {
       max-height: 88px;
       margin-top: 10px;
       max-width: 8000px;
-      overflow-x: scroll;
+
       height: 88px;
       float: left;
       width: 100%;
