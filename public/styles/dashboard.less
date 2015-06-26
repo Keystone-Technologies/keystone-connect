@@ -1,9 +1,8 @@
 body{
   background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
   // background-color:@kt-blue-74;
-  height: 100%;
 }
-
+body,html{height:100%;}
 
 .banner{
   //    background: @kt-blue-23;
@@ -32,6 +31,8 @@ body{
   }
 }
 #home {
+
+  position: relative;
 
   @keyframes start {
     from {
@@ -68,17 +69,17 @@ body{
   }
 
   .grid-container{
-    height: 100%;
+    min-height: 100%;
     margin-top: 120px;
-    overflow-y: scroll;
-    //    width: 2000px;
+    overflow-x: scroll;
+
     z-index:30;
 
     .free-wall {
-      margin: 15px 50px;
+      margin: 15px 0px;
       float: left;
-      // width:2000px;
       width:6000px;
+
       .folder{
         background-color:@kt-blue-23 !important;
         content: "Folder";
@@ -89,7 +90,6 @@ body{
       }
 
       .brick {
-        background:fade(@kt-blue-7e, 20%);
 
         img{
           height:100%;
@@ -133,14 +133,6 @@ body{
                 display:block;
               }
             }
-          }
-        }
-
-        .widget{
-          height:100%;
-          overflow-y:scroll;
-          .rss-feed{
-            max-height:100%;// !important;
           }
         }
       }
@@ -254,32 +246,25 @@ body{
 
   #app-tray {
     bottom: 0;
-    // display:none;
-    position: fixed;
+    width: 100%;
     z-index:30;
 
     #grid-pagination{
-      margin:-24px 0px 0px 0px;
+
       ul{
         li{
           color:darkgrey;
+          font-size: 24px;
           opacity:.8;
           &:hover{
             opacity:.4;
           }
         }
-        #left-slow{
-          -ms-transform: rotate(180eg); /* IE 9 */
-          -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-          transform: rotate(180deg);
-        }
+
       }
     }
 
     .free-wall {
-      // margin: 15px 50px;
-      // float: left;
-      // width:2000px;
       .folder{
         background-color:@kt-blue-23 !important;
         content: "Folder";
@@ -287,7 +272,6 @@ body{
       }
 
       .brick {
-        background:fade(@kt-blue-7e, 20%);
 
         img{
           height:100%;
