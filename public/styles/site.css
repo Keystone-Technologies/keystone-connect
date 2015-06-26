@@ -59,6 +59,7 @@ html {
   min-height: 100%;
   margin-top: 120px;
   overflow-x: scroll;
+  overflow-y: auto;
   z-index: 30;
 }
 #home .grid-container .free-wall {
