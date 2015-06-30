@@ -78,8 +78,9 @@ function freewallAddCells() {
     // freewallInit();
     $(".folder").children("img").remove();
     $(".rss").children("img").remove();
-    appTrayAddCells();
+    firstWallAddCells();
     appStoreAddCells();
+    appTrayAddCells();
     freewallInit();
     appTrayInit();
     addMenuToIcons();
@@ -101,11 +102,26 @@ function appTrayAddCells() {
     }
 
     $("#app-drawer").html(html);
-    // appTrayInit();
-    $(".folder").children("img").remove();
-    // $(".rss").children("img").remove();
-    // addMenuToIcons();
+    $(".folder, .rss").children("img").remove();
+}
 
+function firstWallAddCells() {
+    console.log("Adding cells to app tray");
+    var temp = "<div class='brick {class}' link=\"{link}\" data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;' oncontextmenu=\"javascript:iconRightClick($(this));return false;\">{text}<img src={src} /></div>";
+
+    var w = 1, h = 1, html = '', limitItem = firstWallJSON.length;
+
+    for (var i = 0; i < limitItem; ++i) {
+        html += temp
+            .replace(/\{width\}/, firstWallJSON[i].width)
+            .replace("{height}", firstWallJSON[i].height)
+            .replace("{src}", firstWallJSON[i].src)
+            .replace("{class}", firstWallJSON[i].class)
+            .replace("{link}", firstWallJSON[i].link)
+            .replace("{initialPosition}", firstWallJSON[i].initialPosition)
+            .replace("{text}", firstWallJSON[i].text);
+    }
+    $("#firstwall").html(html);
 }
 
 
@@ -120,7 +136,7 @@ function appStoreAddCells() {
             .replace(/\{width\}/, 100)
             .replace("{height}", 100)
             .replace("{src}", appStoreJSON[i].src)
-            .replace("{link}", tempJSON[i].link)
+            .replace("{link}", appStoreJSON[i].link)
             .replace("{class}", appStoreJSON[i].class)
             .replace("{initialPosition}", appStoreJSON[i].initialPosition)
             .replace("{text}", appStoreJSON[i].text);
@@ -308,6 +324,32 @@ function appStoreInit() {
     console.log("App Store Grid loaded");
 }
 
+function firstWallInit() {
+    var wall = new freewall("#firstwall");
+    wall.reset({
+        draggable: true,
+        selector: '.brick',
+        animate: true,
+        fixSize: 0,
+        cellW: 100,
+        cellH: 100,
+        //        rightToLeft: true,
+        onResize: function () {
+            wall.fitWidth();
+            //            wall.setHoles({
+            //             top:0,
+            //             left:0,
+            //             width:4,
+            //             height:5
+            //            });
+            //            $(".folder").removeClass("brick");
+        }
+    });
+
+    wall.fitWidth();
+    console.log("main grid loaded");
+}
+
 function freewallInit() {
     var wall = new freewall("#freewall1");
     wall.reset({
@@ -324,7 +366,7 @@ function freewallInit() {
             //             top:0,
             //             left:0,
             //             width:4,
-            //             height:5   
+            //             height:5
             //            });
             //            $(".folder").removeClass("brick");
         }
@@ -394,6 +436,7 @@ function iconRightClick($button) {
 $(function () {
     // requestPassword();
     freewallAddCells();
+    firstWallInit();
     // appTrayAddCells();
     // appStoreAddCells();
     iconMenuListeners();
