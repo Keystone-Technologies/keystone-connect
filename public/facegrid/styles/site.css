@@ -21,6 +21,9 @@ body {
   position: absolute;
   top: 5px;
 }
+#home {
+  position: relative;
+}
 @keyframes start {
   from {
     transform: scale(0);
@@ -52,13 +55,18 @@ body {
 #home #vid-container {
   background: #000000;
   margin-top: 80px;
-  height: 600px;
+  min-height: 400px;
+  height: auto;
+  max-width: 1263px;
+  width: 100%;
+  z-index: 1;
 }
 #home .grid-container {
-  max-height: 400px;
+  max-height: 300px;
   margin-top: 0px;
   width: 100%;
   overflow-x: scroll;
+  overflow-y: hidden;
   z-index: 30;
 }
 #home .grid-container .free-wall {
@@ -81,6 +89,7 @@ body {
   color: white;
   margin-top: -50px;
   text-align: center;
+  font-size: 18pt;
 }
 #home .grid-container .free-wall .brick img {
   height: 100%;
@@ -177,4 +186,11 @@ p {
 }
 #header {
   background: #ffffff;
+  position: absolute;
+  z-index: 4;
+}
+#header #logo {
+  max-width: 300px;
+  padding: 1%;
+  float: left;
 }
