@@ -408,9 +408,6 @@ body{
 }
 
 #app-store-modal {
-  max-width:  1000px;
-  margin: 0 auto;
-  width: 100%;
 
   h1 {
     color: @kt-blue-74;
@@ -441,6 +438,9 @@ body{
     .modal-footer{
       border-top: transparent;
     }
+    .modal-body {
+      overflow: scroll;
+    }
   }
 
   #apps-container {
@@ -468,7 +468,7 @@ body{
     }
 
     .active {
-      background: #245269;
+      background: fade(#245269, 20%);
       a{
         color: @kt-black;
       }

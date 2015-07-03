@@ -307,11 +307,6 @@ body {
 #password-modal .btn-default {
   border-color: #7eb0db;
 }
-#app-store-modal {
-  max-width: 1000px;
-  margin: 0 auto;
-  width: 100%;
-}
 #app-store-modal h1 {
   color: #204d74;
   margin-bottom: 20px;
@@ -336,6 +331,9 @@ body {
 #app-store-modal .modal-content .modal-footer {
   border-top: transparent;
 }
+#app-store-modal .modal-content .modal-body {
+  overflow: scroll;
+}
 #app-store-modal #apps-container {
   border-top: 2px solid #204d74;
   max-width: 100%;
@@ -358,7 +356,7 @@ body {
   margin: 6px;
 }
 #app-store-modal #app-nav .active {
-  background: #245269;
+  background: rgba(36, 82, 105, 0.2);
 }
 #app-store-modal #app-nav .active a {
   color: #000000;
