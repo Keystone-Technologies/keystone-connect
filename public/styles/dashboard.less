@@ -148,9 +148,9 @@ body{
 
         .widget{
           height:100%;
-          overflow-y:scroll;
+          max-height: 400px;
           .rss-feed{
-            max-height:100%;// !important;
+            height: 100%;
           }
         }
       }
@@ -260,9 +260,6 @@ body{
 
 
   #app-tray {
-    bottom: 0;
-    // display:none;
-    position: fixed;
     z-index:30;
 
     #grid-pagination{
@@ -274,11 +271,6 @@ body{
           &:hover{
             opacity:.4;
           }
-        }
-        #left-slow{
-          -ms-transform: rotate(180eg); /* IE 9 */
-          -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
-          transform: rotate(180deg);
         }
       }
     }
@@ -298,7 +290,6 @@ body{
       }
 
       .brick {
-        background:fade(@kt-blue-7e, 20%);
 
         img{
           height:100%;
@@ -358,12 +349,10 @@ body{
       margin: 0 auto;
       // padding:0px 10px;
       width: 100%;
-
-      li{
-        margin: .5%;
-      }
+      max-width: 1400px;
 
       .icon{
+        float: left;
         width: 100px;
       }
     }

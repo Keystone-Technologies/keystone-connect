@@ -175,3 +175,6 @@ p {
   height: auto;
   width: 100px;
 }
+#header {
+  background: #ffffff;
+}

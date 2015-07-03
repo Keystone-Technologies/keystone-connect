@@ -119,10 +119,10 @@ body {
 }
 #home .grid-container .free-wall .brick .widget {
   height: 100%;
-  overflow-y: scroll;
+  max-height: 400px;
 }
 #home .grid-container .free-wall .brick .widget .rss-feed {
-  max-height: 100%;
+  height: 100%;
 }
 #home #trash {
   background-color: rgba(0, 0, 0, 0.6);
@@ -203,8 +203,6 @@ body {
   text-align: center;
 }
 #home #app-tray {
-  bottom: 0;
-  position: fixed;
   z-index: 30;
 }
 #home #app-tray #grid-pagination {
@@ -217,13 +215,6 @@ body {
 #home #app-tray #grid-pagination ul li:hover {
   opacity: .4;
 }
-#home #app-tray #grid-pagination ul #left-slow {
-  -ms-transform: rotate(180eg);
-  /* IE 9 */
-  -webkit-transform: rotate(180deg);
-  /* Chrome, Safari, Opera */
-  transform: rotate(180deg);
-}
 #home #app-tray .free-wall {
   display: inline-block;
 }
@@ -231,9 +222,6 @@ body {
   background-color: #23789e !important;
   content: "Folder";
   text-align: center;
-}
-#home #app-tray .free-wall .brick {
-  background: rgba(126, 176, 219, 0.2);
 }
 #home #app-tray .free-wall .brick img {
   height: 100%;
@@ -277,11 +265,10 @@ body {
   height: 106px;
   margin: 0 auto;
   width: 100%;
-}
-#home #app-tray #app-drawer li {
-  margin: .5%;
+  max-width: 1400px;
 }
 #home #app-tray #app-drawer .icon {
+  float: left;
   width: 100px;
 }
 .hidden {
