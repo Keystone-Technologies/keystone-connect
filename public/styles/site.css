@@ -1,8 +1,5 @@
 body {
   background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
-}
-body,
-html {
   height: 100%;
 }
 .banner {
@@ -23,9 +20,6 @@ html {
 }
 .container .col-xs-12 {
   padding: 0px;
-}
-#home {
-  position: relative;
 }
 @keyframes start {
   from {
@@ -56,16 +50,24 @@ html {
   -webkit-transition: top 0.5s, left 0.5s, width 0.5s, height 0.5s;
 }
 #home .grid-container {
-  min-height: 100%;
+  height: 100%;
   margin-top: 120px;
-  overflow-x: scroll;
-  overflow-y: auto;
+  overflow-y: scroll;
   z-index: 30;
 }
-#home .grid-container .free-wall {
-  margin: 15px 0px;
-  float: left;
+#home .grid-container > ul {
+  width: 7800px;
+}
+#home .grid-container #firstwall {
+  width: 1200px;
+}
+#home .grid-container #freewall1 {
   width: 6000px;
+}
+#home .grid-container .free-wall {
+  display: inline-block;
+  float: left;
+  margin: 15px 50px;
 }
 #home .grid-container .free-wall .folder {
   background-color: #23789e !important;
@@ -74,6 +76,9 @@ html {
 }
 #home .grid-container .free-wall .folder input {
   max-width: 95%;
+}
+#home .grid-container .free-wall .brick {
+  background: rgba(126, 176, 219, 0.2);
 }
 #home .grid-container .free-wall .brick img {
   height: 100%;
@@ -111,6 +116,13 @@ html {
 }
 #home .grid-container .free-wall .brick .icon-menu .add-dropdown:hover .add-flyout {
   display: block;
+}
+#home .grid-container .free-wall .brick .widget {
+  height: 100%;
+  overflow-y: scroll;
+}
+#home .grid-container .free-wall .brick .widget .rss-feed {
+  max-height: 100%;
 }
 #home #trash {
   background-color: rgba(0, 0, 0, 0.6);
@@ -192,21 +204,36 @@ html {
 }
 #home #app-tray {
   bottom: 0;
-  width: 100%;
+  position: fixed;
   z-index: 30;
+}
+#home #app-tray #grid-pagination {
+  margin: -24px 0px 0px 0px;
 }
 #home #app-tray #grid-pagination ul li {
   color: darkgrey;
-  font-size: 24px;
   opacity: .8;
 }
 #home #app-tray #grid-pagination ul li:hover {
   opacity: .4;
 }
+#home #app-tray #grid-pagination ul #left-slow {
+  -ms-transform: rotate(180eg);
+  /* IE 9 */
+  -webkit-transform: rotate(180deg);
+  /* Chrome, Safari, Opera */
+  transform: rotate(180deg);
+}
+#home #app-tray .free-wall {
+  display: inline-block;
+}
 #home #app-tray .free-wall .folder {
   background-color: #23789e !important;
   content: "Folder";
   text-align: center;
+}
+#home #app-tray .free-wall .brick {
+  background: rgba(126, 176, 219, 0.2);
 }
 #home #app-tray .free-wall .brick img {
   height: 100%;
