@@ -21,6 +21,10 @@ body {
 .container .col-xs-12 {
   padding: 0px;
 }
+#home {
+  height: 900px;
+  overflow: scroll;
+}
 @keyframes start {
   from {
     transform: scale(0);
