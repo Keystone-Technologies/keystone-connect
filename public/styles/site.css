@@ -206,7 +206,7 @@ body {
   z-index: 30;
 }
 #home #app-tray #grid-pagination {
-  margin: -24px 0px 0px 0px;
+  margin: 24px 0px 4px 0px;
 }
 #home #app-tray #grid-pagination ul li {
   color: darkgrey;
