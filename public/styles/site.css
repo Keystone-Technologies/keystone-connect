@@ -22,7 +22,7 @@ body {
   padding: 0px;
 }
 #home {
-  height: 900px;
+  height: 1200px;
   overflow: scroll;
 }
 @keyframes start {
