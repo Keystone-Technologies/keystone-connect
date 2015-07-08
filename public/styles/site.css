@@ -56,17 +56,15 @@ body {
 #home .grid-container {
   height: 100%;
   margin-top: 120px;
-  overflow-y: scroll;
   z-index: 30;
 }
-#home .grid-container > ul {
-  width: 7800px;
-}
 #home .grid-container #firstwall {
+  overflow-y: scroll;
   width: 1200px;
 }
-#home .grid-container #freewall1 {
-  width: 6000px;
+#home .grid-container .freewall-page {
+  min-width: 1200px;
+  overflow-y: scroll;
 }
 #home .grid-container .free-wall {
   display: inline-block;

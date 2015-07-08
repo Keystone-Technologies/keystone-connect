@@ -74,7 +74,7 @@ function freewallAddCells() {
             .replace("{text}", tempJSON[i].text);
     }
 
-    $("#freewall1").html(html);
+    $(".freewall-page").html(html);
     // freewallInit();
     $(".folder").children("img").remove();
     $(".rss").children("img").remove();
@@ -160,7 +160,7 @@ function addMenuToIcons() {
     var makeSmallerItem = "<li role=\"presentation\"><a class=\"make-smaller-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon small</a></li>";
     // var makeShorterItem = "<li role=\"presentation\"><a class=\"make-shorter-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon shorter</a></li>";
     var addToItemDropdown = "<li class=\" add-dropdown\" role=\"presentation\"><a class=\"add-to-menu-item\">Add To</a><ul class=\"add-flyout list-unstyled\"></ul></li>";
-    $("#freewall1 .brick").append(dropdownHtml);
+    $(".freewall-page .brick").append(dropdownHtml);
     $("#app-tray .brick").append(dropupHtml);
 
     $(".brick").each(function () {
@@ -188,11 +188,11 @@ function populateAddTo() {
     console.log("populating \"add to\" sub-menu");
     $(".add-flyout").empty();
     $("#app-drawer .add-flyout").prepend("<li class=\"add-to-main-grid\">Main Grid</li>");
-    $("#freewall1 .folder").each(function () {
+    $(".freewall-page .folder").each(function () {
         var $this = $(this).clone().children().remove().end().text();
         $(".add-flyout").append("<li class=\"add-flyout-item\">" + $this + "</li>");
     });
-    $("#freewall1 .add-flyout").prepend("<li class=\"add-to-app-tray\">App Tray</li>");
+    $(".freewall-page .add-flyout").prepend("<li class=\"add-to-app-tray\">App Tray</li>");
     // iconMenuListeners();
 }
 
@@ -291,7 +291,7 @@ function iconMenuListeners() {
     $('.add-to-main-grid').click(function () {
         $(this)
             .parents(':eq(4)')
-            .appendTo($("#freewall1"));
+            .appendTo($(".freewall-page"));
 
         populateAddTo();
         freewallInit();
@@ -351,29 +351,60 @@ function firstWallInit() {
 }
 
 function freewallInit() {
-    var wall = new freewall("#freewall1");
-    wall.reset({
-        draggable: true,
-        selector: '.brick',
-        animate: true,
-        fixSize: 0,
-        cellW: 100,
-        cellH: 100,
-        //        rightToLeft: true,
-        onResize: function () {
-            wall.fitWidth();
-            //            wall.setHoles({
-            //             top:0,
-            //             left:0,
-            //             width:4,
-            //             height:5   
-            //            });
-            //            $(".folder").removeClass("brick");
-        }
-    });
+    var $freewall;
+    var wall;
+
+    for(var i=2;i<=6;i++){
+        $freewall = "#freewall" + i;
+
+        wall = new freewall($freewall);
+        wall.reset({
+            draggable: true,
+            selector: '.brick',
+            animate: true,
+            fixSize: 0,
+            cellW: 100,
+            cellH: 100,
+            //        rightToLeft: true,
+            onResize: function () {
+                wall.fitWidth();
+                //            wall.setHoles({
+                //             top:0,
+                //             left:0,
+                //             width:4,
+                //             height:5   
+                //            });
+                //            $(".folder").removeClass("brick");
+            }
+        });
+
+        wall.fitWidth();
+        console.log($freewall + " loaded");
+    }
+
+    // wall = new freewall("#freewall2");
+    // wall.reset({
+    //     draggable: true,
+    //     selector: '.brick',
+    //     animate: true,
+    //     fixSize: 0,
+    //     cellW: 100,
+    //     cellH: 100,
+    //     //        rightToLeft: true,
+    //     onResize: function () {
+    //         wall.fitWidth();
+    //         //            wall.setHoles({
+    //         //             top:0,
+    //         //             left:0,
+    //         //             width:4,
+    //         //             height:5
+    //         //            });
+    //         //            $(".folder").removeClass("brick");
+    //     }
+    // });
 
     wall.fitWidth();
-    console.log("main grid loaded");
+    console.log($freewall + "loaded");
 }
 
 function appTrayInit() {
@@ -397,7 +428,7 @@ function appTrayInit() {
 function staticEventListeners() {
 
     var $gridContainer = $('.grid-container');
-    var gridScroll = $('#freewall1').outerWidth() - $gridContainer.width() + 50;
+    var gridScroll = $('.freewall-page').outerWidth() - $gridContainer.width() + 50;
     $("#left-full").click(function () {
         $gridContainer.animate({ scrollLeft: '0' }, 1000, 'easeOutQuad');
     });
@@ -421,12 +452,13 @@ function staticEventListeners() {
         var appCopy = $(this)
             .attr("data-position", "")
             .clone();
-        $("#freewall1").append(appCopy);
+        $(".freewall-page").append(appCopy);
         freewallInit();
         // addMenuToIcons();
     });
     console.log("static listeners added");
 
+    $("#grid-carousel").carousel("pause");
 }
 
 function iconRightClick($button) {
