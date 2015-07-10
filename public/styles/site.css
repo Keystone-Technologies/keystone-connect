@@ -205,6 +205,8 @@ body {
   text-align: center;
 }
 #home #app-tray {
+  position: fixed;
+  bottom: 0;
   z-index: 30;
 }
 #home #app-tray #grid-pagination {
