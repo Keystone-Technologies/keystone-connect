@@ -21,8 +21,8 @@ html, body {height: 100%; overflow: hidden;}
 }
 
 .container {
-  width: 1400px;
-  overflow-y: scroll;
+  max-width: 1400px;
+  width: 100%;
   padding:0px;
 
   .col-xs-12{
@@ -568,12 +568,13 @@ p {
 .btn-default {
   border-color: @kt-blue-7e;
 }
-.carousel{
-  overflow: hidden;
-  height: 800px;
-  margin-bottom: 30px;
 
-  .item{
+
+#grid-scroll {
+  height: 600px;
+  overflow: hidden;
+
+  .carousel{
     overflow: scroll;
   }
 }

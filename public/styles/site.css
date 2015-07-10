@@ -18,8 +18,8 @@ body {
   top: 5px;
 }
 .container {
-  width: 1400px;
-  overflow-y: scroll;
+  max-width: 1400px;
+  width: 100%;
   padding: 0px;
 }
 .container .col-xs-12 {
@@ -440,12 +440,11 @@ p {
 .btn-default {
   border-color: #7eb0db;
 }
-.carousel {
+#grid-scroll {
+  height: 600px;
   overflow: hidden;
-  height: 800px;
-  margin-bottom: 30px;
 }
-.carousel .item {
+#grid-scroll .carousel {
   overflow: scroll;
 }
 .banner {
