@@ -22,7 +22,7 @@ body {
   padding: 0px;
 }
 #home {
-  height: 900px;
+  height: 100%;
   overflow: scroll;
 }
 @keyframes start {
@@ -56,9 +56,11 @@ body {
 #home .grid-container {
   height: 100%;
   margin-top: 120px;
+  overflow-y: scroll;
   z-index: 30;
 }
 #home .grid-container #firstwall {
+  height: 100%;
   overflow-y: scroll;
   width: 1200px;
 }
