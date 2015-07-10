@@ -1,9 +1,7 @@
 body{
   background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
-  // background-color:@kt-blue-74;
-  height: 100%;
 }
-
+html, body {height: 100%;}
 
 .banner{
   //    background: @kt-blue-23;
@@ -32,8 +30,9 @@ body{
   }
 }
 #home {
-  height: 100%;
-  overflow: scroll;
+  overflow: inherit;
+  margin: 0;
+  padding: 0;
 
   @keyframes start {
     from {
@@ -72,17 +71,16 @@ body{
   .grid-container{
     height: 100%;
     margin-top: 120px;
-    overflow-y: scroll;
     z-index:30;
-
+    overflow-y:auto;
 
     #firstwall{
       height: 100%;
       overflow-y: scroll;
-      width:1200px;
+      width:100%;
     }
     .freewall-page{
-      min-width:1200px;
+      min-width:100%;
       overflow-y:scroll;
     }
 
