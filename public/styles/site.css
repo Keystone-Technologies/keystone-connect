@@ -438,6 +438,10 @@ p {
 .btn-default {
   border-color: #7eb0db;
 }
+.carousel {
+  overflow-y: scroll;
+  height: 600px;
+}
 .banner {
   background: #ffffff;
   border: 1px solid #c3c3c3;
