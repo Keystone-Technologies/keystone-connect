@@ -459,6 +459,67 @@ p {
     height: 1000px;
   }
 }
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  #grid-scroll {
+    height: 400px;
+  }
+}
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  #grid-scroll {
+    height: 400px;
+  }
+}
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  #grid-scroll {
+    height: 400px;
+  }
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  #grid-scroll {
+    height: 600px;
+  }
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #grid-scroll {
+    height: 600px;
+  }
+}
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  #grid-scroll {
+    height: 600px;
+  }
+}
+/**********
+iPad 3
+**********/
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {
+  #grid-scroll {
+    height: 600px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {
+  #grid-scroll {
+    height: 700px;
+  }
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  #grid-scroll {
+    height: 900px;
+  }
+}
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  #grid-scroll {
+    height: 1000px;
+  }
+}
 .banner {
   background: #ffffff;
   border: 1px solid #c3c3c3;
