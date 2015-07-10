@@ -441,6 +441,7 @@ p {
 .carousel {
   overflow-y: scroll;
   height: 800px;
+  margin-bottom: 30px;
 }
 .banner {
   background: #ffffff;
