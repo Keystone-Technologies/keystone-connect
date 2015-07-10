@@ -440,9 +440,12 @@ p {
   border-color: #7eb0db;
 }
 .carousel {
-  overflow: auto;
+  overflow: hidden;
   height: 800px;
   margin-bottom: 30px;
+}
+.carousel .item {
+  overflow: scroll;
 }
 .banner {
   background: #ffffff;

@@ -568,7 +568,11 @@ p {
   border-color: @kt-blue-7e;
 }
 .carousel{
-  overflow: auto;
+  overflow: hidden;
   height: 800px;
   margin-bottom: 30px;
+
+  .item{
+    overflow: scroll;
+  }
 }
