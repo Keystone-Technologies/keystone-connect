@@ -496,3 +496,18 @@ $(function () {
 //        }
 //    });
 //}
+$(function() {
+    var wall = new freewall("#freewall");
+    wall.reset({
+        selector: '.brick',
+        cellW: 160,
+        cellH: 160,
+        onResize: function() {
+            wall.fitHeight($(window).height() - 170);
+        }
+    });
+    // caculator height for IE7;
+    wall.fitHeight($(window).height() - 170);
+    $(window).trigger("resize");
+});
+		

@@ -78,6 +78,8 @@ body {
   overflow-x: scroll;
   overflow-y: hidden;
   z-index: 30;
+  position: fixed;
+  bottom: 0;
 }
 #home .grid-container .free-wall {
   max-height: 88px;
