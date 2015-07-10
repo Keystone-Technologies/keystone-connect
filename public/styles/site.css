@@ -215,6 +215,10 @@ body {
   bottom: 0;
   z-index: 30;
 }
+#home #app-tray .page-nav {
+  top: 20px;
+  position: relative;
+}
 #home #app-tray #grid-pagination {
   margin: 24px 0px 4px 0px;
 }
