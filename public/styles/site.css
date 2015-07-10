@@ -440,7 +440,54 @@ p {
 }
 .carousel {
   overflow-y: scroll;
-  height: 600px;
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .caurousel {
+    height: 500px;
+  }
+}
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+  .caurousel {
+    height: 500px;
+  }
+}
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+  .caurousel {
+    height: 500px;
+  }
+}
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .caurousel {
+    height: 800px;
+  }
+}
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .caurousel {
+    height: 800px;
+  }
+}
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+  .caurousel {
+    height: 800px;
+  }
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+  .caurousel {
+    height: 800px;
+  }
+}
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+  .caurousel {
+    height: 1000px;
+  }
 }
 .banner {
   background: #ffffff;
