@@ -4,6 +4,7 @@ body {
 html,
 body {
   height: 100%;
+  overflow: hidden;
 }
 .banner {
   position: relative;
@@ -439,7 +440,7 @@ p {
   border-color: #7eb0db;
 }
 .carousel {
-  overflow-y: scroll;
+  overflow: auto;
   height: 800px;
   margin-bottom: 30px;
 }
