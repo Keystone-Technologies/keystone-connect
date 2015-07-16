@@ -55,7 +55,6 @@ body {
 #home #vid-container {
   background: #000000;
   margin-top: 140px;
-  max-width: 1263px;
   width: 100%;
   z-index: 1;
   position: relative;
@@ -83,12 +82,13 @@ body {
   bottom: 0;
 }
 #home .grid-container .free-wall {
+  float: left;
+  height: 88px;
   max-height: 88px;
   margin-top: 10px;
   max-width: 8000px;
-  height: 88px;
-  float: left;
-  width: 100%;
+  overflow-y: scroll;
+  width: 1600px;
 }
 #home .grid-container .free-wall .folder {
   background-color: #23789e !important;

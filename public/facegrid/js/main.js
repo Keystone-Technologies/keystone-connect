@@ -107,7 +107,7 @@ function freewallInit() {
         cellH: 100,
 //        rightToLeft: true,
         onResize: function() {
-            wall.fitWidth();
+            // wall.fitWidth();
 //            wall.setHoles({
 //             top:0,
 //             left:0,
