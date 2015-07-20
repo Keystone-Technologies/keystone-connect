@@ -72,12 +72,9 @@ body {
 }
 #home .grid-container .free-wall {
   float: left;
-  height: 100px;
-  max-height: 100px;
   margin-top: 10px;
   max-width: 8000px;
   overflow-y: scroll;
-  width: 1600px;
 }
 #home .grid-container .free-wall .folder {
   background-color: #23789e !important;
