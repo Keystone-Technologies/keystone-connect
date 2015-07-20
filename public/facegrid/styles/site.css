@@ -49,10 +49,9 @@ body {
   width: 100%;
   z-index: 1;
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 35%;
   padding-top: 30px;
   height: 0;
-  overflow-y: scroll;
 }
 #home #vid-container iframe {
   position: absolute;
@@ -76,7 +75,7 @@ body {
   max-height: 300px;
   margin-top: 10px;
   max-width: 8000px;
-  overflow-y: scroll;
+  overflow: auto;
   width: 2400px;
 }
 #home .grid-container .free-wall .folder {
