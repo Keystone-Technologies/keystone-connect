@@ -121,7 +121,7 @@ function freewallInit() {
 }
 function sizeVideoFrame(){
     headFootHeight =  $("#header").outerHeight() + $(".grid-container").outerHeight();
-    var iframeHeight = document.documentElement.clientHeight - headFootHeight;
+    var iframeHeight = document.documentElement.clientHeight - (headFootHeight - 30);
     $("#vid-container iframe").css("height", iframeHeight)
 };
 

@@ -79,25 +79,32 @@ body{
       // display:flex;
     }
   }
-  .grid-container {
-    background: fade(@kt-black, 10%);
+
+  .grid-wrapper{
+    height:106px;
+    position:fixed;
     bottom:0px;
     left:0px;
-    max-height: 300px;
+    width:100%;
+  }
+  .grid-container {
+    background: fade(@kt-black, 10%);
+    height: 136px;
     margin-top: 0px;
     -webkit-overflow-scrolling: touch;
-    overflow: -moz-scrollbars-none;
-    overflow-x: hidden;
+    // overflow: -moz-scrollbars-none;
+    overflow-x: scroll;
     overflow-y: hidden;
-    -ms-overflow-style: none;
-    padding-bottom:10px;
-    position:fixed;
+    // -ms-overflow-style: none;
+
+    padding-bottom:40px;
+    position:absolute;
     width: 100%;
     z-index: 30;
 
-    &::-webkit-scrollbar{
-      display:none;
-    }
+    // &::-webkit-scrollbar{
+    //   display:none;
+    // }
 
     .free-wall {
       float: left;
