@@ -49,25 +49,33 @@ body {
   width: 100%;
   z-index: 1;
   position: relative;
-  padding-bottom: 35%;
-  padding-top: 30px;
   height: 0;
 }
 #home #vid-container iframe {
   position: absolute;
-  top: 0;
+  top: -10;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100px;
 }
 #home .grid-container {
   background: rgba(0, 0, 0, 0.1);
+  bottom: 0px;
+  left: 0px;
   max-height: 300px;
   margin-top: 0px;
-  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
   overflow-x: scroll;
   overflow-y: hidden;
+  padding-bottom: 10px;
+  position: fixed;
+  width: 100%;
   z-index: 30;
+}
+#home .grid-container::-webkit-scrollbar {
+  display: none;
 }
 #home .grid-container .free-wall {
   float: left;
@@ -76,7 +84,7 @@ body {
   margin-top: 10px;
   max-width: 8000px;
   overflow: auto;
-  width: 2400px;
+  width: 1600px;
 }
 #home .grid-container .free-wall .folder {
   background-color: #23789e !important;

@@ -10,6 +10,9 @@ var newName;
 var inputVal;
 var startingName;
 var $currentFolder;
+var headFootHeight;
+
+
 
     var tempJSON = [
         {"width":100, "height":100, "src":"temp/images-1.jpg", "class": "", "text":"Mom", "email":"ktravis@connexinsoftware.com "},
@@ -29,13 +32,6 @@ var $currentFolder;
         {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Josh", "email":"sadams@keystone-technologies.com"},
         {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Keith", "email":"sadams@keystone-technologies.com"}
     ];
-
-
-
-
-
-
-
 
 function freewallAddCells(){
     var temp =
@@ -121,237 +117,22 @@ function freewallInit() {
     wall.fitWidth();
     console.log("grids loaded");
 }
+    function sizeVideoFrame(){
+        headFootHeight =  $("#header").outerHeight() + $(".grid-container").outerHeight();
+        var iframeHeight = document.documentElement.clientHeight - headFootHeight;
+        $("#vid-container iframe").css("height", iframeHeight)
+        console.log("running size function");
+    };
+  
+function staticEventHandlers() {
+    $(window).resize(function() {
+        sizeVideoFrame();
+    });
+}
+
 
 $(function () {
     freewallAddCells();
     freewallInit();
-//    deleteItem();
-//    requestPassword();
-//    thumbnailDraggable($(".gs-w"));
-//    trashDroppable();
-//    createFolderDroppable();
-//    showFolderModal();
-//    bannerCloseEvent();
+    staticEventHandlers();
 });
-
-
-
-//Archived functions for later stages of development
-
-//function wall2Droppable() {
-//    $("#freewall2").droppable({
-//        accept: "#freewall1 .brick",
-//        hoverClass: "dropzone-hover",
-//        activeClass: "dropzone-active",
-//        tolerance: "pointer",
-//        drop: function (event, ui) {
-//            $(ui.draggable)
-//                .attr("data-delay", "")
-//                .attr("data-position", "")
-//                .prependTo($("#freewall2"));
-//            var wall1Clone = $("#freewall1").clone();
-//            var wall2Clone = $("#freewall2").clone();
-//            $("#freewall1").remove();
-//            $("#freewall2").remove();
-//            wall1Clone.appendTo($(".grid-container"));
-//            wall2Clone.appendTo($(".grid-container"));
-////                $("#freewall1").clone().appendTo($(".grid-container"));
-////                $("#freewall2").clone().appendTo($(".grid-container"));
-//            freewallInit();
-//        }
-//    });
-//}
-
-//function brickDraggable($thumb) {
-//    $thumb.draggable({
-//        containment: "#home",
-//        scroll: false,
-////        cursorAt: {
-////            top: -15
-////        },
-//        stop: function () {
-//            console.log("dragging stopped");
-//            freewallInit();
-////            $thumb.draggable("destroy");
-//        },
-//        drag: function (event, ui) {
-//            console.log("dragging");
-//        }
-//    });
-//}
-
-//function testAjax() {
-//    $.ajax({
-//        type: 'POST',
-//        dataType: 'jsonp',
-//        url: 'http://keystone-connect.dev.kit.cm/api/grid/1',
-//        success: function(data) {
-//            json = data;
-//            console.log(json[0].label);
-//            loadSerial($("#grid-3 ul,#grid-4 ul,#grid-5 ul"));
-//            return json;
-//        },
-//        error: function(data) {
-//            console.log('error', data );
-//        }
-//    });
-//}
-
-//function appTrayDroppable($droppable,$accept) {
-//    $droppable.droppable({
-//        accept: $accept,
-//
-//        tolerance: "touch",
-//        drop: function (event, ui) {
-//            if($droppable.find("li").hasClass('thumb-empty')) {
-//                var thumbCopy = $(ui.draggable).contents().clone();
-//                $(ui.draggable).empty();
-//                thumbCopy.appendTo($droppable.find("thumb-empty").first());
-//                $droppable.find("thumb-empty").first()
-//                    .removeClass("thumb-empty")
-//                    .addClass("thumb-occupied");
-//            }
-//        }
-//    });
-//}
-
-
-//function showFolderModal() {
-//    $(".folder").click(function () {
-////        newName;
-////        inputVal;
-//        $currentFolder = $(this);
-//        startingName = $currentFolder.children("h2").text();
-//        $(".folder-modal").modal('show');
-//        $(".folder-name").html(startingName);
-//        $(".folder-name").on("dblclick", function () {
-//            $(this).addClass("hidden");
-//            $(".folder-input")
-////                .attr("value", startingName)
-////                .attr("placeholder", startingName)
-//                .val(startingName)
-//                .removeClass("hidden")
-//                .keyup(function (event) {
-//                    if (event.keyCode == 13) {
-//                        inputVal = $(".folder-input").val();
-//                        $(".folder-input")
-//                            .addClass("hidden")
-//                            .val(null);
-//                        $(".folder-name")
-//                            .removeClass("hidden")
-//                            .html(inputVal);
-//                        console.log(inputVal);
-//                        newName = inputVal;
-//                        $currentFolder.children("h2").html(newName);
-//                        resetVariables();
-//                    }
-//                });
-//        });
-//    });
-//}
-
-//function resetVariables(){
-//    newName = null;
-//    inputVal = null;
-//    startingName = null;
-//    $currentFolder = null;
-//    showFolderModal();
-//}
-
-//function thumbnailDraggable($thumb) {
-//    $thumb.draggable({
-//        containment: "#home",
-//        scroll: false,
-//        cursorAt: {
-//            top: -15
-//        },
-//        axis: "y",
-//        stop: function () {
-//            LockClickEvents($(this));
-//            $("#app-tray").droppable("destroy");
-//
-//        },
-//        drag: function (event, ui) {
-//            appTrayDroppable();
-//            grid1Droppable();
-//            var margin = ui.offset.top;
-//        }
-//    });
-//}
-
-//function addLocks($object) {
-//    $object.children(".save-icon").remove();
-//    $object.prepend("<img class=\"save-icon\" src=\"img/unlock3.svg\" />");
-//    $(".icon").parent().siblings(".save-icon")
-//        .css({"visibility": "visible"});
-//    $(".folder").siblings(".save-icon")
-//        .css({"visibility": "visible"});
-//    $(".icon").parent().siblings(".gs-resize-handle")
-//        .css({"visibility": "visible"});
-//    $(".folder").siblings(".gs-resize-handle")
-//        .css({"visibility": "visible"});
-//}
-//
-//function LockClickEvents($object) {
-//    $object.children('.save-icon').on("click", function () {
-//        if ($(this).hasClass("icon-locked")) {
-//            $(this)
-//                .attr("src", "img/unlock3.svg")
-//                .removeClass("icon-locked")
-//                .parent()
-//                .addClass("gs-w")
-//                .draggable("enable");
-//        }
-//        else {
-//            $(this)
-//                .attr("src", "img/lock24.svg")
-//                .addClass("icon-locked");
-//            $(this)
-//                .parent()
-//                .removeClass('gs-w')
-//                .draggable("disable");
-//        }
-//    });
-//}
-//
-//
-//
-//function appTrayDroppable() {
-//    $("#app-tray").droppable({
-//        accept: "#grid-1 li, #grid-2 li, #grid-3 li, #grid-4 li, #grid-5 li",
-//
-//        tolerance: "pointer",
-//        drop: function (event, ui) {
-//            if($("#app-tray li").hasClass('thumb-empty')) {
-//                var thumbCopy = $(ui.draggable).contents().clone();
-//                $(ui.draggable)
-//                    .empty()
-//                    .addClass("thumb-empty")
-//                    .removeClass("thumb-occupied");
-//                thumbCopy.appendTo($("#app-tray .thumb-empty").first());
-//                $("#app-tray .thumb-empty").first()
-//                    .removeClass("thumb-empty")
-//                    .addClass("thumb-occupied");
-//            }
-//        }
-//    });
-//}
-//
-//function createFolderDroppable() {
-//    console.log("drop function running");
-//    $("#create-folder").droppable({
-//        tolerance: "pointer",
-//        hoverClass: "dropzone-hover",
-//        activeClass: "dropzone-active",
-//        drop: function (event, ui) {
-//            $(ui.draggable).empty();
-//            $(ui.draggable)
-//                .append("<div class=\"folder\"><h2>folder</h2></div>")
-////                .addClass("thumb-occupied")
-//                .removeClass("thumb-empty");
-//            $(ui.draggable)
-//                .append("<span class=\"gs-resize-handle gs-resize-handle-both\"></span>");
-//            showFolderModal();
-//        }
-//    });
-//}
