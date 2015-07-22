@@ -1,3 +1,4 @@
+
 body{
   background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
   height: 100%;
@@ -8,7 +9,7 @@ body{
   //    color: @kt-white;
   //    margin: 0 auto;
   //    height: 40px;
-        position:relative;
+  position:relative;
   //    width: 400px;
   .close-banner{
     color: @kt-blue-23;
@@ -66,8 +67,9 @@ body{
     height: 0;
 
     iframe {
+      border: none;
       position: absolute;
-      top: -10;
+      top: -10px;
       left: 0;
       width: 100%;
       height: 100px;
@@ -85,16 +87,16 @@ body{
     left:0px;
     max-height: 300px;
     margin-top: 0px;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none;
-    overflow-x: scroll;
+    // -webkit-overflow-scrolling: touch;
+    // overflow: -moz-scrollbars-none;
+    overflow-x: hidden;
     overflow-y: hidden;
+    // -ms-overflow-style: none;
     padding-bottom:10px;
     position:fixed;
     width: 100%;
     z-index: 30;
-    
+
     &::-webkit-scrollbar{
       display:none;
     }
@@ -172,82 +174,82 @@ body{
     }
   }
 }
-  p {
-    color: @kt-blue-23;
-    margin: 4px 10px;
+p {
+  color: @kt-blue-23;
+  margin: 4px 10px;
+}
+.app-store-icon {
+  height: auto;
+  width: 100px;
+  padding-right: 10px;
+}
+
+.modal-content{
+
+  .modal-header{
+    border-bottom: transparent;
   }
-  .app-store-icon {
-    height: auto;
-    width: 100px;
-    padding-right: 10px;
+  .modal-footer{
+    border-top: transparent;
+  }
+}
+
+#apps-container {
+  border-top: 2px solid @kt-blue-74;
+  max-width: 100%;
+  padding: 0 4%;
+
+  li{
+    margin: 10px;
+    width: 98px;
+  }
+}
+
+#app-nav {
+  padding: 0 4%;
+
+  li {
+    height: 50px;
+    margin: 6px;
   }
 
-  .modal-content{
-
-    .modal-header{
-      border-bottom: transparent;
-    }
-    .modal-footer{
-      border-top: transparent;
-    }
-  }
-
-  #apps-container {
-    border-top: 2px solid @kt-blue-74;
-    max-width: 100%;
-    padding: 0 4%;
-
-    li{
-      margin: 10px;
-      width: 98px;
-    }
-  }
-
-  #app-nav {
-    padding: 0 4%;
-
-    li {
-      height: 50px;
-      margin: 6px;
-    }
-
-    .active {
-      background: #245269;
-      a{
-        color: @kt-black;
-      }
-
-    }
-
-    #search-nav {
-      margin-top: 18px;
-      i {
-        color: @kt-blue-74;
-        padding-right: 10px;
-
-      }
+  .active {
+    background: #245269;
+    a{
+      color: @kt-black;
     }
 
   }
 
-  .btn-primary{
-    background: @kt-blue-23;
-  }
+  #search-nav {
+    margin-top: 18px;
+    i {
+      color: @kt-blue-74;
+      padding-right: 10px;
 
-  .btn-default {
-    border-color: @kt-blue-7e;
-  }
-
-  #app-tray{
-    background: fade(@kt-black, 20%);
-
-    #app-drawer{
-      img{
-        height: auto;
-        width: 100px;
-      }
     }
   }
+
+}
+
+.btn-primary{
+  background: @kt-blue-23;
+}
+
+.btn-default {
+  border-color: @kt-blue-7e;
+}
+
+#app-tray{
+  background: fade(@kt-black, 20%);
+
+  #app-drawer{
+    img{
+      height: auto;
+      width: 100px;
+    }
+  }
+}
 
 #header {
   background: @kt-white ;
