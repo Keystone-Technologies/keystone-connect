@@ -144,6 +144,11 @@ function swipeHandlers(){
     });
 }
 
+
+function isTouchDevice() {
+    $('.arrow').hide();
+}
+
 function addHoverScroll(){
     $('#freewall1').hoverscroll(
         {
@@ -154,7 +159,7 @@ function addHoverScroll(){
         	arrowsOpacity: 0.7,	// Max possible opacity of the arrows
             fixedArrows: false,  // Fixed arrows on the sides of the list (disables arrowsOpacity)
             rtl:      true,     // Print images from right to left
-        	debug:    false,     // Debug output in the firebug console
+        	debug:    false    // Debug output in the firebug console
         }
     ).css("height","126px").css("width",freewallWidth);
     $(".grid-container").css("width","100%");
@@ -167,11 +172,6 @@ $(function () {
     // swipeHandlers();
     staticEventHandlers();
     addHoverScroll();
-    $("#left-full").click(function () {
-        $('.grid-container').animate({ scrollLeft: '+=-' + horizontalgridscroll }, scrolltime, 'easeOutQuad');
-        console.log('clicked');
-    });
-    $("#right-full").click(function () {
-        $('.grid-container').animate({ scrollLeft: '+=' + horizontalgridscroll}, scrolltime, 'easeOutQuad');
-    });
+    isTouchDevice();
+
 });

@@ -60,53 +60,48 @@ body {
 }
 #home .grid-wrapper {
   bottom: 0px;
-  height: 136px;
+  height: 156px;
   left: 0px;
   position: fixed;
   width: 100%;
+  overflow: hidden;
 }
 #home .grid-container {
   background: rgba(0, 0, 0, 0.1);
-  height: 166px;
-  left: 0px;
-  margin-top: 20px;
-  -webkit-overflow-scrolling: touch;
-  overflow: -moz-scrollbars-none;
-  -ms-overflow-style: none;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  padding-bottom: 40px;
+  height: 156px;
+  margin: 28px auto;
   position: absolute;
-  top: 0px;
   width: 100%;
   z-index: 30;
 }
+#home .grid-container::-webkit-scrollbar {
+  display: none;
+}
 #home .grid-container .free-wall {
-  float: left;
   height: 300px;
   max-height: 300px;
-  margin-top: 10px;
+  margin: 10px auto 0 auto;
   max-width: 8000px;
-  overflow: auto;
+  overflow: hidden;
   width: 1600px;
+  right: 0;
+  left: 0;
 }
 #home .grid-container .free-wall .folder {
   background-color: #23789e !important;
   content: "Folder";
   text-align: center;
 }
-#home .grid-container .free-wall .brick {
-  background: rgba(126, 176, 219, 0.2);
-}
 #home .grid-container .free-wall .brick h1 {
   color: white;
   margin-top: 0px;
   text-align: center;
-  font-size: 18pt;
+  font-size: 15pt;
+  font-weight: normal;
 }
 #home .grid-container .free-wall .brick img {
+  border-radius: 25%;
   height: auto;
-  margin: 0 auto;
   width: 100%;
 }
 #home .grid-container .free-wall .brick .icon-menu {

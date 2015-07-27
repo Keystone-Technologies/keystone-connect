@@ -82,39 +82,32 @@ body{
   
   .grid-wrapper{
     bottom:0px;
-    height:136px;
+    height:156px;
     left:0px;
     position:fixed;
     width:100%;
+    overflow:hidden;
   }
   .grid-container {
     background: fade(@kt-black, 10%);
-    height: 166px;
-    left:0px;
-    margin-top: 20px;
-    -webkit-overflow-scrolling: touch;
-    overflow: -moz-scrollbars-none;
-    -ms-overflow-style: none;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    padding-bottom:40px;
-    position:absolute;
-    top: 0px;
+    height: 156px;
+    margin: 28px auto;
+    position: absolute;
     width: 100%;
     z-index: 30;
     
-    // &::-webkit-scrollbar{
-    //   display:none;
-    // }
+    &::-webkit-scrollbar{
+       display:none;
+    }
 
     .free-wall {
-      float: left;
       height: 300px;
       max-height: 300px;
-      margin-top: 10px;
+      margin: 10px auto 0 auto;
       max-width: 8000px;
-      overflow: auto;
+      overflow: hidden;
       width: 1600px;
+      right: 0; left: 0;
 
       .folder {
         background-color: @kt-blue-23 !important;
@@ -123,19 +116,19 @@ body{
       }
 
       .brick {
-        background: fade(@kt-blue-7e, 20%);
 
         h1 {
 
           color: white;
           margin-top: 0px;
           text-align: center;
-          font-size: 18pt;
+          font-size: 15pt;
+          font-weight: normal;
         }
 
         img {
+          border-radius: 25%;
           height: auto;
-          margin: 0 auto;
           width: 100%;
         }
 
