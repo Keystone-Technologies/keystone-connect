@@ -3,6 +3,9 @@ body{
   height: 100%;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
 .banner{
   //    background: @kt-blue-23;
   //    color: @kt-white;
@@ -86,7 +89,12 @@ body{
     left:0px;
     position:fixed;
     width:100%;
-    overflow:hidden;
+
+    overflow:auto;
+
+  }
+  .grid-wrapper ::-webkit-scrollbar {
+    display: none;
   }
   .grid-container {
     background: fade(@kt-black, 10%);

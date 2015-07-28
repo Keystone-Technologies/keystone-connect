@@ -2,6 +2,9 @@ body {
   background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
   height: 100%;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 .banner {
   position: relative;
 }
@@ -64,7 +67,10 @@ body {
   left: 0px;
   position: fixed;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
+}
+#home .grid-wrapper ::-webkit-scrollbar {
+  display: none;
 }
 #home .grid-container {
   background: rgba(0, 0, 0, 0.1);
