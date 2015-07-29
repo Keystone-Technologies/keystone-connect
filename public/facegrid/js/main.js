@@ -13,27 +13,27 @@ var $currentFolder;
 var headFootHeight;
 var scrolltime = 200;
 var horizontalgridscroll = 100;
-var freewallWidth = $("#freewall1").css("width");
+var freewallWidth = $("#freewall-desktop").css("width");
 
 
-    var tempJSON = [
-        {"width":100, "height":100, "src":"temp/images-1.jpg", "class": "", "text":"Mom", "email":"ktravis@connexinsoftware.com "},
-        {"width":100, "height":100, "src":"temp/images-1.jpg", "class": "", "text":"Dad", "email":"stravis@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/images-2.jpg", "class": "", "text":"Andy", "email":"abelval@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/images-3.jpg", "class": "", "text":"Stefan", "email":"sadams@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/images-4.jpg", "class": "", "text":"Mason", "email":"mdrothert@gmail.com"},
-        {"width":100, "height":100, "src":"temp/images-5.jpg", "class": "", "text":"Jason", "email":"thejasonslewis@gmail.com"},
-        {"width":100, "height":100, "src":"temp/images-6.jpg", "class": "", "text":"Ben", "email":"sadams@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/images-7.jpg", "class": "", "text":"Rob", "email":"sadams@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/imgres-12.jpg", "class": "", "text":"Eric", "email":"ehumes@keystone-it.com"},
-        {"width":100, "height":100, "src":"temp/images-8.jpg", "class": "", "text":"Caleb", "email":"sadams@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/images-9.jpg", "class": "", "text":"Adam", "email":"sadams@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/imgres-10.jpg", "class": "", "text":"Montez", "email":"sadams@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Dave", "email":"sadams@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Cody", "email":"sadams@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Josh", "email":"sadams@keystone-technologies.com"},
-        {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Keith", "email":"sadams@keystone-technologies.com"}
-    ];
+var tempJSON = [
+    {"width":100, "height":100, "src":"temp/images-1.jpg", "class": "", "text":"Mom", "email":"ktravis@connexinsoftware.com "},
+    {"width":100, "height":100, "src":"temp/images-1.jpg", "class": "", "text":"Dad", "email":"stravis@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/images-2.jpg", "class": "", "text":"Andy", "email":"abelval@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/images-3.jpg", "class": "", "text":"Stefan", "email":"sadams@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/images-4.jpg", "class": "", "text":"Mason", "email":"mdrothert@gmail.com"},
+    {"width":100, "height":100, "src":"temp/images-5.jpg", "class": "", "text":"Jason", "email":"thejasonslewis@gmail.com"},
+    {"width":100, "height":100, "src":"temp/images-6.jpg", "class": "", "text":"Ben", "email":"sadams@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/images-7.jpg", "class": "", "text":"Rob", "email":"sadams@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/imgres-12.jpg", "class": "", "text":"Eric", "email":"ehumes@keystone-it.com"},
+    {"width":100, "height":100, "src":"temp/images-8.jpg", "class": "", "text":"Caleb", "email":"sadams@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/images-9.jpg", "class": "", "text":"Adam", "email":"sadams@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/imgres-10.jpg", "class": "", "text":"Montez", "email":"sadams@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Dave", "email":"sadams@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Cody", "email":"sadams@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Josh", "email":"sadams@keystone-technologies.com"},
+    {"width":100, "height":100, "src":"temp/imgres-11.jpg", "class": "", "text":"Keith", "email":"sadams@keystone-technologies.com"}
+];
 
 function freewallAddCells(){
     var temp =
@@ -53,7 +53,7 @@ function freewallAddCells(){
             .replace("{text}", tempJSON[i].text);
     }
 
-    $("#freewall1").html(html);
+    $(".free-wall").html(html);
     $(".folder").children("img").remove();
     // addMenuToIcons();
 }
@@ -67,17 +67,17 @@ function addMenuToIcons() {
     $(".icon-menu ul").append(deleteItem);
     $(".icon-menu ul").append(addToItem);
     populateAddTo();
-    
+
 }
 
 function populateAddTo() {
     $(".add-flyout").empty();
-    $("#freewall1 .folder").each(function(){
+    $(".free-wall .folder").each(function(){
         var $this = $(this).clone().children().remove().end().text();
         $(".add-flyout").append("<li class=\"add-flyout-item list-unstyled\">" + $this + "</li>");
     });
     deleteItem();
-} 
+}
 
 
 function deleteItem(){
@@ -95,7 +95,7 @@ function deleteItem(){
 
 function freewallInit() {
 
-    var wall = new freewall("#freewall1");
+    var wall = new freewall(".free-wall");
     wall.reset({
         draggable: false,
         selector: '.brick',
@@ -110,59 +110,62 @@ function freewallInit() {
 //             top:0,
 //             left:0,
 //             width:4,
-//             height:5   
+//             height:5
 //            });
 //            $(".folder").removeClass("brick");
         }
     });
-    
+
     wall.fitWidth();
     console.log("grids loaded");
 }
 
 function sizeVideoFrame(){
-    headFootHeight =  $("#header").outerHeight() + $(".grid-container").outerHeight();
-    var iframeHeight = document.documentElement.clientHeight - (headFootHeight - 30);
-    $("#vid-container iframe").css("height", iframeHeight)
+
+    if($(window).width() > 992){
+        headFootHeight =  $("#header").outerHeight() + $("#grid-container-desktop").outerHeight();
+        var iframeHeight = document.documentElement.clientHeight - (headFootHeight - 30);
+        $("#vid-container iframe").css("height", iframeHeight)
+    }
+    else{
+        headFootHeight =  $("#header").outerHeight() + $("#grid-container-tablet").outerHeight();
+        var iframeHeight = document.documentElement.clientHeight - (headFootHeight - 30);
+        $("#vid-container iframe").css("height", iframeHeight)
+    }
 };
-  
+
 function staticEventHandlers() {
     $(window).resize(function() {
-        $("#freewall1").unwrap().unwrap();
+        $("#freewall-desktop").unwrap().unwrap();
         addHoverScroll();
         sizeVideoFrame();
     });
-
 }
+
 
 function swipeHandlers(){
     $(".grid-container").on('swipeleft', function(){
-       $(this).animate({scrollLeft: $(this).scrollLeft() + horizontalgridscroll}, scrolltime);
+        $(this).animate({scrollLeft: $(this).scrollLeft() + horizontalgridscroll}, scrolltime);
     });
     $(".grid-container").on('swiperight', function(){
-       $(this).animate({scrollLeft: $(this).scrollLeft() - horizontalgridscroll}, scrolltime);
+        $(this).animate({scrollLeft: $(this).scrollLeft() - horizontalgridscroll}, scrolltime);
     });
-}
-
-
-function isTouchDevice() {
-    $('.arrow').hide();
 }
 
 function addHoverScroll(){
-    $('#freewall1').hoverscroll(
+    $('#freewall-desktop').hoverscroll(
         {
-        	vertical: false,	// Display the list vertically or horizontally
-        	width:    "100%",		// Width of the list container
-        	height:   126,		// Height of the list container
-        	arrows:   true,		// Display direction indicator arrows or not
-        	arrowsOpacity: 0.7,	// Max possible opacity of the arrows
+            vertical: false,    // Display the list vertically or horizontally
+            width:    "100%",       // Width of the list container
+            height:   126,      // Height of the list container
+            arrows:   true,        // Display direction indicator arrows or not
+            arrowsOpacity: 0.7, // Max possible opacity of the arrows
             fixedArrows: false,  // Fixed arrows on the sides of the list (disables arrowsOpacity)
             rtl:      true,     // Print images from right to left
-        	debug:    false    // Debug output in the firebug console
+            debug:    false,     // Debug output in the firebug console
         }
     ).css("height","126px").css("width",freewallWidth);
-    $(".grid-container").css("width","100%");
+    $(".grid-container-desktop").css("width","100%");
 }
 
 
@@ -172,6 +175,14 @@ $(function () {
     // swipeHandlers();
     staticEventHandlers();
     addHoverScroll();
-    isTouchDevice();
-
 });
+window.onload=function(){
+    if (is_touch_device()){
+        $('.arrow').hide();
+    }
+}
+
+function is_touch_device() {
+    return !!('ontouchstart' in window) // works on most browsers
+        || !!('onmsgesturechange' in window); // works on ie10
+};
