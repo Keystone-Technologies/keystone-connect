@@ -207,3 +207,16 @@ p {
   padding: 1%;
   float: left;
 }
+@media screen and (max-width: 992px) {
+  height: 135px;
+  
+  .grid-container {
+    height: 166px;
+  }
+  .free-wall {
+    height: 178px;
+  }
+  .free-wall .brick {
+    top: 0px !important;
+  }
+}

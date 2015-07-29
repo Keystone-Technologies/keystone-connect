@@ -110,7 +110,7 @@ function freewallInit() {
 //             top:0,
 //             left:0,
 //             width:4,
-//             height:5
+//             height:5   
 //            });
 //            $(".folder").removeClass("brick");
         }
@@ -164,7 +164,7 @@ function addHoverScroll(){
             rtl:      true,     // Print images from right to left
             debug:    false,     // Debug output in the firebug console
         }
-    ).css("height","126px").css("width",freewallWidth);
+    ).css("height","156px").css("width",freewallWidth);
     $(".grid-container-desktop").css("width","100%");
 }
 
@@ -176,6 +176,7 @@ $(function () {
     staticEventHandlers();
     addHoverScroll();
 });
+
 window.onload=function(){
     if (is_touch_device()){
         $('.arrow').hide();

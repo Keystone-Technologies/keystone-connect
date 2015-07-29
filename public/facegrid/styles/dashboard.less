@@ -82,7 +82,7 @@ body{
       // display:flex;
     }
   }
-  
+
   .grid-wrapper{
     bottom:0px;
     height:156px;
@@ -103,7 +103,7 @@ body{
     position: absolute;
     width: 100%;
     z-index: 30;
-    
+
     &::-webkit-scrollbar{
        display:none;
     }
@@ -267,4 +267,19 @@ body{
     float: left;
   }
 
+}
+
+@media screen and (max-width:992px){
+  height:135px;
+  .grid-container{
+    height:166px;
+  }
+
+  .free-wall{
+    height:178px;
+
+    .brick{
+      top:0px !important;
+    }
+  }
 }
