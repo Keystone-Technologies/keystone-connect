@@ -67,7 +67,8 @@ body {
   left: 0px;
   position: fixed;
   width: 100%;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 #home .grid-wrapper ::-webkit-scrollbar {
   display: none;
@@ -97,6 +98,9 @@ body {
   background-color: #23789e !important;
   content: "Folder";
   text-align: center;
+}
+#home .grid-container .free-wall .brick {
+  top: 0px;
 }
 #home .grid-container .free-wall .brick h1 {
   color: white;
@@ -209,7 +213,6 @@ p {
 }
 @media screen and (max-width: 992px) {
   height: 135px;
-  
   .grid-container {
     height: 166px;
   }
@@ -218,5 +221,8 @@ p {
   }
   .free-wall .brick {
     top: 0px !important;
+  }
+  .free-wall .brick h1 {
+    font-size: 8px;
   }
 }

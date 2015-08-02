@@ -90,7 +90,8 @@ body{
     position:fixed;
     width:100%;
 
-    overflow:auto;
+    overflow-x:auto;
+    overflow-y:hidden;
 
   }
   .grid-wrapper ::-webkit-scrollbar {
@@ -124,6 +125,7 @@ body{
       }
 
       .brick {
+        top:0px;
 
         h1 {
 
@@ -280,6 +282,10 @@ body{
 
     .brick{
       top:0px !important;
+      
+      h1{
+        font-size:8px;
+      }
     }
   }
 }
