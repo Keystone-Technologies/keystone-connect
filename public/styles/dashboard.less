@@ -1,7 +1,9 @@
 body{
   background-image: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
+  // background-color:@kt-blue-74;
+  height: 100%;
 }
-html, body {height: 100%; overflow: hidden;}
+
 
 .banner{
   //    background: @kt-blue-23;
@@ -21,8 +23,8 @@ html, body {height: 100%; overflow: hidden;}
 }
 
 .container {
-  max-width: 1400px;
-  width: 100%;
+  width: 1400px;
+  overflow-y: scroll;
   padding:0px;
 
   .col-xs-12{
@@ -30,10 +32,8 @@ html, body {height: 100%; overflow: hidden;}
   }
 }
 #home {
-  overflow-y: scroll;
-  margin: 0;
-  padding: 0;
-  height: 800px;
+  height: 900px;
+  overflow: scroll;
 
   @keyframes start {
     from {
@@ -72,17 +72,18 @@ html, body {height: 100%; overflow: hidden;}
   .grid-container{
     height: 100%;
     margin-top: 120px;
+    overflow-y: scroll;
     z-index:30;
-    overflow-y:auto;
+
+    &>ul{
+      width:7800px;
+    }
 
     #firstwall{
-      height: 100%;
-      overflow-y: scroll;
-      width:100%;
+      width:1200px;
     }
-    .freewall-page{
-      min-width:100%;
-      overflow-y:scroll;
+    #freewall1{
+      width:6000px;
     }
 
     .free-wall {
@@ -261,14 +262,7 @@ html, body {height: 100%; overflow: hidden;}
 
 
   #app-tray {
-    position: fixed;
-    bottom: 0;
     z-index:30;
-
-    .page-nav {
-      top: 20px;
-      position: relative;
-    }
 
     #grid-pagination{
       margin:24px 0px 4px 0px;
@@ -567,106 +561,4 @@ p {
 
 .btn-default {
   border-color: @kt-blue-7e;
-}
-
-
-#grid-scroll {
-  height: 800px;
-  overflow: hidden;
-  margin-bottom: 20px;
-
-  .carousel{
-    overflow: scroll;
-  }
-}
-
-/* ----------- Non-Retina Screens ----------- */
-@media screen
-and (min-device-width: 1200px)
-and (max-device-width: 1600px)
-and (-webkit-min-device-pixel-ratio: 1) {
-
-  #grid-scroll{
-    height: 1000px;
-  }
-}
-
-/* ----------- Retina Screens ----------- */
-@media screen
-and (min-device-width: 1200px)
-and (max-device-width: 1600px)
-and (-webkit-min-device-pixel-ratio: 2)
-and (min-resolution: 192dpi) {
-  #grid-scroll{
-    height: 1000px;
-  }
-}
-
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  #grid-scroll{
-    height: 400px;
-  }
-}
-
-/* Smartphones (landscape) ----------- */
-@media only screen and (min-width : 321px) {
-  #grid-scroll{
-    height: 400px;
-  }
-}
-
-/* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
-  #grid-scroll{
-    height: 400px;
-  }
-}
-
-/* iPads (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-  #grid-scroll{
-    height: 600px;
-  }
-}
-
-/* iPads (landscape) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
-  #grid-scroll{
-    height: 600px;
-  }
-}
-
-/* iPads (portrait) ----------- */
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
-  #grid-scroll{
-    height: 600px;
-  }
-}
-/**********
-iPad 3
-**********/
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
-  #grid-scroll{
-    height: 600px;
-  }
-}
-
-@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
-  #grid-scroll{
-    height: 700px;
-  }
-}
-/* Desktops and laptops ----------- */
-@media only screen  and (min-width : 1224px) {
-  #grid-scroll{
-    height: 900px;
-  }
-}
-
-/* Large screens ----------- */
-@media only screen  and (min-width : 1824px) {
-  #grid-scroll{
-    height: 1000px;
-  }
 }

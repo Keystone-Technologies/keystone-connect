@@ -1,46 +1,49 @@
 package KeystoneConnect;
 use Mojo::Base 'Mojolicious';
-
+use Mojo::Transaction::WebSocket;
 # This method will run once at server start
 sub startup {
   my $self = shift;
 
+  $self->secrets(['new_passw0rd', 'old_passw0rd', 'very_old_passw0rd']);
+  $self->sessions->cookie_name('mysession');
+
   # Documentation browser under "/perldoc"
   $self->plugin('PODRenderer');
   $self->plugin(JSONP => callback => 'callback');
+  
+  my $ws = Mojo::Transaction::WebSocket->new;
   
   # Router
   my $r = $self->routes;
 
   # Normal route to controller
   #$r->get('/')->to('example#welcome');
-  $r->get('/')->to(cb => sub { shift->redirect_to('/index.html') });
-
-  $r->get('/videocall/#name/#email')->to(cb => sub {
-    my $c = shift;
-    my $me = {
-      name => 'Scott Travis',
-      email => 'stravis@keystone-technologies.com',
-      room => 'scotttravis',
-    };
-    my $name = $c->param('name');
-    my $email = $c->param('email');
-    my $sendgrid_api = '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';
-    my $sendgrid = {
-      to => $email,
-      toname => $name,
-      from => "$me->{email}",
-      fromname => "$me->{name}",
-      subject => "Incoming Video Call from $me->{name}",
-      html => "Hello, $name!  $me->{name} is wanting to talk with you.  <a href='http://appear.in/$me->{room}'>Click here to connect.</a>",
-    };
-    $c->app->log->info($c->dumper(["https://api.sendgrid.com/api/mail.send.json" => {Authorization => "Bearer $sendgrid_api"} => form => $sendgrid]));
-    $c->render_later;
-    $c->ua->post("https://api.sendgrid.com/api/mail.send.json" => {Authorization => "Bearer $sendgrid_api"} => form => $sendgrid => sub {
-      my ($ua, $tx) = @_;
-      say $tx->res->body;
-      $c->render(json => $tx->res->json);
+  $r->websocket('/news')->to(cb => sub {
+    my $self = shift;
+    $self->on(message => sub {
+      my ($self, $msg) = @_;
+      if ($msg eq 'message'){
+        my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
+        my $message = {message => ('Current date and time is: ' . (scalar localtime())), expiration => 30};
+        #if ($min % 2 == 0) {
+        $self->send({json => $message});
+        #}
+      }
     });
+  });
+  
+  $r->get('/tenant/:file')->to(cb => sub {
+    my $c = shift;
+    my $file = $c->param('file');
+    my $tenant = $c->session->{tenant};
+    if ( $file eq 'css' ) {
+      $c->reply->static($tenant && -e $c->app->home->rel_file("public/tenants/$tenant-style.css") ? "tenants/$tenant-style.css" : "tenants/style.css");
+    } elsif ( $file eq 'logo' ) {
+      $c->reply->static($tenant && -e $c->app->home->rel_file("public/tenants/$tenant-logo.png") ? "tenants/$tenant-logo.png" : "tenants/logo.png");
+    } elsif ( $file eq 'banner' ) {
+      $c->reply->static($tenant && -e $c->app->home->rel_file("public/tenants/$tenant-banner.png") ? "tenants/$tenant-banner.png" : "tenants/banner.png");
+    }
   });
 
   $r->any('/api/grid/:page')->to(cb => sub {
@@ -88,6 +91,13 @@ sub startup {
       {"col"=>1,"row"=>4,"size_x"=>1,"size_y"=>1,img=>$img,label=>$label,url=>$url}
     ]);
   });
+
+  $r->get('/:tenant', {tenant => ''})->to(cb => sub {
+    my $c = shift;
+    $c->session(tenant => $c->param('tenant') || 'keystone-technologies') if $c->param('tenant') || !$c->session('tenant');
+    $c->stash(tenant => $c->session('tenant'));
+    $c->redirect_to('/') if $c->param('tenant');
+  })->name('index');
 }
 
 1;

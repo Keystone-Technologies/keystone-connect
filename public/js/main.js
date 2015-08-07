@@ -3,7 +3,182 @@ var newName;
 var inputVal;
 var startingName;
 var $currentFolder;
-//var json = testAjax();
+var gridheight;
+var gridwidth;
+var apptraywidth;
+var scrolltime = 200;
+var horizontalgridscroll = iconwidth;
+var verticalgridscroll = iconheight;
+var apptrayscroll = 95;
+var scrollbarscroll;
+var gridcontainerzoomwidth;
+var devshown = false;
+var messageexpiration;
+
+
+
+$(window).load(function(){
+    folderIconInit();
+    $("#loadingcover").remove();
+    console.log('showing modal');
+    console.log('setting timeout');
+    setTimeout(function(){
+        console.log('timeout fired');
+        $("#banner").remove();
+        }, messageexpiration);
+});
+
+$(document).ready(function () {
+    parseRSS('http://www.npr.org/rss/rss.php?id=1019', function(data){
+        var html;
+        $.each(data.entries, function(i, entry){
+            console.log(entry);
+            var temp = "<div id='entry{id}' class='scrollerentry'><a href='{link}'><div class='title'>{title}</div></a><div class='content'>{content}</div></div>";
+            html += temp.replace("{link}", entry.link).replace("{id}", 'id').replace("{title}", entry.title).replace("{content}",entry.contentSnippet);
+        });
+        $("#scroller-content").html(html);
+    })
+    $("#firstwall").css('min-width', (iconwidth * 14));
+    
+    console.log('cellw: ' + iconwidth);
+    console.log('cellh: ' + iconheight);
+    var websocket = new WebSocket("wss://kc-jacob2-jdorpinghaus.c9.io/news");
+    websocket.onmessage = function(event){ 
+        var obj = $.parseJSON(event.data);
+        $("#messagetext").html("Message: " + obj.message);
+        $("#bannertext").html(obj.message);
+        messageexpiration = (obj.expiration * 1000);
+    };
+    websocket.onopen = function (event) {
+        websocket.send("message");
+    };
+    
+    $("#windowtext").text("Window dimensions: " + $(window).width() + " x " + $(window).height());
+    $("#screentext").text("Screen dimensions: " + screen.width + " x " + screen.height);
+    $("#pixeltext").text("Pixel ratio: " + (window).devicePixelRatio);
+    
+    $("#x").click(function(){
+        $("#dev").remove();
+    });
+    $("#showdev").click(function(){
+        if (devshown == false){
+            $("#dev").css('display', 'block');
+            devshown = true;
+        }
+        else {
+            $("#dev").css('display', 'none');
+            devshown = false;
+        }
+    });
+
+    if ($(window).width() <= screenwidth){
+        $("#app-drawer-container").width(Math.floor((($(window).width() - ($(window).width() * .1)) / iconwidth)) * iconwidth);
+        $("#app-drawer-container").css('transform', 'scale(1)');
+        $("#app-drawer-container").css('left', (($("#row").width() - $("#app-drawer-container").width()) / 2));
+        $("#app-tray").height(140);
+        $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
+        $("#grid-container").height(Math.floor($("#gridholder").height() / iconheight) * iconheight);
+        $("#grid-container").width(Math.floor(($(window).width() / iconwidth)) * iconwidth);
+        $("#grid-container").css('top', (($("#gridholder").height() - $("#grid-container").height()) / 2));
+        $("#grid-container").css('left', (($("#gridholder").width() - $("#grid-container").width()) / 2));
+        $("#grid-container").css('transform', 'scale(1)');
+    }
+    else {
+        var scale = (($(window).width() - screenwidth) / screenwidth);
+        console.log("appdrawer width " + ($(window).width() * .1));
+        $("#app-drawer-container").width(($(window).width() - ($(window).width() * .1)) / (scale + 1));
+        $("#app-drawer-container").css('left', (($("#row").width() - ($("#app-drawer-container").width() * (scale +1))) / 2));
+        $("#app-drawer-container").css('transform', 'scale(' + ((scale + 1).toString()) + ')');
+        $("#app-drawer-container").css('transform-origin', "0 0");
+        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#grid-pagination").height()));
+        $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
+        $("#grid-container").width(screenwidth);
+        $("#grid-container").height(((Math.floor($("#gridholder").height() / (iconheight * (scale + 1)))) * (iconheight * (scale + 1))) / (scale + 1));
+        $("#grid-container").css('left', Math.abs((($("#firstwall").width() * (scale + 1)) - $("#gridholder").width()) / 2));
+        $("#grid-container").css('transform', 'scale(' + ((scale + 1).toString()) + ')');
+        $("#grid-container").css('transform-origin', "0 0");
+        $("#grid-container").css('top', ((($("#gridholder").height() - ($("#grid-container").height() * (scale + 1))) / 2)));
+    }
+
+    // requestPassword();
+    firstWallAddCells();
+    freewallAddCells();
+    appStoreAddCells();
+    appTrayAddCells();
+    firstWallInit();
+    freewallInit();
+    appTrayInit();
+    //folderModalAddCells();
+    //folderModalInit();
+    showFolderModal();
+    //addMenuToIcons();
+    setLabels();
+    iconMenuListeners();
+    
+    
+    horizontalgridscroll = (Number(($("#firstwall .brick-icon")[0].style.width).slice(0, -2)) + gutter);
+    verticalgridscroll = (Number(($("#firstwall .brick-icon")[0].style.height).slice(0, -2)) + gutter);
+    
+    staticEventListeners()
+    //swipeHandlers();
+    setScrollbar();
+    $("#firstwall").height($("#firstwall").height() + 15);
+    $(".rss-feed").css('min-height', (iconwidth * 2));
+    $(".rss-feed").css('max-height', (iconwidth * 2));
+    $(".rss-feed-small").css('min-height', iconwidth);
+    $(".rss-feed-small").css('max-height', iconwidth);
+});
+
+$(window).resize(function(){
+    if ($(window).width() <= screenwidth){
+        $("#app-drawer-container").css('transform', 'scale(1)');
+        $("#app-drawer-container").width(Math.floor((($(window).width() - ($(window).width() * .1)) / iconwidth)) * iconwidth);
+        $("#app-drawer-container").css('left', (($("#row").width() - $("#app-drawer-container").width()) / 2));
+        $("#app-tray").height(140);
+        $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
+        $("#grid-container").css('transform', 'scale(1)');
+        $("#grid-container").height(Math.floor($("#gridholder").height() / iconheight) * iconheight);
+        $("#grid-container").width(Math.floor(($(window).width() / iconwidth)) * iconwidth);
+        $("#grid-container").css('top', (($("#gridholder").height() - $("#grid-container").height()) / 2));
+        $("#grid-container").css('left', (($("#gridholder").width() - $("#grid-container").width()) / 2));
+        $("#scrollbar").width($(window).width() - 20);
+    }
+    else {
+        var scale = (($(window).width() - screenwidth) / screenwidth);
+        $("#app-drawer-container").width(($(window).width() - ($(window).width() * .1)) / (scale + 1));
+        $("#app-drawer-container").css('transform', 'scale(' + ((scale + 1).toString()) + ')');
+        $("#app-drawer-container").css('transform-origin', "0 0");
+        $("#app-drawer-container").css('left', (($("#row").width() - ($("#app-drawer-container").width() * (scale +1))) / 2));
+        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#grid-pagination").height()));
+        $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
+        $("#grid-container").width(screenwidth);
+        $("#grid-container").height(((Math.floor($("#gridholder").height() / (iconheight * (scale + 1)))) * (iconheight * (scale + 1))) / (scale + 1));
+        $("#grid-container").css('left', Math.abs((($("#firstwall").width() * (scale + 1)) - $("#gridholder").width()) / 2));
+        $("#grid-container").css('transform', 'scale(' + ((scale + 1).toString()) + ')');
+        $("#grid-container").css('transform-origin', "0 0");
+        $("#grid-container").css('top', ((($("#gridholder").height() - ($("#grid-container").height() * (scale + 1))) / 2)));
+        console.log("gridscroll: " +  $("#grid-container").scrollTop());
+    }
+});
+
+function parseRSS(url, callback) {
+  $.ajax({
+    url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),
+    dataType: 'json',
+    success: function(data) {
+      callback(data.responseData.feed);
+    }
+  });
+}
+
+$.fn.textWidth = function(text, font) {
+    if (!$.fn.textWidth.fakeEl) $.fn.textWidth.fakeEl = $('<span>').appendTo(document.body);
+    var htmlText = text || this.val() || this.text();
+    htmlText = $.fn.textWidth.fakeEl.text(htmlText).html(); //encode to Html
+    htmlText = htmlText.replace(/\s/g, "&nbsp;"); //replace trailing and leading spaces
+    $.fn.textWidth.fakeEl.html(htmlText).css('font', font || this.css('font'));
+    return $.fn.textWidth.fakeEl.width();
+};
 
 function requestPassword() {
     $("#password-modal").modal({
@@ -21,12 +196,84 @@ function requestPassword() {
     });
 }
 
+function setScrollbar(){
+    var extracolumns = (($("#firstwall").width() - $("#grid-container").width()) / iconwidth);
+    scrollbarscroll = (($("#scrollbar").width() - 20) / (extracolumns + 1));
+    $("#scrollbarthumb").width(scrollbarscroll);
+    $("#grid-container").scroll(function(){
+        $("#scrollbarthumb").css('left', $("#grid-container").scrollLeft());
+    });
+}
+
+function folderModalInit() {
+    $("#foldermodalcontent").width($(window).width() / 2);
+    $("#foldermodal").width((Math.floor($("#foldermodalcontent").width() / 100)) * 100);
+    $("#foldermodal").height(($("#foldermodal").width() / 5) * 3);
+    $("#foldermodalcontent").height($("#foldermodal").height() + 100);
+   
+    var foldericonwidth = ($("#foldermodal").width() / 5);
+    
+    var foldericonheight = foldericonwidth;
+    console.log("foldermodal: " + $("#foldermodal").width() + " x " + $("#foldermodal").height());
+    console.log("icon " + foldericonwidth + " x " + foldericonheight);
+    var foldergrid = new freewall("#foldermodal");
+    foldergrid.reset({
+        // draggable: true,
+        selector: '.brick',
+        animate: true,
+        fixSize: 0,
+        cellW: foldericonwidth,
+        cellH: foldericonheight,
+        gutterX: gutter,
+        gutterY: gutter,
+        onResize: function () {
+            foldergrid.fitZone();
+        }
+    });
+    foldergrid.fitZone();
+    $(".folder-brick-icon").click(function(){
+        var win = window.open($(this).attr("link"), '_blank');
+        win.focus();
+    });
+    console.log("Folder grid loaded");
+}
+
+function folderModalAddCells(folderid){
+    console.log("folderid" + folderid)
+    var temp = "<div class='brick {class}' link=\"{link}\" data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;' ><img src={src} /><p class='folderapptext'>{text}</p></div>";
+    //WITHOUT LABELSvar temp = "<div class='brick {class}' link=\"{link}\" data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;' ><img src={src} /></div>";
+    var folderJSON = window['folder' + folderid + 'JSON'];
+    var w = 1, h = 1, html = '', limitItem = Math.min(15, folderJSON.length);
+
+    for (var i = 0; i < limitItem; ++i) {
+        console.log(i);
+        html += temp
+            .replace(/\{width\}/, folderJSON[i].width)
+            .replace("{height}", folderJSON[i].height)
+            .replace("{src}", folderJSON[i].src)
+            .replace("{link}", folderJSON[i].link)
+            .replace("{class}", folderJSON[i].class)
+            .replace("{initialPosition}", folderJSON[i].initialPosition)
+            .replace("{text}", folderJSON[i].text);
+    }
+
+    $("#foldermodal").html(html);
+}
+
 function showFolderModal() {
-    $(".folder").dblclick(function () {
-        $currentFolder = $(this);
+    $(".folder").click(function () {
+        folderModalAddCells($(this).attr('folder-id'));
+        folderModalInit();
+        $.each($(".folderapptext"), function(){
+            var parentwidth = $(this).parent().width();
+            $(this).width(parentwidth - 6); //HARDCODED
+            $(this).css('padding-left', '18px');   //HARDCODED
+        });
         $(".folder-modal").modal('show');
-        startingName = $currentFolder.clone().children().remove().end().text();
+        startingName = $(this).children("p").text();
         $(".folder-name").html(startingName);
+        /*
+        $currentFolder = $(this);
         $(".folder-name").on("dblclick", function () {
             startingName = $currentFolder.clone().children().remove().end().text();
             $(this).addClass("hidden");
@@ -53,14 +300,15 @@ function showFolderModal() {
                         // resetVariables();
                     }
                 });
-        });
+        }); */
     });
 }
 
 function freewallAddCells() {
     console.log("Adding cells to main grid");
-    var temp = "<div class='brick {class}' data-position=\"{initialPosition}\" link=\"{link}\" style='width:{width}px; height:{height}px;' oncontextmenu=\"javascript:iconRightClick($(this));return false;\">{text}<img src={src} /></div>";
-
+    //var temp = "<div class='brick {class}' data-position=\"{initialPosition}\" link=\"{link}\" style='width:{width}px; height:{height}px;' oncontextmenu=\"javascript:iconRightClick($(this));return false;\">{text}<img src={src} /></div>";
+    var temp = "<div class='brick {class}' data-position=\"{initialPosition}\" link=\"{link}\" style='width:{width}px; height:{height}px;'>{text}<img src={src} /></div>";
+    
     var w = 1, h = 1, html = '', limitItem = tempJSON.length;
 
     for (var i = 0; i < limitItem; ++i) {
@@ -74,23 +322,19 @@ function freewallAddCells() {
             .replace("{text}", tempJSON[i].text);
     }
 
-    $(".freewall-page").html(html);
+    $("#freewall1").html(html);
     // freewallInit();
-    $(".folder").children("img").remove();
+    $(".folder").children("img").css('opacity', 0);
     $(".rss").children("img").remove();
-    firstWallAddCells();
-    appStoreAddCells();
-    appTrayAddCells();
-    freewallInit();
-    appTrayInit();
-    addMenuToIcons();
 }
 
 function appTrayAddCells() {
     console.log("Adding cells to app tray");
-    var temp = "<div class='brick {class}' style='width:{width}px; height:{height}px;'>{text}<img src={src} /></div>";
+    // WITH TEXT LABELS var temp = "<div class='brick {class}' link='{link}' data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;'><img src={src} /><p class='apptext'>{text}</p></div>";
+    var temp = "<div class='brick {class}' link='{link}' data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;'><img src={src} /></div>"; // WITHOUT TEXT LABELS
 
     var w = 1, h = 1, html = '', limitItem = appTrayJSON.length;
+    var rows = [];
 
     for (var i = 0; i < limitItem; ++i) {
         html += temp
@@ -98,28 +342,106 @@ function appTrayAddCells() {
             .replace("{height}", appTrayJSON[i].height)
             .replace("{src}", appTrayJSON[i].src)
             .replace("{class}", appTrayJSON[i].class)
+            .replace("{link}", appTrayJSON[i].link)
+            .replace("{initialPosition}", appTrayJSON[i].initialPosition)
             .replace("{text}", appTrayJSON[i].text);
+            rows.push(Number(appTrayJSON[i].initialPosition.split('-')[1]));
     }
-
+    var rowmax = 0;
+    var rowmaxindex = 0;
+    for (var i = 0; i < rows.length; i++) {
+        if (rows[i] > rowmax) {
+            rowmaxindex = i;
+            rowmax = rows[i];
+        }
+    }
+    console.log(rowmax);
+    apptraywidth = ((rowmax + 1) * iconwidth);
+    $("#app-drawer").width(apptraywidth);
     $("#app-drawer").html(html);
-    $(".folder, .rss").children("img").remove();
+    $(".rss").children("img").remove();
 }
 
 function firstWallAddCells() {
     console.log("Adding cells to app tray");
-    var temp = "<div class='brick {class}' link=\"{link}\" data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;' oncontextmenu=\"javascript:iconRightClick($(this));return false;\">{text}<img src={src} /></div>";
-
+    //var temp = "<div class='brick {class}' link=\"{link}\" data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;' oncontextmenu=\"javascript:iconRightClick($(this));return false;\">{text}<img src={src} /></div>";
+    var temp = "<div class='brick {class}' link=\"{link}\" data-position=\"{initialPosition}\" cellwidth=\"{cellwidth}\" cellheight=\"{cellheight}\" style='width:{width}px; height:{height}px;' ><img src={src} /><p class='apptext'>{text}</p></div>";
+    var foldertemp = "<div class='brick {class}' link=\"{link}\" data-position=\"{initialPosition}\" cellwidth=\"{cellwidth}\" cellheight=\"{cellheight}\" folder-id=\"{folder-id}\" style='width:{width}px; height:{height}px;' ><div class='foldergrid'></div><p class='apptext'>{text}</p></div>";
+    
     var w = 1, h = 1, html = '', limitItem = firstWallJSON.length;
-
+    var columns = [];
+    var rows = [];
+    var widths = [];
+    var heights = [];
+    
     for (var i = 0; i < limitItem; ++i) {
-        html += temp
-            .replace(/\{width\}/, firstWallJSON[i].width)
-            .replace("{height}", firstWallJSON[i].height)
+        if (firstWallJSON[i].class == 'folder'){
+        html += foldertemp
+            .replace("{width}", (firstWallJSON[i].width * iconwidth))
+            .replace("{cellwidth}", firstWallJSON[i].width)
+            .replace("{cellheight}", firstWallJSON[i].height)
+            .replace("{height}", (firstWallJSON[i].height * iconheight))
             .replace("{src}", firstWallJSON[i].src)
             .replace("{class}", firstWallJSON[i].class)
             .replace("{link}", firstWallJSON[i].link)
             .replace("{initialPosition}", firstWallJSON[i].initialPosition)
-            .replace("{text}", firstWallJSON[i].text);
+            .replace("{text}", firstWallJSON[i].text)
+            .replace("{folder-id}", firstWallJSON[i].folderid);
+            columns.push(Number(firstWallJSON[i].initialPosition.split('-')[0]));
+            heights.push(Number(firstWallJSON[i].height));
+            rows.push(Number(firstWallJSON[i].initialPosition.split('-')[1]));
+            widths.push(Number(firstWallJSON[i].width));
+        }
+        else {
+        html += temp
+            .replace("{width}", (firstWallJSON[i].width * iconwidth))
+            .replace("{height}", (firstWallJSON[i].height * iconheight))
+            .replace("{cellwidth}", firstWallJSON[i].width)
+            .replace("{cellheight}", firstWallJSON[i].height)
+            .replace("{src}", firstWallJSON[i].src)
+            .replace("{class}", firstWallJSON[i].class)
+            .replace("{link}", firstWallJSON[i].link)
+            .replace("{initialPosition}", firstWallJSON[i].initialPosition)
+            .replace("{text}", firstWallJSON[i].text)
+            .replace("{folder-id}", firstWallJSON[i].folderid);
+            columns.push(Number(firstWallJSON[i].initialPosition.split('-')[0]));
+            heights.push(Number(firstWallJSON[i].height));
+            rows.push(Number(firstWallJSON[i].initialPosition.split('-')[1]));
+            widths.push(Number(firstWallJSON[i].width));
+        }
+            
+    }
+    var colmax = 0;
+    var colmaxindex = 0;
+    for (var i = 0; i < columns.length; i++) {
+        if (columns[i] > colmax) {
+            colmaxindex = i;
+            colmax = columns[i];
+        }
+    }
+    var rowmax = 0;
+    var rowmaxindex = 0;
+    for (var i = 0; i < rows.length; i++) {
+        if (rows[i] > rowmax) {
+            rowmaxindex = i;
+            rowmax = rows[i];
+        }
+    }
+    gridheight = ((colmax + 1) * iconheight);
+    if (heights[colmaxindex] != iconheight){
+        gridheight += (heights[colmaxindex] - iconheight);
+    }
+    
+    gridwidth = ((rowmax + 1) * iconwidth);
+    console.log
+    if (rows[rowmaxindex] != iconwidth) {
+        gridwidth += (widths[rowmaxindex] - iconwidth);
+    }
+    //gridheight = ((Math.max.apply(null, columns) + 1) * 100);
+    //gridwidth = ((Math.max.apply(null, rows) + 1) * 100);
+    $("#firstwall").css("height", gridheight);
+    if (gridwidth > screenwidth){
+        $("#firstwall").css("width", gridwidth);
     }
     $("#firstwall").html(html);
 }
@@ -160,7 +482,7 @@ function addMenuToIcons() {
     var makeSmallerItem = "<li role=\"presentation\"><a class=\"make-smaller-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon small</a></li>";
     // var makeShorterItem = "<li role=\"presentation\"><a class=\"make-shorter-menu-item\" role=\"menuitem\" tabindex=\"-1\">Make icon shorter</a></li>";
     var addToItemDropdown = "<li class=\" add-dropdown\" role=\"presentation\"><a class=\"add-to-menu-item\">Add To</a><ul class=\"add-flyout list-unstyled\"></ul></li>";
-    $(".freewall-page .brick").append(dropdownHtml);
+    $("#freewall1 .brick").append(dropdownHtml);
     $("#app-tray .brick").append(dropupHtml);
 
     $(".brick").each(function () {
@@ -188,18 +510,19 @@ function populateAddTo() {
     console.log("populating \"add to\" sub-menu");
     $(".add-flyout").empty();
     $("#app-drawer .add-flyout").prepend("<li class=\"add-to-main-grid\">Main Grid</li>");
-    $(".freewall-page .folder").each(function () {
+    $("#freewall1 .folder").each(function () {
         var $this = $(this).clone().children().remove().end().text();
         $(".add-flyout").append("<li class=\"add-flyout-item\">" + $this + "</li>");
     });
-    $(".freewall-page .add-flyout").prepend("<li class=\"add-to-app-tray\">App Tray</li>");
+    $("#freewall1 .add-flyout").prepend("<li class=\"add-to-app-tray\">App Tray</li>");
     // iconMenuListeners();
 }
 
 function iconMenuListeners() {
-    $('.brick-icon[link]').dblclick(function() {
-        window.location.href = $(this).attr("link");
-        console.log($(this).attr("link"));
+    $('.brick-icon[link]').click(function() {
+        //window.location.href = $(this).attr("link");
+        var win = window.open($(this).attr("link"), '_blank');
+        win.focus();
     });
 
     $('.delete-icon').click(function () {
@@ -291,7 +614,7 @@ function iconMenuListeners() {
     $('.add-to-main-grid').click(function () {
         $(this)
             .parents(':eq(4)')
-            .appendTo($(".freewall-page"));
+            .appendTo($("#freewall1"));
 
         populateAddTo();
         freewallInit();
@@ -302,8 +625,6 @@ function iconMenuListeners() {
         $(this).parentsUntil($(".free-wall")).remove();
         populateAddTo();
     });
-    freewallInit();
-    appTrayInit();
     console.log("menu listeners added");
 };
 
@@ -327,6 +648,24 @@ function appStoreInit() {
 function firstWallInit() {
     var wall = new freewall("#firstwall");
     wall.reset({
+        draggable: false, /*true,*/
+        selector: '.brick',
+        animate: true,
+        fixSize: 0,
+        cellW: iconwidth,
+        cellH: iconheight,
+        gutterX: gutter,
+        gutterY: gutter,
+        //        rightToLeft: true,
+    });
+    wall.fitZone();
+    wall.refresh();
+    console.log("firstwall grid loaded");
+}
+
+function freewallInit() {
+    var wall = new freewall("#freewall1");
+    wall.reset({
         draggable: true,
         selector: '.brick',
         animate: true,
@@ -345,101 +684,108 @@ function firstWallInit() {
             //            $(".folder").removeClass("brick");
         }
     });
-
+    wall.fitHeight();
     wall.fitWidth();
-    console.log("main grid loaded");
-}
-
-function freewallInit() {
-    var $freewall;
-    var wall;
-
-    for(var i=2;i<=6;i++){
-        $freewall = "#freewall" + i;
-
-        wall = new freewall($freewall);
-        wall.reset({
-            draggable: true,
-            selector: '.brick',
-            animate: true,
-            fixSize: 0,
-            cellW: 100,
-            cellH: 100,
-            //        rightToLeft: true,
-            onResize: function () {
-                wall.fitWidth();
-                //            wall.setHoles({
-                //             top:0,
-                //             left:0,
-                //             width:4,
-                //             height:5   
-                //            });
-                //            $(".folder").removeClass("brick");
-            }
-        });
-
-        wall.fitWidth();
-        console.log($freewall + " loaded");
-    }
-
-    // wall = new freewall("#freewall2");
-    // wall.reset({
-    //     draggable: true,
-    //     selector: '.brick',
-    //     animate: true,
-    //     fixSize: 0,
-    //     cellW: 100,
-    //     cellH: 100,
-    //     //        rightToLeft: true,
-    //     onResize: function () {
-    //         wall.fitWidth();
-    //         //            wall.setHoles({
-    //         //             top:0,
-    //         //             left:0,
-    //         //             width:4,
-    //         //             height:5
-    //         //            });
-    //         //            $(".folder").removeClass("brick");
-    //     }
-    // });
-
-    wall.fitWidth();
-    console.log($freewall + "loaded");
+    console.log("freewall grid loaded");
 }
 
 function appTrayInit() {
     var appTray = new freewall("#app-drawer");
     appTray.reset({
-        draggable: true,
+        draggable: false, /* true, */
         selector: '.brick',
         animate: true,
         fixSize: 0,
-        cellW: 100,
-        cellH: 100,
-        onResize: function () {
-            appTray.fitWidth();
-        }
+        cellW: iconwidth,
+        cellH: iconheight,
+        gutterX: gutter,
+        gutterY: gutter,
     });
 
     appTray.fitWidth();
     console.log("app tray loaded");
 }
+    
 
+function folderIconInit() {
+    var rawminiiconwidth = (Number($(".folder[cellwidth=1][cellheight=1]")[0].style.width.slice(0, -2)) / 3);
+    var miniicongutter = rawminiiconwidth / 5;
+    var miniiconwidth = rawminiiconwidth - miniicongutter;
+    var miniiconheight = miniiconwidth;
+    $(".folder[folder-id]").each(function(){
+        console.log('-------------------------------')
+        var folderhtmlid = $(this).attr('id');
+        var folderid =  $(this).attr('folder-id');
+        var cellheight = $(this).attr('cellheight');
+        var cellwidth = $(this).attr('cellwidth');
+        $(this).children(".foldergrid").width((Number($(this)[0].style.width.slice(0, -2))) - miniicongutter);
+        $(this).children(".foldergrid").height((Number($(this)[0].style.height.slice(0, -2))) - miniicongutter);
+        
+        var folderJSON = window['folder' + folderid + 'JSON'];
+        var temp = "<div class='brick miniicon' data-position=\"{initialPosition}\" style='width:{width}px; height:{height}px;'><img src={src} /></div>";
+    
+        var w = 1, h = 1, html = '', limitItem = folderJSON.length;
+    
+        for (var i = 0; i < limitItem; ++i) {
+            var row = Math.floor(i / (3 * cellwidth));
+            var col = i - (row * (3 * cellwidth)); 
+            html += temp
+                .replace(/\{width\}/, miniiconwidth)
+                .replace("{height}", miniiconheight)
+                .replace("{src}", folderJSON[i].src)
+                .replace("{class}", folderJSON[i].class)
+                .replace("{link}", folderJSON[i].link)
+                .replace("{initialPosition}", row + '-' + col)
+                .replace("{text}", folderJSON[i].text);
+        }
+
+        $("#" + folderhtmlid + " .foldergrid").html(html);
+        
+        var foldericongrid = new freewall("#" + folderhtmlid + " .foldergrid");
+        console.log('given cellw: ' + miniiconwidth);
+        foldericongrid.reset({
+            draggable: false,
+            selector: '.brick',
+            animate: true,
+            fixSize: 0,
+            cellW: miniiconwidth,
+            cellH: miniiconheight,
+            gutterX: miniicongutter,
+            gutterY: miniicongutter,
+            folderwidth: cellwidth,
+            folderheight: cellheight,
+            onComplete: function(){
+                console.log('dataw: ' + foldericongrid.container.attr("Data-wall-width"));
+                console.log('actualw: ' + $('#' + folderhtmlid).children(".foldergrid").width());
+                console.log('styledw: ' + $('#' + folderhtmlid).children(".foldergrid")[0].style.width);
+            },
+        });
+        foldericongrid.fitZone();
+        
+    });
+}
 function staticEventListeners() {
-
-    var $gridContainer = $('.grid-container');
-    var gridScroll = $('.freewall-page').outerWidth() - $gridContainer.width() + 50;
+    
     $("#left-full").click(function () {
-        $gridContainer.animate({ scrollLeft: '0' }, 1000, 'easeOutQuad');
+        $('#grid-container').animate({ scrollLeft: '+=-' + horizontalgridscroll }, scrolltime, 'easeOutQuad');
+        //$('#scrollbarthumb').animate({left: '+=-' + scrollbarscroll}, scrolltime, 'easeOutQuad');
     });
-    $("#left-slow").click(function () {
-        $gridContainer.animate({ scrollLeft: '+=-1200' }, 1000, 'easeOutQuad');
+    $("#up-full").click(function () {
+       $('#grid-container').animate({ scrollTop: '+=-' + verticalgridscroll }, scrolltime, 'easeOutQuad');
     });
-    $("#right-slow").click(function () {
-        $gridContainer.animate({ scrollLeft: '+=1200' }, 1000, 'easeOutQuad');
+    $("#down-full").click(function () {
+       $('#grid-container').animate({ scrollTop: '+=' + verticalgridscroll }, scrolltime, 'easeOutQuad');
     });
     $("#right-full").click(function () {
-        $gridContainer.animate({ scrollLeft: '+=' + gridScroll }, 1000, 'easeOutQuad');
+       $('#grid-container').animate({ scrollLeft: '+=' + horizontalgridscroll}, scrolltime, 'easeOutQuad');
+       //$('#scrollbarthumb').animate({left: '+=' + scrollbarscroll}, scrolltime, 'easeOutQuad');
+    });
+    $("#apptrayleft").click(function () {
+       $('#app-drawer-container').animate({ scrollLeft: '+=-' + apptrayscroll }, scrolltime, 'easeOutQuad');
+    });
+    $("#apptrayright").click(function () {
+        console.log('clicked app tray button')
+       $('#app-drawer-container').animate({ scrollLeft: '+=' + apptrayscroll }, scrolltime, 'easeOutQuad');
     });
     $(".close-banner").click(function () {
         $(".banner").hide();
@@ -452,30 +798,45 @@ function staticEventListeners() {
         var appCopy = $(this)
             .attr("data-position", "")
             .clone();
-        $(".freewall-page").append(appCopy);
+        $("#freewall1").append(appCopy);
         freewallInit();
         // addMenuToIcons();
     });
     console.log("static listeners added");
 
-    $("#grid-carousel").carousel("pause");
+}
+
+function setLabels(){
+    $.each($(".apptext"), function(){
+        var parentwidth = $(this).parent()[0].style.width;
+        $(this).width(parentwidth); 
+        $(this).css('bottom', '-' + $(this).height() + 'px');   //HARDCODED
+    });
 }
 
 function iconRightClick($button) {
     $button.find(".dropdown-toggle").dropdown("toggle");//.dropdown("toggle");
 }
 
-$(function () {
-    // requestPassword();
-    freewallAddCells();
-    firstWallInit();
-    // appTrayAddCells();
-    // appStoreAddCells();
-    iconMenuListeners();
-    showFolderModal();
-    staticEventListeners();
-});
+function swipeHandlers(){
 
+    $("#grid-container").on('swipeleft', function(){
+       $('#grid-container').animate({ scrollLeft: '+=' + horizontalgridscroll}, scrolltime, 'easeOutQuad');
+       console.log("Swiped left");
+    });
+    $("#grid-container").on('swiperight', function(){
+       $('#grid-container').animate({ scrollLeft: '+=-' + horizontalgridscroll}, scrolltime, 'easeOutQuad');
+        console.log("Swiped right");
+    });
+    $("#grid-container").on('swipeup', function(){
+       $('#grid-container').animate({ scrollTop: '+=' + verticalgridscroll}, scrolltime, 'easeOutQuad');
+        console.log("Swiped up");
+    });
+    $("#grid-container").on('swipedown', function(){
+       $('#grid-container').animate({ scrollTop: '+=-' + verticalgridscroll }, scrolltime, 'easeOutQuad');
+        console.log("Swiped down");
+    });
+}
 
 
 //Archived functions for later stages of development
@@ -496,18 +857,3 @@ $(function () {
 //        }
 //    });
 //}
-$(function() {
-    var wall = new freewall("#freewall");
-    wall.reset({
-        selector: '.brick',
-        cellW: 160,
-        cellH: 160,
-        onResize: function() {
-            wall.fitHeight($(window).height() - 170);
-        }
-    });
-    // caculator height for IE7;
-    wall.fitHeight($(window).height() - 170);
-    $(window).trigger("resize");
-});
-		
