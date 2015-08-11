@@ -198,20 +198,17 @@
                 <!-- <div id='scrollbar'>
                     <div id='scrollbarthumb'></div>
                 </div> -->
-                <ul class="list-inline text-center">
-                    <li id="up-full"><span class="fa fa-angle-up"></span></li>
-                    <li id="left-full"> <span class="fa fa-angle-left"></span></li>
-                    <li id="right-full"> <span class="fa fa-angle-right"></span></li>
-                    <li id="down-full"><span class="fa fa-angle-down"></span></li>
-                </ul>
-                <ul class='list-inline text-center'>
-                    <li id='apptrayleft'><span class='fa fa-angle-double-left'></span></li>
-                    <li id='apptrayright'><span class='fa fa-angle-double-right'></span></li>
-                    
-                </ul>
+                <i id='up' class="fa fa-angle-up"></i>
+                <i id='left' class="fa fa-angle-left"></i>
+                <i id='right' class="fa fa-angle-right"></i>
+                <i id='down' class="fa fa-angle-down"></i>
             </div>
             <div id='app-drawer-container'>
                 <div id="app-drawer" class="list-inline free-wall"></div>
+            </div>
+            <div id="app-tray-pagination">
+                <i class="fa fa-angle-left navbutton"></i>
+                <i class="fa fa-angle-right navbutton"></i>
             </div>
         </div>
     </div>

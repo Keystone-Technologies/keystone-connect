@@ -557,11 +557,10 @@ var folder8JSON = [
     
 var appTrayJSON = [
     //{ "width": 100, "height": 100, "initialPosition":"0-0", "src": "img/AppStore_Icon.png", "class": "app-store-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"https://twitter.com/keystone_tech", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "Help" },
+    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"https://mail.google.com/", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "Help" },
     { "width": 100, "height": 100, "initialPosition":"0-1", "link": "http://www.facebook.com", "src": "img/FacebookAppIcon.png", "class": "brick-icon", "text": "Facebook" },
-    { "width": 100, "height": 100, "initialPosition":"0-2", "link": "http://www.twitter.com", "src": "img/TwitterAppIcon.png", "class": "brick-icon", "text": "Twitter" },
-    { "width": 100, "height": 100, "initialPosition":"0-3", "link": "https://www.youtube.com/", "src": "img/YouTubeAppIcon.png", "class": "brick-icon", "text": "YouTube" },
-    { "width": 100, "height": 100, "initialPosition":"0-4", "link": "http://www.webmd.com/", "src": "img/WebMD_AppIcon.png", "class": "brick-icon", "text": "WebMD" },
+    { "width": 100, "height": 100, "initialPosition":"0-2", "link": "http://facegrid.dev.kit.cm/index.html", "src": "img/AppearIn_AppIcon.png", "class": "brick-icon", "text": "Twitter" },
+    { "width": 100, "height": 100, "initialPosition":"0-3", "link": "https://www.mediprocity.com/", "src": "img/Mediprocity_AppIcon.png", "class": "brick-icon", "text": "YouTube" },
 
     /*
     { "width": 100, "height": 100, "initialPosition":"0-1", "link":"https://lastpass.com/", "src": "img/GooglePasswords_AppIcon.png", "class": "brick-icon", "text": "Google Passwords" },

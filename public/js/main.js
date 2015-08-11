@@ -77,11 +77,15 @@ $(document).ready(function () {
         }
     });
 
+    appTrayAddCells();
+    appTrayInit();
+    
     if ($(window).width() <= screenwidth){
         $("#app-drawer-container").width(Math.floor((($(window).width() - ($(window).width() * .1)) / iconwidth)) * iconwidth);
         $("#app-drawer-container").css('transform', 'scale(1)');
         $("#app-drawer-container").css('left', (($("#row").width() - $("#app-drawer-container").width()) / 2));
-        $("#app-tray").height(140);
+        $("#app-drawer-container").height($("#app-drawer").height());
+        $("#app-tray").height($("#app-drawer-container").height() + ($("#grid-pagination").height()) + ($("#app-tray-pagination").height()));
         $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
         $("#grid-container").height(Math.floor($("#gridholder").height() / iconheight) * iconheight);
         $("#grid-container").width(Math.floor(($(window).width() / iconwidth)) * iconwidth);
@@ -93,10 +97,11 @@ $(document).ready(function () {
         var scale = (($(window).width() - screenwidth) / screenwidth);
         console.log("appdrawer width " + ($(window).width() * .1));
         $("#app-drawer-container").width(($(window).width() - ($(window).width() * .1)) / (scale + 1));
+        $("#app-drawer-container").height($("#app-drawer").height());
         $("#app-drawer-container").css('left', (($("#row").width() - ($("#app-drawer-container").width() * (scale +1))) / 2));
         $("#app-drawer-container").css('transform', 'scale(' + ((scale + 1).toString()) + ')');
         $("#app-drawer-container").css('transform-origin', "0 0");
-        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#grid-pagination").height()));
+        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#grid-pagination").height()) + ($("#app-tray-pagination").height()));
         $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
         $("#grid-container").width(screenwidth);
         $("#grid-container").height(((Math.floor($("#gridholder").height() / (iconheight * (scale + 1)))) * (iconheight * (scale + 1))) / (scale + 1));
@@ -105,15 +110,13 @@ $(document).ready(function () {
         $("#grid-container").css('transform-origin', "0 0");
         $("#grid-container").css('top', ((($("#gridholder").height() - ($("#grid-container").height() * (scale + 1))) / 2)));
     }
-
+    
     // requestPassword();
     firstWallAddCells();
     freewallAddCells();
     appStoreAddCells();
-    appTrayAddCells();
     firstWallInit();
     freewallInit();
-    appTrayInit();
     //folderModalAddCells();
     //folderModalInit();
     showFolderModal();
@@ -140,7 +143,8 @@ $(window).resize(function(){
         $("#app-drawer-container").css('transform', 'scale(1)');
         $("#app-drawer-container").width(Math.floor((($(window).width() - ($(window).width() * .1)) / iconwidth)) * iconwidth);
         $("#app-drawer-container").css('left', (($("#row").width() - $("#app-drawer-container").width()) / 2));
-        $("#app-tray").height(140);
+        $("#app-drawer-container").height($("#app-drawer").height());
+        $("#app-tray").height($("#app-drawer-container").height() + ($("#grid-pagination").height()) + ($("#app-tray-pagination").height()));
         $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
         $("#grid-container").css('transform', 'scale(1)');
         $("#grid-container").height(Math.floor($("#gridholder").height() / iconheight) * iconheight);
@@ -152,10 +156,11 @@ $(window).resize(function(){
     else {
         var scale = (($(window).width() - screenwidth) / screenwidth);
         $("#app-drawer-container").width(($(window).width() - ($(window).width() * .1)) / (scale + 1));
+        $("#app-drawer-container").height($("#app-drawer").height());
         $("#app-drawer-container").css('transform', 'scale(' + ((scale + 1).toString()) + ')');
         $("#app-drawer-container").css('transform-origin', "0 0");
         $("#app-drawer-container").css('left', (($("#row").width() - ($("#app-drawer-container").width() * (scale + 1))) / 2));
-        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#grid-pagination").height()));
+        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#grid-pagination").height()) + ($("#app-tray-pagination").height()));
         $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
         $("#grid-container").width(screenwidth);
         $("#grid-container").height(((Math.floor($("#gridholder").height() / (iconheight * (scale + 1)))) * (iconheight * (scale + 1))) / (scale + 1));
@@ -774,17 +779,17 @@ function folderIconInit() {
 }
 function staticEventListeners() {
     
-    $("#left-full").click(function () {
+    $("#left").click(function () {
         $('#grid-container').animate({ scrollLeft: '+=-' + horizontalgridscroll }, scrolltime, 'easeOutQuad');
         //$('#scrollbarthumb').animate({left: '+=-' + scrollbarscroll}, scrolltime, 'easeOutQuad');
     });
-    $("#up-full").click(function () {
+    $("#up").click(function () {
        $('#grid-container').animate({ scrollTop: '+=-' + verticalgridscroll }, scrolltime, 'easeOutQuad');
     });
-    $("#down-full").click(function () {
+    $("#down").click(function () {
        $('#grid-container').animate({ scrollTop: '+=' + verticalgridscroll }, scrolltime, 'easeOutQuad');
     });
-    $("#right-full").click(function () {
+    $("#right").click(function () {
        $('#grid-container').animate({ scrollLeft: '+=' + horizontalgridscroll}, scrolltime, 'easeOutQuad');
        //$('#scrollbarthumb').animate({left: '+=' + scrollbarscroll}, scrolltime, 'easeOutQuad');
     });

@@ -450,8 +450,13 @@ html {
     padding: 0px;
 }
 #home #app-tray #grid-pagination {
-    margin: 0px 0px 4px 0px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 40px;
+    margin: 0px;
     color: darkgrey;
+    vertical-align: middle;
+    text-align: center;
 }
 #home #app-tray #grid-pagination ul li {
     color: inherit;
@@ -459,6 +464,18 @@ html {
 }
 #home #app-tray #grid-pagination ul li:hover {
     opacity: .4;
+}
+#app-tray-pagination {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    font-size: 40px;
+    padding: 0px;
+    vertical-align: middle;
+    text-align: center;
 }
 #home #app-tray .free-wall {
     display: inline-block;
@@ -514,10 +531,12 @@ html {
 #app-drawer-container {
     height: 100px;
     overflow-x: scroll;
+    overflow-y: hidden;
     position: relative;
 }
 #row {
     width: 100%;
+    height: inherit;
     margin: 0px;
 }
 #home #app-tray #app-drawer .brick-icon {
@@ -964,4 +983,18 @@ iframe::-webkit-scrollbar-thumb {
 
 .rss-widget li:nth-child(2n+1) {
   background-color: #00ff00;
+}
+#app-tray .list-inline {
+    height: 40px;
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+    vertical-align: middle;
+}
+#app-tray li {
+    height: 40px;
+    font-size: 40px;
+    font-weight: 900;
+    text-align: center;
+    vertical-align: middle;
 }
