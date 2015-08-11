@@ -154,7 +154,7 @@ $(window).resize(function(){
         $("#app-drawer-container").width(($(window).width() - ($(window).width() * .1)) / (scale + 1));
         $("#app-drawer-container").css('transform', 'scale(' + ((scale + 1).toString()) + ')');
         $("#app-drawer-container").css('transform-origin', "0 0");
-        $("#app-drawer-container").css('left', (($("#row").width() - ($("#app-drawer-container").width() * (scale +1))) / 2));
+        $("#app-drawer-container").css('left', (($("#row").width() - ($("#app-drawer-container").width() * (scale + 1))) / 2));
         $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#grid-pagination").height()));
         $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
         $("#grid-container").width(screenwidth);
@@ -714,7 +714,9 @@ function appTrayInit() {
     
 
 function folderIconInit() {
-    var rawminiiconwidth = (Number($(".folder[cellwidth=1][cellheight=1]")[0].style.width.slice(0, -2)) / 3);
+    var rawfolderwidth = Number($(".folder[cellwidth][cellheight]")[0].style.width.slice(0, -2));
+    var foldercellwidth = $(".folder[cellwidth][cellheight]").attr('cellwidth');
+    var rawminiiconwidth = ((rawfolderwidth - ((foldercellwidth - 1) * gutter)) / (foldercellwidth * 3));
     var miniicongutter = rawminiiconwidth / 5;
     var miniiconwidth = rawminiiconwidth - miniicongutter;
     var miniiconheight = miniiconwidth;

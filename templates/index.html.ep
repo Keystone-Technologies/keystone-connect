@@ -27,11 +27,11 @@
         var iconheight = iconwidth;
         
         var gutter = Math.floor(iconwidth / 3.33);
-    </script
+    </script>
 
 <!-- Local stylsheets and scripts -->
     <link rel="stylesheet" href="styles/site.css">
-    <link rel="stylesheet" href="styles/WesternHome.css">
+    <link rel="stylesheet" href="/tenants/style.css">
     <link rel="stylesheet" href="styles/loading.css">
     <link href="/css/startme.css" media="all" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="styles/breakingNews.css">
@@ -73,12 +73,12 @@
 </div>
 <div id="header" role="banner" class="col-xs-12">
     <div id='branding'>
-        <img id='mainlogo' src='img/mainlogo.png'>
+        <img id='mainlogo'>
     </div>
     <div class="flex clearfix">
         <nav class="left">
             <ul class="buttons">
-                <img id='logo' src='img/w3.png'>
+                <img id='logo'>
             </ul>
 
         </nav>
@@ -115,13 +115,15 @@
 </div>
 <div id='footer'>
     <div id='footerright'>
-    <a class="footerbutton" href='http://keystone-technologies.com'><i class="fa fa-gavel"></i>
+    <a class="footerbutton" href='http://www.keystone-technologies.com/standard-terms-and-conditions'><i class="fa fa-gavel"></i>
         <span>Legal</span>
     </a>
-    <a class="footerbutton" href='http://keystone-technologies.com'><i class="fa fa-info-circle"></i>
+    <a class="footerbutton" href='http://keystone-technologies.com/leadership'><i class="fa fa-info-circle"></i>
         <span>About</span>
     </a>
+    <a href="http://keystone-technologies.com">
         <img id='keystonelogo' src='img/ktleaf.png'>
+    </a>
     </div>
     <div id='footercenter'>
         <div class="footerbutton" id="homebutton"><i class='fa fa-square-o'></i></div>

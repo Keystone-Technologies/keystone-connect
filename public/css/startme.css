@@ -2438,13 +2438,6 @@ body.has-pinned-sidebar #header {
 .has-me-menu .no-me-menu {
     display: none !important
 }
-#header,
-body.static.dark #header {
-    background: #222;
-    background: rgba(34, 34, 34, 0.8);
-    border-bottom: none;
-    color: #afb0b2
-}
 #header .container,
 body.static.dark #header .container {
     color: #afb0b2

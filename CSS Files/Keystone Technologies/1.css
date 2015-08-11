@@ -1,0 +1,33 @@
+body {
+}
+
+#header {
+    color: #fff;
+}
+
+#footer {
+    font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
+    color: #fff;
+}
+
+#mainlogo {
+    content: url('http://i.imgur.com/0dyN93o.png');
+}
+
+#logo {
+    content: url('http://i.imgur.com/DM7AfGd.png');
+}
+
+.apptext {
+    color: #fff;
+    font-size: 11px;
+    font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
+}
+
+#home .grid-container .free-wall .folder {
+    background: #acacac;
+}
+
+#home #app-tray #grid-pagination {
+    color: #fff;
+}

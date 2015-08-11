@@ -1,6 +1,5 @@
 body {
-    background: url(http://i.imgur.com/2KJhaw0.jpg);
-    background-size: cover;
+    background: #ede4d2;
 }
 
 #header {
@@ -31,12 +30,8 @@ body {
 
 #home .grid-container .free-wall .folder {
     background: #acacac;
-    opacity: .93;
 }
 
 #home #app-tray #grid-pagination {
     color: #000;
-}
-#keystonelogo {
-    -webkit-filter: invert(100%);
 }

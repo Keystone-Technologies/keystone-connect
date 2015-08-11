@@ -1,29 +1,28 @@
 body {
-    background: url(http://i.imgur.com/2KJhaw0.jpg);
+    background: url(http://desktop.freewallpaper4.me/view/original/2426/in-the-city.jpg);
     background-size: cover;
 }
 
 #header {
-    background: url(http://i.imgur.com/ckmDxgh.png);
+    color: #fff;
 }
 
 #footer {
-    background: url(http://i.imgur.com/ckmDxgh.png);
     font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
-    color: #000;
+    color: #fff;
 }
 
 #mainlogo {
-    content: url('http://i.imgur.com/YLIntBg.png');
+    content: url('http://i.imgur.com/0dyN93o.png');
 }
 
 #logo {
-    content: url('/../tenants/logo.png');
+    content: url('http://i.imgur.com/DM7AfGd.png');
 }
 
 .apptext {
-    color: #000;
-    -webkit-text-stroke: .2px #fff;
+    color: #fff;
+    -webkit-text-stroke: .2px #000;
     font-weight: 900;
     font-size: 13px;
     font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
@@ -31,12 +30,9 @@ body {
 
 #home .grid-container .free-wall .folder {
     background: #acacac;
-    opacity: .93;
+    opacity: 0.96;
 }
 
 #home #app-tray #grid-pagination {
-    color: #000;
-}
-#keystonelogo {
-    -webkit-filter: invert(100%);
+    color: #fff;
 }

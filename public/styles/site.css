@@ -28,12 +28,14 @@
 }
 
 #logo {
+    content: url('/../img/ktleaf.png');
     width: 50px;
     height: 50px;
     margin: auto;
 }
 
 #mainlogo {
+    content: url('/../img/logo.png');
     width: 250px;
     height: 50px;
 }
@@ -80,6 +82,8 @@
 }
 body {
     height: 100%;
+    background: url(http://res-5.cloudinary.com/hp20rcdax/image/upload/f_auto,q_90/v1/backgrounds/rbepbw8y5za1qhn0n4i3);
+    background-repeat: no-repeat;
 }
 html {
     height: 100%;
@@ -116,6 +120,9 @@ html {
     padding: 0px;
     margin: 0px;
 }
+#header {
+    background: rgba(34, 34, 34, 0.8);
+}
 #branding {
     width: 300px;
     height: 30px;
@@ -123,16 +130,6 @@ html {
     left: calc((100% - 300px) / 2);
     top: 0px;
     text-align: center
-}
-#brandtext {
-    display: inline-block;
-    width: auto;
-    margin: auto;
-    height: 30px;
-    font-weight: bold;
-    font-size: 27px;
-    color: #fff;
-    cursor: default;
 }
 #footer {
     position: fixed;
@@ -145,13 +142,14 @@ html {
     white-space: nowrap;
     font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
     box-shadow: 0px -2px 3px 0.5px rgba(0, 0, 0, 0.2);
+    color: #afb0b2;
 }
 #footercenter {
     position: fixed;
     bottom: 0px;
     height: 30px;
     left: calc((100% - 30px) / 2);
-    color: #afb0b2;
+    color: inherit;
 
 }
 #footerright {
@@ -162,7 +160,7 @@ html {
     width: auto;
     display: flex;
     line-height: 30px;
-    color: #afb0b2;
+    color: inherit;
 }
 
 .footerbutton {
@@ -175,9 +173,6 @@ html {
     cursor: pointer;
 }
 
-.square-o {
-    color: #;
-}
 #keystonelogo {
     height: 20px;
     width: auto;
@@ -247,6 +242,7 @@ html {
 }
 .list-inline {
     margin-bottom: 0px;
+    color: inherit;
 }
 #home .grid-container > ul {
     width: 7800px;
@@ -438,6 +434,7 @@ html {
     cursor: pointer;
     height: 100%;
     width: 100%;
+    opacity: 0.96;
 }
 .folderimg {} #home .folder h2 {
     margin: 0;
@@ -454,9 +451,10 @@ html {
 }
 #home #app-tray #grid-pagination {
     margin: 0px 0px 4px 0px;
+    color: darkgrey;
 }
 #home #app-tray #grid-pagination ul li {
-    color: darkgrey;
+    color: inherit;
     opacity: .8;
 }
 #home #app-tray #grid-pagination ul li:hover {
@@ -660,6 +658,7 @@ p {
     z-index: 5;
     font-size: 11px;
     font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
+    opacity: 1;
 }
 .folderapptext {
     position: relative;

@@ -255,7 +255,6 @@ var verticalgridscroll;
                     }
 
                     $item["css"]({
-                        opacity: 1,
                         width: block.width,
                         height: block.height
                     });
