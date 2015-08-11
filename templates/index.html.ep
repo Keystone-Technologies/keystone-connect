@@ -85,7 +85,7 @@
         <nav class="right">
 
             <div class="buttons" id="menus">
-                <a href="http://keystone-technologies.com" class="not-logged-in sign-in button"><i class="fa fa-question-circle"></i>
+                <a href="https://twitter.com/keystone_tech" class="not-logged-in sign-in button"><i class="fa fa-question-circle"></i>
                     <span>Help</span>
                 </a>
                 <a href="/users/sign_in" class="not-logged-in sign-in button"><i class="fa fa-sign-in"></i>
@@ -124,7 +124,7 @@
         <img id='keystonelogo' src='img/ktleaf.png'>
     </div>
     <div id='footercenter'>
-        <div class="footerbutton"><i class='fa fa-square-o'></i></div>
+        <div class="footerbutton" id="homebutton"><i class='fa fa-square-o'></i></div>
     </div>
 </div>
 <div id="home">

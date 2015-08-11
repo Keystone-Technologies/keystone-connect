@@ -29,6 +29,12 @@ $(window).load(function(){
 });
 
 $(document).ready(function () {
+    
+    $("#homebutton").click(function(){
+        $('#grid-container').animate({ scrollLeft: 0 }, {queue: false}, scrolltime, 'easeOutQuad');
+        $('#grid-container').animate({ scrollTop: 0 }, { queue: false}, scrolltime, 'easeOutQuad');
+    })
+    
     parseRSS('http://www.npr.org/rss/rss.php?id=1019', function(data){
         var html;
         $.each(data.entries, function(i, entry){
