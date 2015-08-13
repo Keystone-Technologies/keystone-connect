@@ -1,6 +1,45 @@
+var menu = `<table id='foodmenutable'>
+
+  <tr>
+    <th class='title'>Meal</th>
+    <th class='title'>Time</th>
+    <th class='title'>Sunday</th>
+  </tr>
+  <tr class='trow'>
+    <td class='mealtitle'>Breakfast</td>
+    <td class='cell1'></td>
+    <td class='cell2'></td>
+  </tr>
+  <tr class='trow'>
+    <td class='mealtitle'>Snack</td>
+    <td class='cell1'></td>
+    <td class='cell2'></td>
+  </tr>
+  <tr class='trow'>
+    <td class='mealtitle'>Lunch</td>
+    <td class='cell1'></td>
+    <td class='cell2'></td>
+  </tr>
+  <tr class='trow'>
+    <td class='mealtitle'>Snack</td>
+    <td class='cell1'></td>
+    <td class='cell2'></td>
+  </tr>
+  <tr class='trow'>
+    <td class='mealtitle'>Dinner</td>
+    <td class='cell1'></td>
+    <td class='cell2'></td>
+  </tr>
+  <tr class='trow'>
+    <td class='mealtitle'>Snack</td>
+    <td class='cell1'></td>
+    <td class='cell2'></td>
+  </tr>
+</table>`;
+
 var firstWallJSON = [
     { "width": 4, "height": 2, "initialPosition":"0-10", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" id='tester' border='false'><iframe class='iframe-small' scrolling='no' src='http://chat.dev.kit.cm/'></iframe></div>" },
-    { "width": 4, "height": 2, "initialPosition":"0-0", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><iframe id='food-iframe' class='iframe-small' src='http://foodmenu.dev.kit.cm/' scrolling='no'></iframe></div>" },
+    { "width": 4, "height": 2, "initialPosition":"0-0", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><div id='foodmenu' class='iframe-small'>" + menu + "</div><!--<iframe id='food-iframe' class='iframe-small' src='http://foodmenu.dev.kit.cm/' scrolling='no'></iframe>--></div>" },
     { "width": 4, "height": 2, "initialPosition":"2-0", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><iframe id='calendar-iframe' class='iframe-small' src='https://www.google.com/calendar/embed?title=Community%20Events&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;ctz=America%2FChicago'></iframe></div>" },
     { "width": 4, "height": 2, "initialPosition":"2-10", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><div id='ideawidget' class='iframe-small'><div id='ideaheader'>Possible Widget Ideas</div><div id='ideacontainer' class='iframe-small'><ul id='idealist'><li>WebMD</li><li>Words with Friends</li><li>Pandora</li><li>Yesterday USA (Oldies radio)</li><li>Lumosity</li><li>Keystone Care Dashboard</li><li>The Weather Channel</li><li>Postcards</li><li>Custom food menu</li><li>Custom cevents calendar</li></ul></div></div><!--<div id='scroller' class='iframe-small'><div id='scroller-container'><div id='scroller-content' class='rss-widget'></div></div></div> --></div>" },
     { "width": 3, "height": 1, "initialPosition":"0-4", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 0, "text": "My Social Networks" },
