@@ -14,6 +14,8 @@ var scrollbarscroll;
 var gridcontainerzoomwidth;
 var devshown = false;
 var messageexpiration;
+var messagehash;
+var websocket;
 
 
 
@@ -28,7 +30,9 @@ $(window).load(function(){
         }, messageexpiration);
 });
 
+
 $(document).ready(function () {
+
     
     $("#homebutton").click(function(){
         $('#grid-container').animate({ scrollLeft: 0 }, {queue: false}, scrolltime, 'easeOutQuad');
@@ -45,18 +49,50 @@ $(document).ready(function () {
         $("#scroller-content").html(html);
     })
     $("#firstwall").css('min-width', (iconwidth * 14));
-    
-    console.log('cellw: ' + iconwidth);
-    console.log('cellh: ' + iconheight);
-    var websocket = new WebSocket("wss://kc-jacob2-jdorpinghaus.c9.io/news");
-    websocket.onmessage = function(event){ 
+
+    $("#bannertextcontainer").width($("#banner").width() - $("#bannertitle").width() - 35);
+    $("#bannertext").width($("#bannertextcontainer").width());
+    websocket = new WebSocket("wss://keystone-connect-jdorpinghaus.c9.io/news");
+    websocket.onmessage = function(event){
+        console.log('websocket');
+        console.log(event);
+        var headlinelimit = ($(window).width() / 4);
         var obj = $.parseJSON(event.data);
-        $("#messagetext").html("Message: " + obj.message);
-        $("#bannertext").html(obj.message);
-        messageexpiration = (obj.expiration * 1000);
+        messagehash = obj.messagehash;
+        if (localStorage.getItem('closed') != messagehash) {
+            var headline = obj.headline;
+            if (headline.length > headlinelimit) {
+                headline.trimToLength(headlinelimit);
+                headline = headline + '. . .';
+            }
+            $("#messagetext").html("Message: " + headline);
+            $("#bannertext").text(obj.headline);
+            messageexpiration = (obj.expiration * 1000);
+            var timernumber = obj.expiration + 1;
+            setInterval(function (){
+                var minutes = Math.floor(timernumber / 60);
+                var secs = timernumber % 60;
+                if (minutes < 0) {
+                    $("#messagetimer").text(minutes + 'm ' + secs + 's');
+                }
+                else {
+                    $("#messagetimer").text(secs + 's');
+                }
+                timernumber--;
+            }, 1000);
+            $("#bannertextcontainer").endlessScroll({ width: $("#bannertextcontainer").width(), height: $("#bannertextcontainer").height(), steps: -2, speed: 60, mousestop: true });
+        }
+        else {
+            $(".banner").remove();
+        }
     };
     websocket.onopen = function (event) {
-        websocket.send("message");
+        var msg = {
+            type: "ready",
+            id:   1,
+            date: Date.now()
+        };
+        websocket.send(JSON.stringify(msg));
     };
     
     $("#windowtext").text("Window dimensions: " + $(window).width() + " x " + $(window).height());
@@ -80,6 +116,8 @@ $(document).ready(function () {
     appTrayAddCells();
     appTrayInit();
     
+    
+    //First block controls panning functionality 
     if ($(window).width() <= screenwidth){
         $("#app-drawer-container").width(Math.floor((($(window).width() - ($(window).width() * .1)) / iconwidth)) * iconwidth);
         $("#app-drawer-container").css('transform', 'scale(1)');
@@ -93,6 +131,7 @@ $(document).ready(function () {
         $("#grid-container").css('left', (($("#gridholder").width() - $("#grid-container").width()) / 2));
         $("#grid-container").css('transform', 'scale(1)');
     }
+    //Second block controls magnification
     else {
         var scale = (($(window).width() - screenwidth) / screenwidth);
         console.log("appdrawer width " + ($(window).width() * .1));
@@ -123,7 +162,12 @@ $(document).ready(function () {
     //addMenuToIcons();
     setLabels();
     iconMenuListeners();
-    
+    $('#ideacontainer').scrollbox({
+        linear: true,
+        step: 1,
+        delay: 0,
+        speed: 100
+    });
     
     horizontalgridscroll = (Number(($("#firstwall .brick-icon")[0].style.width).slice(0, -2)) + gutter);
     verticalgridscroll = (Number(($("#firstwall .brick-icon")[0].style.height).slice(0, -2)) + gutter);
@@ -136,9 +180,14 @@ $(document).ready(function () {
     $(".rss-feed").css('max-height', (iconwidth * 2));
     $(".rss-feed-small").css('min-height', iconwidth);
     $(".rss-feed-small").css('max-height', iconwidth);
+    
+
 });
 
+//Large amount of duplicate code from document ready function, need to create function
 $(window).resize(function(){
+    $("#bannertextcontainer").width($("#banner").width() - $("#bannertitle").width() - 35);
+    
     if ($(window).width() <= screenwidth){
         $("#app-drawer-container").css('transform', 'scale(1)');
         $("#app-drawer-container").width(Math.floor((($(window).width() - ($(window).width() * .1)) / iconwidth)) * iconwidth);
@@ -189,6 +238,12 @@ $.fn.textWidth = function(text, font) {
     htmlText = htmlText.replace(/\s/g, "&nbsp;"); //replace trailing and leading spaces
     $.fn.textWidth.fakeEl.html(htmlText).css('font', font || this.css('font'));
     return $.fn.textWidth.fakeEl.width();
+};
+
+String.prototype.trimToLength = function(m) {
+  return (this.length > m) 
+    ? jQuery.trim(this).substring(0, m).split(" ").slice(0, -1).join(" ") + "..."
+    : this;
 };
 
 function requestPassword() {
@@ -422,6 +477,7 @@ function firstWallAddCells() {
         }
             
     }
+    //Calculates height and width of firstwall div, which is contained in the main #grid-container div
     var colmax = 0;
     var colmaxindex = 0;
     for (var i = 0; i < columns.length; i++) {
@@ -717,7 +773,7 @@ function appTrayInit() {
     console.log("app tray loaded");
 }
     
-
+//function for generating thumbnails for contents of folders; static freewall grid
 function folderIconInit() {
     var rawfolderwidth = Number($(".folder[cellwidth][cellheight]")[0].style.width.slice(0, -2));
     var foldercellwidth = $(".folder[cellwidth][cellheight]").attr('cellwidth');
@@ -779,6 +835,7 @@ function folderIconInit() {
 }
 function staticEventListeners() {
     
+    //click events for navigation buttons
     $("#left").click(function () {
         $('#grid-container').animate({ scrollLeft: '+=-' + horizontalgridscroll }, scrolltime, 'easeOutQuad');
         //$('#scrollbarthumb').animate({left: '+=-' + scrollbarscroll}, scrolltime, 'easeOutQuad');
@@ -801,7 +858,16 @@ function staticEventListeners() {
        $('#app-drawer-container').animate({ scrollLeft: '+=' + apptrayscroll }, scrolltime, 'easeOutQuad');
     });
     $(".close-banner").click(function () {
-        $(".banner").hide();
+        localStorage.setItem('closed', messagehash);
+        $(".banner").remove();
+        /*var msg = {
+            type: "close",
+            messagehash: messagehash,
+            id:   1,
+            date: Date.now()
+        };
+        websocket.send(JSON.stringify(msg));
+        */
     });
     $(".app-store-icon").dblclick(function () {
         $("#app-store-modal").modal("show");
@@ -819,11 +885,12 @@ function staticEventListeners() {
 
 }
 
+//positions/styles labels below app icons
 function setLabels(){
     $.each($(".apptext"), function(){
         var parentwidth = $(this).parent()[0].style.width;
         $(this).width(parentwidth); 
-        $(this).css('bottom', '-' + $(this).height() + 'px');   //HARDCODED
+        $(this).css('bottom', '-' + $(this).height() + 'px');  
     });
 }
 

@@ -1,12 +1,16 @@
 package KeystoneConnect;
 use Mojo::Base 'Mojolicious';
 use Mojo::Transaction::WebSocket;
+use Digest::MD5 qw(md5_hex);
+use Mojo::JSON qw(decode_json);
+
 # This method will run once at server start
 sub startup {
   my $self = shift;
 
   $self->secrets(['new_passw0rd', 'old_passw0rd', 'very_old_passw0rd']);
   $self->sessions->cookie_name('mysession');
+  $self->session(expiration => 604800);
 
   # Documentation browser under "/perldoc"
   $self->plugin('PODRenderer');
@@ -23,12 +27,18 @@ sub startup {
     my $self = shift;
     $self->on(message => sub {
       my ($self, $msg) = @_;
-      if ($msg eq 'message'){
+      $msg = decode_json($msg);
+      if ($msg->{type} eq 'ready'){
         my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime();
-        my $message = {message => ('Current date and time is: ' . (scalar localtime())), expiration => 30};
-        #if ($min % 2 == 0) {
-        $self->send({json => $message});
-        #}
+        my $headline = 'Bingo at 5 today!';
+        my $description = 'This hmessage is really long and demonstrates the scrolling ability of the banner text. Go to Bingo at 5PM tonight in the cafeteria! Dinner is at 7PM tonight, meatloaf will be served.';
+        my $expiration = 30;
+        my $hash = md5_hex($headline . $description . $expiration);
+        my $message = {headline => $headline, message => $description, expiration => $expiration, messagehash => $hash};
+          $self->send({json => $message});
+      }
+      elsif ($msg->{type} eq 'close') {
+        $self->session(closed => $msg->{messagehash});
       }
     });
   });

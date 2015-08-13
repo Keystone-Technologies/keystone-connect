@@ -40,3 +40,7 @@ body {
 #keystonelogo {
     -webkit-filter: invert(100%);
 }
+.banner {
+    background: #ffffff;
+    border: 1px solid #c3c3c3;
+}

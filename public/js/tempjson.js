@@ -2,7 +2,7 @@ var firstWallJSON = [
     { "width": 4, "height": 2, "initialPosition":"0-10", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" id='tester' border='false'><iframe class='iframe-small' scrolling='no' src='http://chat.dev.kit.cm/'></iframe></div>" },
     { "width": 4, "height": 2, "initialPosition":"0-0", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><iframe id='food-iframe' class='iframe-small' src='http://foodmenu.dev.kit.cm/' scrolling='no'></iframe></div>" },
     { "width": 4, "height": 2, "initialPosition":"2-0", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><iframe id='calendar-iframe' class='iframe-small' src='https://www.google.com/calendar/embed?title=Community%20Events&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;ctz=America%2FChicago'></iframe></div>" },
-    { "width": 4, "height": 2, "initialPosition":"2-10", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><div id='scroller' class='iframe-small'><div id='scroller-container'><div id='scroller-content' class='rss-widget'></div></div></div></div>" },
+    { "width": 4, "height": 2, "initialPosition":"2-10", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><div id='ideawidget' class='iframe-small'><div id='ideaheader'>Possible Widget Ideas</div><div id='ideacontainer' class='iframe-small'><ul id='idealist'><li>WebMD</li><li>Words with Friends</li><li>Pandora</li><li>Yesterday USA (Oldies radio)</li><li>Lumosity</li><li>Keystone Care Dashboard</li><li>The Weather Channel</li><li>Postcards</li><li>Custom food menu</li><li>Custom cevents calendar</li></ul></div></div><!--<div id='scroller' class='iframe-small'><div id='scroller-container'><div id='scroller-content' class='rss-widget'></div></div></div> --></div>" },
     { "width": 3, "height": 1, "initialPosition":"0-4", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 0, "text": "My Social Networks" },
     { "width": 3, "height": 1, "initialPosition":"0-7", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 1, "text": "My Health" },
     { "width": 2, "height": 1, "initialPosition":"1-4", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 2, "text": "My Office" },
@@ -557,10 +557,12 @@ var folder8JSON = [
     
 var appTrayJSON = [
     //{ "width": 100, "height": 100, "initialPosition":"0-0", "src": "img/AppStore_Icon.png", "class": "app-store-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"https://mail.google.com/", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "Help" },
+    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"https://mail.google.com/", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "Gmail" },
     { "width": 100, "height": 100, "initialPosition":"0-1", "link": "http://www.facebook.com", "src": "img/FacebookAppIcon.png", "class": "brick-icon", "text": "Facebook" },
-    { "width": 100, "height": 100, "initialPosition":"0-2", "link": "http://facegrid.dev.kit.cm/index.html", "src": "img/AppearIn_AppIcon.png", "class": "brick-icon", "text": "Twitter" },
-    { "width": 100, "height": 100, "initialPosition":"0-3", "link": "https://www.mediprocity.com/", "src": "img/Mediprocity_AppIcon.png", "class": "brick-icon", "text": "YouTube" },
+    { "width": 100, "height": 100, "initialPosition":"0-2", "link": "http://facegrid.dev.kit.cm/index.html", "src": "img/facetimetext.png", "class": "brick-icon", "text": "Video Chat" },
+    { "width": 100, "height": 100, "initialPosition":"0-3", "link": "https://www.mediprocity.com/", "src": "img/messaging.png", "class": "brick-icon", "text": "Mediprocity" },
+    { "width": 100, "height": 100, "initialPosition":"0-4", "link": "http://contacts.google.com", "src": "img/contacts.png", "class": "brick-icon", "text": "Contacts" },
+    { "width": 100, "height": 100, "initialPosition":"0-5", "link": "http://www.weather.com/", "src": "img/weather.png", "class": "brick-icon", "text": "Weather" },
 
     /*
     { "width": 100, "height": 100, "initialPosition":"0-1", "link":"https://lastpass.com/", "src": "img/GooglePasswords_AppIcon.png", "class": "brick-icon", "text": "Google Passwords" },

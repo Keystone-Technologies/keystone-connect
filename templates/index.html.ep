@@ -40,6 +40,8 @@
     <script src="js/jquery.rss.js"></script>
     <script src="js/main.js"></script>
     <script src="js/widget.js"></script>
+    <script src="js/endless.js"></script>
+    <script src="js/scrollbox.js"></script>
 
 <!-- META VIEWPORT TAGS ARE NOT SUPPORTED ON DESKTOP BROWSERS-->
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -106,11 +108,9 @@
 
     </div>
     <div class="banner" id='banner'>
-        <div class="breakingNews bn-large" id="bn10">
-            <div class="bn-title"><h2>Community Message</h2><span></span></div>
-            <div id='bannertextcontainer'><a href="http://google.com"><div id='bannertext'></div></a></div>
-        </div>
-        <div class="close-banner">X</div>
+        <div class="bn-title" id='bannertitle'><i class='fa fa-exclamation-circle'></i><h2>News</h2><span></span></div>
+        <div id='bannertextcontainer'><a href="http://google.com"><div id='bannertext'></div></a></div>
+        <div class="close-banner"><div id='messagetimer'></div><i class='fa fa-times-circle'></i></div>
     </div>
 </div>
 <div id='footer'>
@@ -198,10 +198,10 @@
                 <!-- <div id='scrollbar'>
                     <div id='scrollbarthumb'></div>
                 </div> -->
-                <i id='up' class="fa fa-angle-up"></i>
-                <i id='left' class="fa fa-angle-left"></i>
-                <i id='right' class="fa fa-angle-right"></i>
-                <i id='down' class="fa fa-angle-down"></i>
+                <i id='up' class="fa fa-angle-up navbutton"></i>
+                <i id='left' class="fa fa-angle-left navbutton"></i>
+                <i id='right' class="fa fa-angle-right navbutton"></i>
+                <i id='down' class="fa fa-angle-down navbutton"></i>
             </div>
             <div id='app-drawer-container'>
                 <div id="app-drawer" class="list-inline free-wall"></div>

@@ -35,3 +35,10 @@ body {
 #home #app-tray #grid-pagination {
     color: #000;
 }
+.banner {
+    background: #ede4d2;
+    border: 3px solid #acacac;
+}
+#bannertitle {
+    border: 3px solid #000;
+}
