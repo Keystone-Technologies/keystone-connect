@@ -314,8 +314,8 @@ function folderModalAddCells(folderid){
     for (var i = 0; i < limitItem; ++i) {
         console.log(i);
         html += temp
-            .replace(/\{width\}/, folderJSON[i].width)
-            .replace("{height}", folderJSON[i].height)
+            .replace(/\{width\}/, 100)//folderJSON[i].width)
+            .replace("{height}", 100)//folderJSON[i].height)
             .replace("{src}", folderJSON[i].src)
             .replace("{link}", folderJSON[i].link)
             .replace("{class}", folderJSON[i].class)

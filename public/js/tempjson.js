@@ -515,7 +515,6 @@ var tempJSON = [
 
 // My Social Networks: fb, Twitter, LinkedIn, Pinterst, G+, YouTube, Tumblr, Instagram
 var folder0JSON = [
-/*
     { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://www.facebook.com/KeystoneTechnologiesLLC", "src": "img/icons/facebook", "text": "Facebook" },
     { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "https://twitter.com/Keystone_Tech", "src": "img/icons/twitter", "text": "Twitter" },
     { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "https://www.linkedin.com/company/keystone-technologies", "src": "img/icons/linkedin", "text": "LinkedIn" },
@@ -523,80 +522,64 @@ var folder0JSON = [
     { "width": 100, "height": 100, "initialPosition":"0-4", "class": "folder-brick-icon", "link": "http://plus.google.com/", "src": "img/icons/google_", "text": "Google+" },
     { "width": 100, "height": 100, "initialPosition":"1-0", "class": "folder-brick-icon", "link": "https://www.youtube.com/channel/UCXEkqelctvirgX80NYXjuBw", "src": "img/icons/youtube", "text": "YouTube" },
     { "width": 100, "height": 100, "initialPosition":"1-1", "class": "folder-brick-icon", "link": "https://www.tumblr.com/dashboard", "src": "img/icons/tumblr", "text": "Tumblr" },
-*/
     { "width": 100, "height": 100, "initialPosition":"1-2", "class": "folder-brick-icon", "link": "http://instagram.com/", "src": "img/icons/instagram", "text": "Instagram" }
     ];
     
 // My Health: Secure Messaging, WebMD
 var folder1JSON = [
-/*
     { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://secure.mediprocity.com/", "src": "img/icons/mediprocity", "text": "Mediprocity" },
-*/
     { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "http://www.webmd.com/", "src": "img/icons/webmd", "text": "WebMD" }
     ];
     
 // My Office: Calendar, Stoarge, Documents, Spreadsheets, Presentations
 var folder2JSON = [
-/*
     { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%2525252523FFFFFF&src=stravis%2525252540keystone-technologies.com&color=%2525252523125A12&ctz=America%252525252FChicago", "src": "img/icons/calendar", "text": "Calendar" },
     { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "https://www.google.com/drive/", "src": "img/icons/storage", "text": "Storage" },
     { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "https://docs.google.com/", "src": "img/icons/documents", "text": "Documents" },
     { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "https://docs.google.com/speadsheets", "src": "img/icons/spreadsheets", "text": "Spreadsheets" },
-*/
     { "width": 100, "height": 100, "initialPosition":"0-4", "class": "folder-brick-icon", "link": "https://docs.google.com/slides", "src": "img/icons/presentations", "text": "Presentations" }
     ];
     
 // My Communications: Video Chat, Email, Chat, Community Cat, Blog, Translations, Secure Chat
 var folder3JSON = [
-/*
     { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "http://appear.in/", "src": "img/icons/video_chat", "text": "Video Chat" },
     { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "http://gmail.com/", "src": "img/icons/gmail", "text": "Gmail" },
     { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "http://www.google.com/hangouts", "src": "img/icons/google_hangouts", "text": "Google Hangouts" },
     { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "http://candy-chat.github.io/candy/", "src": "img/icons/community_chat", "text": "Community Chat" },
     { "width": 100, "height": 100, "initialPosition":"0-4", "class": "folder-brick-icon", "link": "http://blogger.com/", "src": "img/icons/blogger", "text": "Blogger" },
     { "width": 100, "height": 100, "initialPosition":"1-0", "class": "folder-brick-icon", "link": "http://translate.google.com/", "src": "img/icons/google_translate", "text": "Google Translate" },
-*/
     { "width": 100, "height": 100, "initialPosition":"1-1", "class": "folder-brick-icon", "link": "https://secure.mediprocity.com/", "src": "img/icons/mediprocity", "text": "Mediprocity" }
     ];
 
 // My Home: Nest
 var folder4JSON = [
-/*
     { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://home.nest.com/login", "src": "img/icons/nest", "text": "Nest" }
-*/
     ];
 
 // My Finances: Bank Account, Investments, Market Watcj, Wallet
 var folder5JSON = [
-/*
     { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "http://www.carrolltonbanking.com/index.php", "src": "img/icons/carrollton_banking", "text": "Carrollton Banking" },
     { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "https://trading.scottrade.com/Default.aspx", "src": "img/icons/scottrade", "text": "Scottrade" },
     { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "https://www.google.com/finance", "src": "img/icons/market_watch", "text": "Market Watch" },
-*/
     { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "https://www.google.com/wallet/", "src": "img/icons/wallet", "text": "Wallet" }
     ];
     
 // My Beliefs: Bible, Encouraement
 var folder6JSON = [
-/*
     { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "http://www.holybible.com/", "src": "img/icons/bible", "text": "Bible" },
-*/
     { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "http://www.biblegateway.com/devotionals/encouragement-for-today/today/", "src": "img/icons/encouragement", "text": "Encouragement" }
     ];
     
 // My Photos & Videos: Photos, YouTube, Instagram, Flickr
 var folder7JSON = [
-/*
     { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://photos.google.com/", "src": "img/icons/photos", "text": "Photos" },
     { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "https://www.youtube.com/channel/UCXEkqelctvirgX80NYXjuBw", "src": "img/icons/youtube", "text": "YouTube" },
     { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "http://instagram.com/", "src": "img/icons/instagram", "text": "Instagram" },
-*/
     { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "http://flickr.com/", "src": "img/icons/flickr", "text": "Flickr" }
     ];
     
 // My News & Entertainment: News, BBC News, Movies, TV, Music, Music, Books, Games
 var folder8JSON = [
-/*
     { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "http://www.start.me/channels/us/popular?_ga=1.125873293.1847362445.1428378479", "src": "img/icons/news", "text": "News" },
     { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "http://www.bbc.com/news/world/us_and_canada", "src": "img/icons/bbc_news", "text": "BBC News" },
     { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "https://www.netflix.com/Login?locale=en-US", "src": "img/icons/netflix", "text": "Netflix" },
@@ -604,7 +587,6 @@ var folder8JSON = [
     { "width": 100, "height": 100, "initialPosition":"0-4", "class": "folder-brick-icon", "link": "https://play.spotify.com/browse", "src": "img/icons/spotify", "text": "Spotify" },
     { "width": 100, "height": 100, "initialPosition":"1-0", "class": "folder-brick-icon", "link": "http://www.pandora.com/", "src": "img/icons/pandora", "text": "Pandora" },
     { "width": 100, "height": 100, "initialPosition":"1-1", "class": "folder-brick-icon", "link": "http://smile.amazon.com/l/283155/ref=smi_www_rco2_go_smi_g2096965702", "src": "img/icons/amazon_books", "text": "Amazon Books" },
-*/
     { "width": 100, "height": 100, "initialPosition":"1-2", "class": "folder-brick-icon", "link": "http://games.aarp.org/games", "src": "img/icons/aarp_games", "text": "AARP Games" }
     ];
     
