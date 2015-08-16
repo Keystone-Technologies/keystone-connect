@@ -13,7 +13,7 @@ sub startup {
 
   $self->secrets(['new_passw0rd', 'old_passw0rd', 'very_old_passw0rd']);
   $self->sessions->cookie_name('mysession');
-  $self->session(expiration => 604800);
+  $self->sessions->default_expiration(60*60*24*365);
 
   $self->hook(before_routes => sub {
     my $c = shift;
