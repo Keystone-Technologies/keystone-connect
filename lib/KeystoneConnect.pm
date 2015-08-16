@@ -15,7 +15,7 @@ sub startup {
   $self->sessions->cookie_name('mysession');
   $self->session(expiration => 604800);
 
-  $self->hook(after_static => sub {
+  $self->hook(before_routes => sub {
     my $c = shift;
     my $host = $c->req->url->to_abs->host;
     if ( $host =~ /keystoneconnect\.me$/ ) {
@@ -57,12 +57,14 @@ sub startup {
   $r->get('/img/icons/:file')->to(cb => sub {
     my $c = shift;
     my $file = $c->param('file');
-    $file = basename ((glob($c->app->home->rel_file("public/img/icons/$file.*")))[0]);
+    $file = ((glob($c->app->home->rel_file("public/img/icons/$file.*")))[0]);
+    $file = basename $file if $file;
     $c->reply->static($file ? "img/icons/$file" : "img/icons.png");
   });
 
   $r->get('/:type/#file', [type => [qw/img css/]])->to(cb => sub {
     my $c = shift;
+    $c->res->headers->cache_control('max-age=1, no-cache');
     my $file = $c->param('file');
     my $type = join '.', $c->param('type'), ((reverse split(/\./, $file))[0]);
     my $tenant = $c->session('tenant');
@@ -70,14 +72,16 @@ sub startup {
   });
 
   # Temporary for development
-  $r->get('/tenant/:tenant', [tenant => qr/(keystone-technologies|westernhome\d*)/])->to(cb => sub {
+  $r->get('/tenant/:tenant', [tenant => qr/(keystone-technologies\d*|westernhome\d*)/])->to(cb => sub {
     my $c = shift;
+    $c->res->headers->cache_control('max-age=1, no-cache');
     $c->session(tenant => $c->param('tenant'));
     $c->redirect_to('/');
   });
 
   $r->get('/')->to(cb => sub {
     my $c = shift;
+    $c->res->headers->cache_control('max-age=1, no-cache');
     $c->stash(tenant => $c->session('tenant'));
   })->name('index');
 }
