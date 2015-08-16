@@ -56,10 +56,14 @@ sub startup {
   
   $r->get('/img/icons/:file')->to(cb => sub {
     my $c = shift;
+    $c->res->headers->cache_control('max-age=86400');
     my $file = $c->param('file');
     $file = ((glob($c->app->home->rel_file("public/img/icons/$file.*")))[0]);
     $file = basename $file if $file;
-    $c->reply->static($file ? "img/icons/$file" : "img/icons.png");
+    $file = $file ? "img/icons/$file" : "img/icons.png";
+    $c->res->headers->etag('"abc"');
+    $c->res->headers->expires(Mojo::Date->new(time+186400)->to_string);
+    $c->reply->static($file);
   });
 
   $r->get('/:type/#file', [type => [qw/img css/]])->to(cb => sub {
