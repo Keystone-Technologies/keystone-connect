@@ -15,12 +15,14 @@ sub startup {
   $self->sessions->cookie_name('mysession');
   $self->session(expiration => 604800);
 
-  $self->hook(after_static => sub {
+  $self->hook(before_routes => sub {
     my $c = shift;
     my $host = $c->req->url->to_abs->host;
+warn $host;
     if ( $host =~ /keystoneconnect\.me$/ ) {
       $c->session(tenant => ((split /\./, $host)[0]));
     } elsif ( $host =~ /(\.c9\.io|localhost|kit.cm)/ ) {
+warn $c->session('tenant');
       $c->session(tenant => 'keystone-technologies') unless $c->session('tenant');
     } else {
       $c->session(tenant => lookup_tenant($host));
