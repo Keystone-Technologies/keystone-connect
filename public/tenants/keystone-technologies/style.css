@@ -1,0 +1,42 @@
+body {
+    background: url(http://desktop.freewallpaper4.me/view/original/2426/in-the-city.jpg);
+    background-size: cover;
+}
+
+#header {
+    color: #fff;
+}
+
+#footer {
+    font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
+    color: #fff;
+}
+
+#mainlogo {
+    content: url('http://i.imgur.com/0dyN93o.png');
+}
+
+#logo {
+    content: url('http://i.imgur.com/DM7AfGd.png');
+}
+
+.apptext {
+    color: #fff;
+    -webkit-text-stroke: .2px #000;
+    font-weight: 900;
+    font-size: 13px;
+    font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
+}
+
+#home .grid-container .free-wall .folder {
+    background: #acacac;
+    opacity: 0.96;
+}
+
+#home #app-tray #grid-pagination {
+    color: #fff;
+}
+.banner {
+    background: #ffffff;
+    border: 1px solid #c3c3c3;
+}
