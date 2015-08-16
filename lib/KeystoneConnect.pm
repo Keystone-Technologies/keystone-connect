@@ -18,11 +18,9 @@ sub startup {
   $self->hook(before_routes => sub {
     my $c = shift;
     my $host = $c->req->url->to_abs->host;
-warn $host;
     if ( $host =~ /keystoneconnect\.me$/ ) {
       $c->session(tenant => ((split /\./, $host)[0]));
     } elsif ( $host =~ /(\.c9\.io|localhost|kit.cm)/ ) {
-warn $c->session('tenant');
       $c->session(tenant => 'keystone-technologies') unless $c->session('tenant');
     } else {
       $c->session(tenant => lookup_tenant($host));
@@ -70,6 +68,7 @@ warn $c->session('tenant');
     my $file = $c->param('file');
     my $type = join '.', $c->param('type'), ((reverse split(/\./, $file))[0]);
     my $tenant = $c->session('tenant');
+    $c->app->log->info("Want: ".$c->app->home->rel_file("public/tenants/$tenant/$file").", fallback: tenants/$type");
     $c->reply->static($tenant && -e $c->app->home->rel_file("public/tenants/$tenant/$file") ? "tenants/$tenant/$file" : "tenants/$type");
   });
 
