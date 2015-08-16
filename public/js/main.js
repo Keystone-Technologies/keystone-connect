@@ -379,8 +379,8 @@ function freewallAddCells() {
 
     for (var i = 0; i < limitItem; ++i) {
         html += temp
-            .replace(/\{width\}/, tempJSON[i].width)
-            .replace("{height}", tempJSON[i].height)
+            .replace(/\{width\}/, 100)//tempJSON[i].width)
+            .replace("{height}", 100)//tempJSON[i].height)
             .replace("{src}", tempJSON[i].src)
             .replace("{link}", tempJSON[i].link)
             .replace("{class}", tempJSON[i].class)
