@@ -314,15 +314,15 @@ function folderModalAddCells(folderid){
     for (var i = 0; i < limitItem; ++i) {
         console.log(i);
         html += temp
-            .replace(/\{width\}/, 100)//folderJSON[i].width)
-            .replace("{height}", 100)//folderJSON[i].height)
+            .replace(/\{width\}/, folderJSON[i].width)
+            .replace("{height}", folderJSON[i].height)
             .replace("{src}", folderJSON[i].src)
             .replace("{link}", folderJSON[i].link)
             .replace("{class}", folderJSON[i].class)
             .replace("{initialPosition}", folderJSON[i].initialPosition)
             .replace("{text}", folderJSON[i].text);
     }
-
+console.log(html);
     $("#foldermodal").html(html);
 }
 
@@ -379,8 +379,8 @@ function freewallAddCells() {
 
     for (var i = 0; i < limitItem; ++i) {
         html += temp
-            .replace(/\{width\}/, 100)//tempJSON[i].width)
-            .replace("{height}", 100)//tempJSON[i].height)
+            .replace(/\{width\}/, tempJSON[i].width)
+            .replace("{height}", tempJSON[i].height)
             .replace("{src}", tempJSON[i].src)
             .replace("{link}", tempJSON[i].link)
             .replace("{class}", tempJSON[i].class)
