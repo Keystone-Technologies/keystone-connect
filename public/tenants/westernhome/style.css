@@ -1,0 +1,46 @@
+body {
+    //background: url('/img/bg.jpg');
+    background: url('http://hdcutepics.com/wp-content/uploads/2014/10/android-kitkat-background.jpg');
+    background-size: cover;
+}
+
+#header {
+    background: url('/img/header.png');
+}
+
+#footer {
+    background: url('/img/footer.png');
+    font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+#mainlogo {
+    content: url('/img/banner.png');
+}
+
+#logo {
+    content: url('/img/logo.png');
+}
+
+.apptext {
+    color: #000;
+    //-webkit-text-stroke: .2px #fff;
+    font-weight: 900;
+    font-size: 13px;
+    font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
+}
+
+#home .grid-container .free-wall .folder {
+    background: #acacac;
+    opacity: .93;
+}
+
+#home #app-tray #grid-pagination {
+    color: #000;
+}
+#keystonelogo {
+    -webkit-filter: invert(100%);
+}
+.banner {
+    background: #ffffff;
+}

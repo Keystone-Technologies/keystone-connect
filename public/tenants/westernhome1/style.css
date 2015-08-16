@@ -1,0 +1,44 @@
+body {
+    background: #ede4d2;
+}
+
+#header {
+    background: url(http://i.imgur.com/ckmDxgh.png);
+}
+
+#footer {
+    background: url(http://i.imgur.com/ckmDxgh.png);
+    font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
+    color: #000;
+}
+
+#mainlogo {
+    content: url('http://i.imgur.com/YLIntBg.png');
+}
+
+#logo {
+    content: url('/img/logo.png');
+}
+
+.apptext {
+    color: #000;
+    //-webkit-text-stroke: .2px #fff;
+    font-weight: 900;
+    font-size: 13px;
+    font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;
+}
+
+#home .grid-container .free-wall .folder {
+    background: #acacac;
+}
+
+#home #app-tray #grid-pagination {
+    color: #000;
+}
+.banner {
+    background: #ede4d2;
+    border: 3px solid #acacac;
+}
+#bannertitle {
+    border: 3px solid #000;
+}
