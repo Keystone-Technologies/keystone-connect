@@ -21,9 +21,16 @@ var websocket;
 
 $(window).load(function(){
     folderIconInit();
-    $("#loadingcover").remove();
-    console.log('showing modal');
-    console.log('setting timeout');
+    $("#panel").remove();
+    $("#loadingcover").css('opacity', .5);
+    $("#gridpagination").trigger('click');
+    //$("#app-tray-pagination").trigger('click');
+    $('i.closepopover').each(function(){
+        $(this).click(function(event){
+            $("#gridpagination").popover('destroy');
+            $("#loadingcover").remove();
+        });
+    });
     setTimeout(function(){
         console.log('timeout fired');
         $("#banner").remove();
@@ -123,7 +130,7 @@ $(document).ready(function () {
         $("#app-drawer-container").css('transform', 'scale(1)');
         $("#app-drawer-container").css('left', (($("#row").width() - $("#app-drawer-container").width()) / 2));
         $("#app-drawer-container").height($("#app-drawer").height());
-        $("#app-tray").height($("#app-drawer-container").height() + ($("#grid-pagination").height()) + ($("#app-tray-pagination").height()));
+        $("#app-tray").height($("#app-drawer-container").height() + ($("#gridpagination").height()) + ($("#app-tray-pagination").height()));
         $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
         $("#grid-container").height(Math.floor($("#gridholder").height() / iconheight) * iconheight);
         $("#grid-container").width(Math.floor(($(window).width() / iconwidth)) * iconwidth);
@@ -140,7 +147,7 @@ $(document).ready(function () {
         $("#app-drawer-container").css('left', (($("#row").width() - ($("#app-drawer-container").width() * (scale +1))) / 2));
         $("#app-drawer-container").css('transform', 'scale(' + ((scale + 1).toString()) + ')');
         $("#app-drawer-container").css('transform-origin', "0 0");
-        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#grid-pagination").height()) + ($("#app-tray-pagination").height()));
+        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#gridpagination").height()) + ($("#app-tray-pagination").height()));
         $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
         $("#grid-container").width(screenwidth);
         $("#grid-container").height(((Math.floor($("#gridholder").height() / (iconheight * (scale + 1)))) * (iconheight * (scale + 1))) / (scale + 1));
@@ -181,7 +188,12 @@ $(document).ready(function () {
     $(".rss-feed-small").css('min-height', iconwidth);
     $(".rss-feed-small").css('max-height', iconwidth);
     
-
+    
+    $("[data-toggle='popover']").popover({
+        trigger: 'click',
+        container: "body",
+        html: true
+    });
 });
 
 //Large amount of duplicate code from document ready function, need to create function
@@ -193,7 +205,7 @@ $(window).resize(function(){
         $("#app-drawer-container").width(Math.floor((($(window).width() - ($(window).width() * .1)) / iconwidth)) * iconwidth);
         $("#app-drawer-container").css('left', (($("#row").width() - $("#app-drawer-container").width()) / 2));
         $("#app-drawer-container").height($("#app-drawer").height());
-        $("#app-tray").height($("#app-drawer-container").height() + ($("#grid-pagination").height()) + ($("#app-tray-pagination").height()));
+        $("#app-tray").height($("#app-drawer-container").height() + ($("#gridpagination").height()) + ($("#app-tray-pagination").height()));
         $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
         $("#grid-container").css('transform', 'scale(1)');
         $("#grid-container").height(Math.floor($("#gridholder").height() / iconheight) * iconheight);
@@ -209,7 +221,7 @@ $(window).resize(function(){
         $("#app-drawer-container").css('transform', 'scale(' + ((scale + 1).toString()) + ')');
         $("#app-drawer-container").css('transform-origin', "0 0");
         $("#app-drawer-container").css('left', (($("#row").width() - ($("#app-drawer-container").width() * (scale + 1))) / 2));
-        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#grid-pagination").height()) + ($("#app-tray-pagination").height()));
+        $("#app-tray").height(($("#app-drawer-container").height() * (scale + 1)) + ($("#gridpagination").height()) + ($("#app-tray-pagination").height()));
         $("#gridholder").height($(window).height() - ($("#app-tray").height() + 35) - $("#header").height());
         $("#grid-container").width(screenwidth);
         $("#grid-container").height(((Math.floor($("#gridholder").height() / (iconheight * (scale + 1)))) * (iconheight * (scale + 1))) / (scale + 1));
@@ -221,6 +233,12 @@ $(window).resize(function(){
     }
 });
 
+function closepopover(event){
+    console.log('popover called');
+    console.log(event);
+    $("#gridpagination").popover('destroy');
+    $("#loadingcover").remove();
+}
 function parseRSS(url, callback) {
   $.ajax({
     url: document.location.protocol + '//ajax.googleapis.com/ajax/services/feed/load?v=1.0&num=10&callback=?&q=' + encodeURIComponent(url),

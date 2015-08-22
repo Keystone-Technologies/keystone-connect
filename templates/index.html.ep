@@ -194,21 +194,18 @@
     </div>
     <div id="app-tray" class="text-center col-xs-12">
         <div class="row" id="row">
-            <div id="grid-pagination" class="col-xs-12">
-                <!-- <div id='scrollbar'>
-                    <div id='scrollbarthumb'></div>
-                </div> -->
-                <i id='up' class="fa fa-angle-up navbutton"></i>
-                <i id='left' class="fa fa-angle-left navbutton"></i>
-                <i id='right' class="fa fa-angle-right navbutton"></i>
-                <i id='down' class="fa fa-angle-down navbutton"></i>
+            <div id="gridpagination" title="<strong>Main Grid Buttons</strong><i popovercontainer='grid-pagination' class='fa fa-times-circle closepopover'></i>" class="col-xs-12" data-toggle="popover" data-placement="top" data-content="Use these buttons to pan around your apps and widgets.">
+                <i id='up' class="fa fa-angle-up navbutton" title="Use these buttons to pan through your apps and widgets."></i>
+                <i id='left' class="fa fa-angle-left navbutton" title="Use these buttons to pan through your apps and widgets."></i>
+                <i id='right' class="fa fa-angle-right navbutton" title="Use these buttons to pan through your apps and widgets."></i>
+                <i id='down' class="fa fa-angle-down navbutton" title="Use these buttons to pan through your apps and widgets."></i>
             </div>
             <div id='app-drawer-container'>
                 <div id="app-drawer" class="list-inline free-wall"></div>
             </div>
-            <div id="app-tray-pagination">
-                <i class="fa fa-angle-left navbutton"></i>
-                <i class="fa fa-angle-right navbutton"></i>
+            <div id="app-tray-pagination" title="<strong>App Tray Buttons</strong><i class='fa fa-times-circle closepopover'></i>" data-toggle="popover" data-placement="top" data-content="Use these buttons to scroll through your apps and widgets.">
+                <i class="fa fa-angle-left navbutton" title="Use these buttons to pan through the app tray."></i>
+                <i class="fa fa-angle-right navbutton" title="Use these buttons to pan through the app tray."></i>
             </div>
         </div>
     </div>

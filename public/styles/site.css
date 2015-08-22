@@ -437,7 +437,7 @@ html {
     text-align: center;
 }
 #home #app-tray {
-    z-index: 30;
+    z-index: 10;
     position: fixed;
     bottom: 30px;
     height: 140px;
@@ -445,20 +445,20 @@ html {
     overflow: hidden;
     padding: 0px;
 }
-#home #app-tray #grid-pagination {
+#home #app-tray #gridpagination {
     height: 40px;
     line-height: 40px;
     font-size: 40px;
     margin: 0px;
-    color: darkgrey;
     vertical-align: middle;
     text-align: center;
+    position: relative;
 }
-#home #app-tray #grid-pagination ul li {
+#home #app-tray #gridpagination ul li {
     color: inherit;
     opacity: .8;
 }
-#home #app-tray #grid-pagination ul li:hover {
+#home #app-tray #gridpagination ul li:hover {
     opacity: .4;
 }
 #app-tray-pagination {
@@ -1079,4 +1079,14 @@ iframe::-webkit-scrollbar-thumb {
 #foodmenutable .trow {
     height: 50px;
     width: 100%;
+}
+
+.closepopover {
+    color: #00ff00;
+    position: absolute;
+    right: 10px;
+}
+
+.closepopover {
+    cursor: pointer;
 }
