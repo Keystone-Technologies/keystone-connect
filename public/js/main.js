@@ -340,7 +340,6 @@ function folderModalAddCells(folderid){
             .replace("{initialPosition}", folderJSON[i].initialPosition)
             .replace("{text}", folderJSON[i].text);
     }
-
     $("#foldermodal").html(html);
 }
 

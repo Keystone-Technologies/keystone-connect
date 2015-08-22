@@ -1033,7 +1033,9 @@ iframe::-webkit-scrollbar-thumb {
 }
 
 #ideawidget {
-    background: #e15757;
+    //background: #e15757;
+    cursor: default;
+    background: rgba(255,255,255,0.5);
     border-radius: 25px;
     border: solid 5px #000;
     overflow: hidden;
@@ -1055,6 +1057,7 @@ iframe::-webkit-scrollbar-thumb {
 }
 #foodmenu {
     overflow-y: scroll;
+    cursor: default;
     background: rgba(255,255,255,0.5);
     border: 3px solid #acacac;
     border-radius: 15px;
@@ -1066,6 +1069,21 @@ iframe::-webkit-scrollbar-thumb {
 }
 .mealtitle {
     width: 10%;
+
+    /* Safari */
+    -webkit-transform: rotate(-90deg);
+
+    /* Firefox */
+    -moz-transform: rotate(-90deg);
+
+    /* IE */
+    -ms-transform: rotate(-90deg);
+
+    /* Opera */
+    -o-transform: rotate(-90deg);
+
+    /* Internet Explorer */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 .cell2 {
     width: 30%;

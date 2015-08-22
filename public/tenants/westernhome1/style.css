@@ -17,12 +17,12 @@ body {
 }
 
 #logo {
-    content: url('/../tenants/logo.png');
+    content: url('/img/logo.png');
 }
 
 .apptext {
     color: #000;
-    -webkit-text-stroke: .2px #fff;
+    //-webkit-text-stroke: .2px #fff;
     font-weight: 900;
     font-size: 13px;
     font-family: Gudea, "Helvetica Neue", HelveticaNeue, TeXGyreHeros, "Nimbus Sans L", "Liberation Sans", Helvetica, Arial, sans-serif;

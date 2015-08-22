@@ -1,47 +1,65 @@
-var menu = `<table id='foodmenutable'>
+var menu = `
+<table id='foodmenutable'>
 
   <tr>
     <th class='title'>Meal</th>
-    <th class='title'>Time</th>
     <th class='title'>Sunday</th>
   </tr>
   <tr class='trow'>
     <td class='mealtitle'>Breakfast</td>
-    <td class='cell1'></td>
-    <td class='cell2'></td>
+    <td class='cell2'>
+<p>Eggs of choice</p>
+<p>Sausage / Bacon</p>
+<p>White / Wheat Toast</p>
+<p>Fresh Fruit</p>
+<p>Danish</p>
+<p>Assorted Hot / Cold Cereal</p>
+<p>Drink of Choice</p>
+    </td>
   </tr>
   <tr class='trow'>
     <td class='mealtitle'>Snack</td>
-    <td class='cell1'></td>
     <td class='cell2'></td>
   </tr>
   <tr class='trow'>
     <td class='mealtitle'>Lunch</td>
-    <td class='cell1'></td>
     <td class='cell2'></td>
   </tr>
   <tr class='trow'>
     <td class='mealtitle'>Snack</td>
-    <td class='cell1'></td>
     <td class='cell2'></td>
   </tr>
   <tr class='trow'>
     <td class='mealtitle'>Dinner</td>
-    <td class='cell1'></td>
     <td class='cell2'></td>
   </tr>
   <tr class='trow'>
     <td class='mealtitle'>Snack</td>
-    <td class='cell1'></td>
     <td class='cell2'></td>
   </tr>
 </table>`;
+
+var ideas = `<div id='ideaheader'>Possible Widget Ideas</div>
+<div id='ideacontainer' class='iframe-small'>
+<ul id='idealist'>
+<li>WebMD</li>
+<li>Words with Friends</li>
+<li>Pandora</li>
+<li>Yesterday USA (Oldies radio)</li>
+<li>Lumosity</li>
+<li>Keystone Care Dashboard</li>
+<li>The Weather Channel</li>
+<li>Postcards</li>
+<li>Custom food menu</li>
+<li>Custom cevents calendar</li>
+</ul>
+</div>`;
 
 var firstWallJSON = [
     { "width": 4, "height": 2, "initialPosition":"0-10", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" id='tester' border='false'><iframe class='iframe-small' scrolling='no' src='http://chat.dev.kit.cm/'></iframe></div>" },
     { "width": 4, "height": 2, "initialPosition":"0-0", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><div id='foodmenu' class='iframe-small'>" + menu + "</div><!--<iframe id='food-iframe' class='iframe-small' src='http://foodmenu.dev.kit.cm/' scrolling='no'></iframe>--></div>" },
     { "width": 4, "height": 2, "initialPosition":"2-0", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><iframe id='calendar-iframe' class='iframe-small' src='https://www.google.com/calendar/embed?src=p%23weather%40group.v.calendar.google.com&title=Community%20Events&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;ctz=America%2FChicago'></iframe></div>" },
-    { "width": 4, "height": 2, "initialPosition":"2-10", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><div id='ideawidget' class='iframe-small'><div id='ideaheader'>Possible Widget Ideas</div><div id='ideacontainer' class='iframe-small'><ul id='idealist'><li>WebMD</li><li>Words with Friends</li><li>Pandora</li><li>Yesterday USA (Oldies radio)</li><li>Lumosity</li><li>Keystone Care Dashboard</li><li>The Weather Channel</li><li>Postcards</li><li>Custom food menu</li><li>Custom cevents calendar</li></ul></div></div><!--<div id='scroller' class='iframe-small'><div id='scroller-container'><div id='scroller-content' class='rss-widget'></div></div></div> --></div>" },
+    { "width": 4, "height": 2, "initialPosition":"2-10", "link":"http://www.google.com", "src": "", "class": "rss", "text": "<div class=\"widget text-center\" border='false'><div id='ideawidget' class='iframe-small'>" + ideas + "</div><!--<div id='scroller' class='iframe-small'><div id='scroller-container'><div id='scroller-content' class='rss-widget'></div></div></div> --></div>" },
     { "width": 3, "height": 1, "initialPosition":"0-4", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 0, "text": "My Social Networks" },
     { "width": 3, "height": 1, "initialPosition":"0-7", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 1, "text": "My Health" },
     { "width": 2, "height": 1, "initialPosition":"1-4", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 2, "text": "My Office" },
@@ -495,170 +513,93 @@ var tempJSON = [
     { "width": 100, "height": 100, "initialPosition":"", "link":"http://www.google.com", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "" }
 ];
 
+// My Social Networks: fb, Twitter, LinkedIn, Pinterst, G+, YouTube, Tumblr, Instagram
 var folder0JSON = [
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link": "http://www.facebook.com", "src": "img/FacebookAppIcon.png", "class": "folder-brick-icon", "text": "Facebook" },
-    { "width": 100, "height": 100, "initialPosition":"0-1", "link":"http://www.twitter.com", "src": "img/TwitterAppIcon.png", "class": "folder-brick-icon", "text": "Twitter" },
-    { "width": 100, "height": 100, "initialPosition":"0-2", "link":"http://www.instagram.com", "src": "img/Instagram_AppIcon.png", "class": "folder-brick-icon", "text": "Instagram" },
-    { "width": 100, "height": 100, "initialPosition":"0-3", "link":"http://www.pinterest.com", "src": "img/PinterestAppIcon.png", "class": "folder-brick-icon", "text": "Pinterest" },
-    { "width": 100, "height": 100, "initialPosition":"0-4", "link": "https://plus.google.com/", "src": "img/GooglePlus_AppIcon.png", "class": "folder-brick-icon", "text": "Google Plus" },
-
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://www.facebook.com/KeystoneTechnologiesLLC", "src": "img/icons/facebook", "text": "Facebook" },
+    { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "https://twitter.com/Keystone_Tech", "src": "img/icons/twitter", "text": "Twitter" },
+    { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "https://www.linkedin.com/company/keystone-technologies", "src": "img/icons/linkedin", "text": "LinkedIn" },
+    { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "https://www.pinterest.com/", "src": "img/icons/pinterest", "text": "Pinterest" },
+    { "width": 100, "height": 100, "initialPosition":"0-4", "class": "folder-brick-icon", "link": "http://plus.google.com/", "src": "img/icons/google_", "text": "Google+" },
+    { "width": 100, "height": 100, "initialPosition":"1-0", "class": "folder-brick-icon", "link": "https://www.youtube.com/channel/UCXEkqelctvirgX80NYXjuBw", "src": "img/icons/youtube", "text": "YouTube" },
+    { "width": 100, "height": 100, "initialPosition":"1-1", "class": "folder-brick-icon", "link": "https://www.tumblr.com/dashboard", "src": "img/icons/tumblr", "text": "Tumblr" },
+    { "width": 100, "height": 100, "initialPosition":"1-2", "class": "folder-brick-icon", "link": "http://instagram.com/", "src": "img/icons/instagram", "text": "Instagram" }
     ];
     
+// My Health: Secure Messaging, WebMD
 var folder1JSON = [
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"http://www.webmd.com", "src": "img/WebMD_AppIcon.png", "class": "folder-brick-icon", "text": "WebMD" },
-    { "width": 100, "height": 100, "initialPosition":"0-1", "link":"http://www.mediprocity.com", "src": "img/Mediprocity_AppIcon.png", "class": "folder-brick-icon", "text": "Secure Messaging" },
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://secure.mediprocity.com/", "src": "img/icons/mediprocity", "text": "Mediprocity" },
+    { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "http://www.webmd.com/", "src": "img/icons/webmd", "text": "WebMD" }
     ];
     
+// My Office: Calendar, Stoarge, Documents, Spreadsheets, Presentations
 var folder2JSON = [
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"http://www.google.com/calendar", "src": "img/GoogleCalendar_AppIcon.png", "class": "folder-brick-icon", "text": "Calendar" },
-    { "width": 100, "height": 100, "initialPosition":"0-1", "link":"http://www.drive.google.com", "src": "img/GoogleDrive_AppIcon.png", "class": "folder-brick-icon", "text": "Storage" },
-    { "width": 100, "height": 100, "initialPosition":"0-2", "link":"http://www.google.com", "src": "img/GoogleDocs_AppIcon.png", "class": "folder-brick-icon", "text": "Google Docs" },
-    { "width": 100, "height": 100, "initialPosition":"0-3", "link":"http://www.google.com/calendar", "src": "img/GoogleCalendar_AppIcon.png", "class": "folder-brick-icon", "text": "Calendar" },
-    { "width": 100, "height": 100, "initialPosition":"0-4", "link":"http://www.drive.google.com", "src": "img/GoogleDrive_AppIcon.png", "class": "folder-brick-icon", "text": "Storage" },
-    { "width": 100, "height": 100, "initialPosition":"1-0", "link":"http://www.google.com", "src": "img/GoogleDocs_AppIcon.png", "class": "folder-brick-icon", "text": "Google Docs" },
-    { "width": 100, "height": 100, "initialPosition":"1-1", "link":"http://www.google.com/calendar", "src": "img/GoogleCalendar_AppIcon.png", "class": "folder-brick-icon", "text": "Calendar" },
-    { "width": 100, "height": 100, "initialPosition":"1-2", "link":"http://www.drive.google.com", "src": "img/GoogleDrive_AppIcon.png", "class": "folder-brick-icon", "text": "Storage" },
-    { "width": 100, "height": 100, "initialPosition":"1-3", "link":"http://www.google.com", "src": "img/GoogleDocs_AppIcon.png", "class": "folder-brick-icon", "text": "Google Docs" },
-
-
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://www.google.com/calendar/embed?showTitle=0&showNav=0&showDate=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=AGENDA&height=600&wkst=1&bgcolor=%2525252523FFFFFF&src=stravis%2525252540keystone-technologies.com&color=%2525252523125A12&ctz=America%252525252FChicago", "src": "img/icons/calendar", "text": "Calendar" },
+    { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "https://www.google.com/drive/", "src": "img/icons/storage", "text": "Storage" },
+    { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "https://docs.google.com/", "src": "img/icons/documents", "text": "Documents" },
+    { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "https://docs.google.com/speadsheets", "src": "img/icons/spreadsheets", "text": "Spreadsheets" },
+    { "width": 100, "height": 100, "initialPosition":"0-4", "class": "folder-brick-icon", "link": "https://docs.google.com/slides", "src": "img/icons/presentations", "text": "Presentations" }
     ];
     
+// My Communications: Video Chat, Email, Chat, Community Cat, Blog, Translations, Secure Chat
 var folder3JSON = [
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"http://www.outlook.com", "src": "img/Email.png", "class": "folder-brick-icon", "text": "Email" },
-    { "width": 100, "height": 100, "initialPosition":"0-1", "link":"http://www.youtube.com", "src": "img/YouTubeAppIcon.png", "class": "folder-brick-icon", "text": "YouTube" },
-    { "width": 100, "height": 100, "initialPosition":"0-2", "link":"http://www.webmd.com", "src": "img/WebMD_AppIcon.png", "class": "folder-brick-icon", "text": "WebMD" },
-    { "width": 100, "height": 100, "initialPosition":"0-3", "link":"http://www.twitter.com", "src": "img/TwitterAppIcon.png", "class": "folder-brick-icon", "text": "Twitter" },
-    { "width": 100, "height": 100, "initialPosition":"0-4", "link":"http://www.kayak.com", "src": "img/FlightsAppIcon.png", "class": "folder-brick-icon", "text": "Flights" },
-    { "width": 100, "height": 100, "initialPosition":"1-0", "link":"http://www.google.com", "src": "img/TheSecret_AppIcon.png", "class": "folder-brick-icon", "text": "Secrets" },
-    { "width": 100, "height": 100, "initialPosition":"1-1", "link":"http://www.spotify.com", "src": "img/SpotifyAppIcon.png", "class": "folder-brick-icon", "text": "Spotify" },
-    { "width": 100, "height": 100, "initialPosition":"1-2", "link":"http://www.skype.com", "src": "img/Skype_AppIcon.png", "class": "folder-brick-icon", "text": "Skype" },
-    { "width": 100, "height": 100, "initialPosition":"1-3", "link":"http://www.google.com", "src": "img/SettingsAppIcon.png", "class": "folder-brick-icon", "text": "Settings" },
-    { "width": 100, "height": 100, "initialPosition":"1-4", "link":"http://www.blogger.com", "src": "img/GoogleBlogs_AppIcon.png", "class": "folder-brick-icon", "text": "Google Blogs" },
-    { "width": 100, "height": 100, "initialPosition":"2-0", "link":"http://www.cnn.com", "src": "img/RSSAppIcon.png", "class": "folder-brick-icon", "text": "RSS" },
-    { "width": 100, "height": 100, "initialPosition":"2-1", "link":"http://www.pinterest.com", "src": "img/PinterestAppIcon.png", "class": "folder-brick-icon", "text": "Pinterest" },
-    
-    { "width": 100, "height": 100, "initialPosition":"2-2", "link":"http://www.outlook.com", "src": "img/Email.png", "class": "folder-brick-icon", "text": "Email" },
-    { "width": 100, "height": 100, "initialPosition":"2-3", "link":"http://www.youtube.com", "src": "img/YouTubeAppIcon.png", "class": "folder-brick-icon", "text": "YouTube" },
-    { "width": 100, "height": 100, "initialPosition":"2-4", "link":"http://www.webmd.com", "src": "img/WebMD_AppIcon.png", "class": "folder-brick-icon", "text": "WebMD" },
-    { "width": 100, "height": 100, "initialPosition":"3-0", "link":"http://www.twitter.com", "src": "img/TwitterAppIcon.png", "class": "folder-brick-icon", "text": "Twitter" },
-    { "width": 100, "height": 100, "initialPosition":"3-1", "link":"http://www.kayak.com", "src": "img/FlightsAppIcon.png", "class": "folder-brick-icon", "text": "Flights" },
-    { "width": 100, "height": 100, "initialPosition":"3-2", "link":"http://www.google.com", "src": "img/TheSecret_AppIcon.png", "class": "folder-brick-icon", "text": "Secrets" },
-    { "width": 100, "height": 100, "initialPosition":"3-3", "link":"http://www.spotify.com", "src": "img/SpotifyAppIcon.png", "class": "folder-brick-icon", "text": "Spotify" },
-    { "width": 100, "height": 100, "initialPosition":"3-4", "link":"http://www.skype.com", "src": "img/Skype_AppIcon.png", "class": "folder-brick-icon", "text": "Skype" },
-    { "width": 100, "height": 100, "initialPosition":"4-0", "link":"http://www.google.com", "src": "img/SettingsAppIcon.png", "class": "folder-brick-icon", "text": "Settings" },
-    { "width": 100, "height": 100, "initialPosition":"4-1", "link":"http://www.blogger.com", "src": "img/GoogleBlogs_AppIcon.png", "class": "folder-brick-icon", "text": "Google Blogs" },
-    { "width": 100, "height": 100, "initialPosition":"4-2", "link":"http://www.cnn.com", "src": "img/RSSAppIcon.png", "class": "folder-brick-icon", "text": "RSS" },
-    { "width": 100, "height": 100, "initialPosition":"4-3", "link":"http://www.pinterest.com", "src": "img/PinterestAppIcon.png", "class": "folder-brick-icon", "text": "Pinterest" },
-    
-    { "width": 100, "height": 100, "initialPosition":"4-4", "link":"http://www.outlook.com", "src": "img/Email.png", "class": "folder-brick-icon", "text": "Email" },
-    { "width": 100, "height": 100, "initialPosition":"5-0", "link":"http://www.youtube.com", "src": "img/YouTubeAppIcon.png", "class": "folder-brick-icon", "text": "YouTube" },
-    { "width": 100, "height": 100, "initialPosition":"5-1", "link":"http://www.webmd.com", "src": "img/WebMD_AppIcon.png", "class": "folder-brick-icon", "text": "WebMD" },
-    { "width": 100, "height": 100, "initialPosition":"5-2", "link":"http://www.twitter.com", "src": "img/TwitterAppIcon.png", "class": "folder-brick-icon", "text": "Twitter" },
-    { "width": 100, "height": 100, "initialPosition":"5-3", "link":"http://www.kayak.com", "src": "img/FlightsAppIcon.png", "class": "folder-brick-icon", "text": "Flights" },
-    { "width": 100, "height": 100, "initialPosition":"5-4", "link":"http://www.google.com", "src": "img/TheSecret_AppIcon.png", "class": "folder-brick-icon", "text": "Secrets" },
-    { "width": 100, "height": 100, "initialPosition":"6-0", "link":"http://www.spotify.com", "src": "img/SpotifyAppIcon.png", "class": "folder-brick-icon", "text": "Spotify" },
-    { "width": 100, "height": 100, "initialPosition":"6-1", "link":"http://www.skype.com", "src": "img/Skype_AppIcon.png", "class": "folder-brick-icon", "text": "Skype" },
-    { "width": 100, "height": 100, "initialPosition":"6-2", "link":"http://www.google.com", "src": "img/SettingsAppIcon.png", "class": "folder-brick-icon", "text": "Settings" },
-    { "width": 100, "height": 100, "initialPosition":"6-3", "link":"http://www.blogger.com", "src": "img/GoogleBlogs_AppIcon.png", "class": "folder-brick-icon", "text": "Google Blogs" },
-    { "width": 100, "height": 100, "initialPosition":"6-4", "link":"http://www.cnn.com", "src": "img/RSSAppIcon.png", "class": "folder-brick-icon", "text": "RSS" },
-    { "width": 100, "height": 100, "initialPosition":"7-1", "link":"http://www.pinterest.com", "src": "img/PinterestAppIcon.png", "class": "folder-brick-icon", "text": "Pinterest" },
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "http://appear.in/", "src": "img/icons/video_chat", "text": "Video Chat" },
+    { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "http://gmail.com/", "src": "img/icons/gmail", "text": "Gmail" },
+    { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "http://www.google.com/hangouts", "src": "img/icons/google_hangouts", "text": "Google Hangouts" },
+    { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "http://candy-chat.github.io/candy/", "src": "img/icons/community_chat", "text": "Community Chat" },
+    { "width": 100, "height": 100, "initialPosition":"0-4", "class": "folder-brick-icon", "link": "http://blogger.com/", "src": "img/icons/blogger", "text": "Blogger" },
+    { "width": 100, "height": 100, "initialPosition":"1-0", "class": "folder-brick-icon", "link": "http://translate.google.com/", "src": "img/icons/google_translate", "text": "Google Translate" },
+    { "width": 100, "height": 100, "initialPosition":"1-1", "class": "folder-brick-icon", "link": "https://secure.mediprocity.com/", "src": "img/icons/mediprocity", "text": "Mediprocity" }
     ];
 
+// My Home: Nest
 var folder4JSON = [
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"http://www.nest.com", "src": "img/Nest.png", "class": "folder-brick-icon", "text": "Nest Thermostat" },
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://home.nest.com/login", "src": "img/icons/nest", "text": "Nest" }
     ];
-    
+
+// My Finances: Bank Account, Investments, Market Watcj, Wallet
 var folder5JSON = [
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link": "http://www.finance.google.com", "src": "img/GoogleFinance_AppIcon.png", "class": "folder-brick-icon", "text": "Google Finance" },
-    { "width": 100, "height": 100, "initialPosition":"0-1", "link": "wallet.google.com", "src": "img/GoogleWallet_AppIcon.png", "class": "folder-brick-icon", "text": "Google Wallet" },
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "http://www.carrolltonbanking.com/index.php", "src": "img/icons/carrollton_banking", "text": "Carrollton Banking" },
+    { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "https://trading.scottrade.com/Default.aspx", "src": "img/icons/scottrade", "text": "Scottrade" },
+    { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "https://www.google.com/finance", "src": "img/icons/market_watch", "text": "Market Watch" },
+    { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "https://www.google.com/wallet/", "src": "img/icons/wallet", "text": "Wallet" }
     ];
     
+// My Beliefs: Bible, Encouraement
 var folder6JSON = [
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link": "https://holybible.com/", "src": "img/HolyBible_AppIcon.png", "class": "folder-brick-icon", "text": "Holy Bible" },
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "http://www.holybible.com/", "src": "img/icons/bible", "text": "Bible" },
+    { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "http://www.biblegateway.com/devotionals/encouragement-for-today/today/", "src": "img/icons/encouragement", "text": "Encouragement" }
     ];
     
+// My Photos & Videos: Photos, YouTube, Instagram, Flickr
 var folder7JSON = [
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"http://www.photos.google.com", "src": "img/GooglePhotos_AppIcon.png", "class": "folder-brick-icon", "text": "Google Photos" },
-    { "width": 100, "height": 100, "initialPosition":"0-1", "link":"http://www.instagram.com", "src": "img/Instagram_AppIcon.png", "class": "folder-brick-icon", "text": "Instagram" },
-    { "width": 100, "height": 100, "initialPosition":"0-2", "link":"http://www.youtube.com", "src": "img/YouTubeAppIcon.png", "class": "folder-brick-icon", "text": "YouTube" },
-    { "width": 100, "height": 100, "initialPosition":"0-3", "link":"http://www.flickr.com", "src": "img/Flickr_AppIcon.png", "class": "folder-brick-icon", "text": "Flickr" },
-    { "width": 100, "height": 100, "initialPosition":"0-4", "link":"http://www.photos.google.com", "src": "img/GooglePhotos_AppIcon.png", "class": "folder-brick-icon", "text": "Google Photos" },
-    { "width": 100, "height": 100, "initialPosition":"1-0", "link":"http://www.instagram.com", "src": "img/Instagram_AppIcon.png", "class": "folder-brick-icon", "text": "Instagram" },
-    { "width": 100, "height": 100, "initialPosition":"1-1", "link":"http://www.youtube.com", "src": "img/YouTubeAppIcon.png", "class": "folder-brick-icon", "text": "YouTube" },
-    { "width": 100, "height": 100, "initialPosition":"1-2", "link":"http://www.flickr.com", "src": "img/Flickr_AppIcon.png", "class": "folder-brick-icon", "text": "Flickr" },
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://photos.google.com/", "src": "img/icons/photos", "text": "Photos" },
+    { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "https://www.youtube.com/channel/UCXEkqelctvirgX80NYXjuBw", "src": "img/icons/youtube", "text": "YouTube" },
+    { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "http://instagram.com/", "src": "img/icons/instagram", "text": "Instagram" },
+    { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "http://flickr.com/", "src": "img/icons/flickr", "text": "Flickr" }
     ];
     
+// My News & Entertainment: News, BBC News, Movies, TV, Music, Music, Books, Games
 var folder8JSON = [
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"http://www.netflix.com", "src": "img/Netflix_AppIcon.png", "class": "folder-brick-icon", "text": "Netflix" },
-    { "width": 100, "height": 100, "initialPosition":"0-1", "link":"http://www.spotify.com", "src": "img/SpotifyAppIcon.png", "class": "folder-brick-icon", "text": "Spotify" },
-    { "width": 100, "height": 100, "initialPosition":"0-2", "link":"http://www.pandora.com", "src": "img/Pandora_AppIcon.png", "class": "folder-brick-icon", "text": "Pandora" },
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "http://www.start.me/channels/us/popular?_ga=1.125873293.1847362445.1428378479", "src": "img/icons/news", "text": "News" },
+    { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "http://www.bbc.com/news/world/us_and_canada", "src": "img/icons/bbc_news", "text": "BBC News" },
+    { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "https://www.netflix.com/Login?locale=en-US", "src": "img/icons/netflix", "text": "Netflix" },
+    { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "http://www.amazon.com/Prime-Instant-Video/b?node=2676882011", "src": "img/icons/amazon_tv", "text": "Amazon TV" },
+    { "width": 100, "height": 100, "initialPosition":"0-4", "class": "folder-brick-icon", "link": "https://play.spotify.com/browse", "src": "img/icons/spotify", "text": "Spotify" },
+    { "width": 100, "height": 100, "initialPosition":"1-0", "class": "folder-brick-icon", "link": "http://www.pandora.com/", "src": "img/icons/pandora", "text": "Pandora" },
+    { "width": 100, "height": 100, "initialPosition":"1-1", "class": "folder-brick-icon", "link": "http://smile.amazon.com/l/283155/ref=smi_www_rco2_go_smi_g2096965702", "src": "img/icons/amazon_books", "text": "Amazon Books" },
+    { "width": 100, "height": 100, "initialPosition":"1-2", "class": "folder-brick-icon", "link": "http://games.aarp.org/games", "src": "img/icons/aarp_games", "text": "AARP Games" }
     ];
     
 var appTrayJSON = [
     //{ "width": 100, "height": 100, "initialPosition":"0-0", "src": "img/AppStore_Icon.png", "class": "app-store-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-0", "link":"https://mail.google.com/", "src": "img/GmailAppIcon.png", "class": "brick-icon", "text": "Gmail" },
-    { "width": 100, "height": 100, "initialPosition":"0-1", "link": "http://www.facebook.com", "src": "img/FacebookAppIcon.png", "class": "brick-icon", "text": "Facebook" },
-    { "width": 100, "height": 100, "initialPosition":"0-2", "link": "http://facegrid.dev.kit.cm/index.html", "src": "img/facetimetext.png", "class": "brick-icon", "text": "Video Chat" },
-    { "width": 100, "height": 100, "initialPosition":"0-3", "link": "https://www.mediprocity.com/", "src": "img/messaging.png", "class": "brick-icon", "text": "Mediprocity" },
-    { "width": 100, "height": 100, "initialPosition":"0-4", "link": "http://contacts.google.com", "src": "img/contacts.png", "class": "brick-icon", "text": "Contacts" },
-    { "width": 100, "height": 100, "initialPosition":"0-5", "link": "http://www.weather.com/", "src": "img/weather.png", "class": "brick-icon", "text": "Weather" },
-
-    /*
-    { "width": 100, "height": 100, "initialPosition":"0-1", "link":"https://lastpass.com/", "src": "img/GooglePasswords_AppIcon.png", "class": "brick-icon", "text": "Google Passwords" },
-    { "width": 100, "height": 100, "initialPosition":"0-2", "link":"http://www.google.com", "src": "img/GoogleNews_AppIcon.png", "class": "brick-icon", "text": "Google News" },
-    { "width": 100, "height": 100, "initialPosition":"0-3", "link":"http://www.google.com", "src": "img/GoogleHangouts_AppIcon.png", "class": "brick-icon", "text": "Google Hangouts" },
-    { "width": 100, "height": 100, "initialPosition":"0-4", "link":"http://www.google.com", "src": "img/GoogleGroups_AppIcon-copy.png", "class": "brick-icon", "text": "Google Groups" },
-    { "width": 100, "height": 100, "initialPosition":"0-5", "link":"http://www.google.com", "src": "img/PinterestAppIcon.png", "class": "brick-icon", "text": "Pinterest" },
-    { "width": 100, "height": 100, "initialPosition":"0-6", "link":"http://www.google.com", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "Flights" },
-    { "width": 100, "height": 100, "initialPosition":"0-7", "link":"http://www.google.com", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "Google Blogs" },
-    { "width": 100, "height": 100, "initialPosition":"0-8", "link":"http://www.google.com", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "Flights" },
-    { "width": 100, "height": 100, "initialPosition":"0-9", "link":"http://www.google.com", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "Search" },
-    { "width": 100, "height": 100, "initialPosition":"0-10", "link":"http://www.google.com", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "Amazon Prime" },
-    { "width": 100, "height": 100, "initialPosition":"0-11", "link":"http://www.google.com", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "Games" },
-    { "width": 100, "height": 100, "initialPosition":"0-12", "link":"http://www.google.com", "src": "img/RSSAppIcon.png", "class": "brick-icon", "text": "RSS" },
-    { "width": 100, "height": 100, "initialPosition":"0-13", "link":"http://www.google.com", "src": "img/PinterestAppIcon.png", "class": "brick-icon", "text": "Pinterest" },
-    
-    { "width": 100, "height": 100, "initialPosition":"0-14", "link":"http://www.google.com", "src": "img/GooglePasswords_AppIcon.png", "class": "brick-icon", "text": "Google Passwords" },
-    { "width": 100, "height": 100, "initialPosition":"0-15", "link":"http://www.google.com", "src": "img/GoogleNews_AppIcon.png", "class": "brick-icon", "text": "Google News" },
-    { "width": 100, "height": 100, "initialPosition":"0-16", "link":"http://www.google.com", "src": "img/GoogleHangouts_AppIcon.png", "class": "brick-icon", "text": "Google Hangouts" },
-    { "width": 100, "height": 100, "initialPosition":"0-17", "link":"http://www.google.com", "src": "img/GoogleGroups_AppIcon-copy.png", "class": "brick-icon", "text": "Google Groups" },
-    { "width": 100, "height": 100, "initialPosition":"0-18", "link":"http://www.google.com", "src": "img/InformationAppIcon.png", "class": "brick-icon", "text": "Information" },
-    { "width": 100, "height": 100, "initialPosition":"0-19", "link":"http://www.google.com", "src": "img/GoogleBlogs_AppIcon.png", "class": "brick-icon", "text": "Google Blogs" },
-    { "width": 100, "height": 100, "initialPosition":"0-20", "link":"http://www.google.com", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "Flights" },
-    { "width": 100, "height": 100, "initialPosition":"0-21", "link":"http://www.google.com", "src": "img/FlightsAppIcon.png", "class": "brick-icon", "text": "Flights" },
-    { "width": 100, "height": 100, "initialPosition":"0-22", "link":"http://www.google.com", "src": "img/AdvancedSearch_AppIcon-copy.png", "class": "brick-icon", "text": "Search" },
-    { "width": 100, "height": 100, "initialPosition":"0-23", "link":"http://www.google.com", "src": "img/AmazonPrime_AppIcon.png", "class": "brick-icon", "text": "Amazon Prime" },
-    { "width": 100, "height": 100, "initialPosition":"0-24", "link":"http://www.google.com", "src": "img/GamesOther_AppIcon.png", "class": "brick-icon", "text": "Games" },
-    { "width": 100, "height": 100, "initialPosition":"0-25", "link":"http://www.google.com", "src": "img/RSSAppIcon.png", "class": "brick-icon", "text": "RSS" },
-    */
-    /* { "width": 100, "height": 100, "initialPosition":"0-14", "link":"http://www.google.com", "src": "img/Pandora_AppIcon.png", "class": "brick-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-15", "link":"http://www.google.com", "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "brick-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-16", "link":"http://www.google.com", "src": "img/Netflix_AppIcon.png", "class": "brick-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-17", "link":"http://www.google.com", "src": "img/Nest_AppIcon.png", "class": "brick-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-18", "link":"http://www.google.com", "src": "img/MuslimFaith_AppIcon.png", "class": "brick-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-19", "link":"http://www.google.com", "src": "img/Mediprocity_AppIcon.png", "class": "brick-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-20", "link":"http://www.google.com", "src": "img/Lutron_AppIcon.png", "class": "brick-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-21", "link":"http://www.google.com", "src": "img/ListsAppIcon.png", "class": "brick-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-22", "link":"http://www.google.com", "src": "img/LinkedInAppIcon.png", "class": "brick-icon", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-23", "src": "img/SettingsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-24", "src": "img/RSSAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-25", "src": "img/PinterestAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-26", "src": "img/Pandora_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-27", "src": "img/OpenActivitiesCalendar_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-28", "src": "img/Netflix_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-29", "src": "img/Nest_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-30", "src": "img/MuslimFaith_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-31", "src": "img/Mediprocity_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-32", "src": "img/Lutron_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-33", "src": "img/ListsAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-34", "src": "img/LinkedInAppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-35", "src": "img/JewishFaith_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-36", "src": "img/JesusCalling_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-37", "src": "img/Instagram_AppIcon.png", "class": "", "text": "" },
-    { "width": 100, "height": 100, "initialPosition":"0-38", "src": "img/HolyBible_AppIcon.png", "class": "", "text": "" } 
-    */
-    
+    { "width": 100, "height": 100, "initialPosition":"0-0", "class": "folder-brick-icon", "link": "https://mail.google.com/", "src": "img/icons/gmail", "text": "Gmail" },
+    { "width": 100, "height": 100, "initialPosition":"0-1", "class": "folder-brick-icon", "link": "http://www.facebook.com", "src": "img/icons/facebook", "text": "Facebook" },
+    { "width": 100, "height": 100, "initialPosition":"0-2", "class": "folder-brick-icon", "link": "http://facegrid.dev.kit.cm/index.html", "src": "img/facetimetext.png", "text": "Video Chat" },
+    { "width": 100, "height": 100, "initialPosition":"0-3", "class": "folder-brick-icon", "link": "https://www.mediprocity.com/", "src": "img/icons/mediprocity", "text": "Mediprocity" },
+    { "width": 100, "height": 100, "initialPosition":"0-4", "class": "folder-brick-icon", "link": "http://contacts.google.com", "src": "img/contacts.png", "text": "Contacts" },
+    { "width": 100, "height": 100, "initialPosition":"0-5", "class": "folder-brick-icon", "link": "http://www.weather.com/", "src": "img/weather.png", "text": "Weather" }
 ];
+
 var appStoreJSON = [
     { "width": 100, "height": 100, "initialPosition":"", "src": "img/Email.png", "class": "", "text": "" },
     { "width": 100, "height": 100, "initialPosition":"", "src": "img/YouTubeAppIcon.png", "class": "", "text": "" },
