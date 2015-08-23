@@ -16,21 +16,15 @@ var devshown = false;
 var messageexpiration;
 var messagehash;
 var websocket;
-
+var popovernumber;
 
 
 $(window).load(function(){
     folderIconInit();
     $("#panel").remove();
     $("#loadingcover").css('opacity', .5);
-    $("#gridpagination").trigger('click');
-    //$("#app-tray-pagination").trigger('click');
-    $('i.closepopover').each(function(){
-        $(this).click(function(event){
-            $("#gridpagination").popover('destroy');
-            $("#loadingcover").remove();
-        });
-    });
+    $("#gridpagination").popover('show');
+    $("#app-tray-pagination").popover('show');
     setTimeout(function(){
         console.log('timeout fired');
         $("#banner").remove();
@@ -189,11 +183,17 @@ $(document).ready(function () {
     $(".rss-feed-small").css('max-height', iconwidth);
     
     
-    $("[data-toggle='popover']").popover({
+    $("#gridpagination").popover({
         trigger: 'click',
         container: "body",
         html: true
-    });
+    }).popover('hide');
+    $("#app-tray-pagination").popover({
+        trigger: 'click',
+        container: "body",
+        html: true
+    }).popover('hide');
+    popovernumber = 2;
 });
 
 //Large amount of duplicate code from document ready function, need to create function
@@ -234,11 +234,15 @@ $(window).resize(function(){
     $("#app-tray-pagination").css('left', (($(window).width() - 50) / 2));
 });
 
-function closepopover(event){
+function closepopover(e){
     console.log('popover called');
-    console.log(event);
-    $("#gridpagination").popover('destroy');
-    $("#loadingcover").remove();
+    var popoverelement = (e.target.getAttribute('popovercontainer'));
+    $("#" + popoverelement).popover('destroy');
+    popovernumber --;
+    console.log
+    if (popovernumber <= 0){
+        $("#loadingcover").remove();
+    }
 }
 function parseRSS(url, callback) {
   $.ajax({
