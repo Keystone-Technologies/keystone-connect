@@ -126,7 +126,7 @@
     </a>
     </div>
     <div id='footercenter'>
-        <div class="footerbutton" id="homebutton"><i class='fa fa-square-o'></i></div>
+        <div class="footerbutton" id="homebutton"><i class='fa fa-home'></i></div>
     </div>
 </div>
 <div id="home">
