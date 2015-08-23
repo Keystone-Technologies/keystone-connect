@@ -194,7 +194,7 @@
     </div>
     <div id="app-tray" class="text-center col-xs-12">
         <div class="row" id="row">
-            <div id="gridpagination" title="<strong>Main Grid Buttons</strong><i popovercontainer='grid-pagination' class='fa fa-times-circle closepopover'></i>" class="col-xs-12" data-toggle="popover" data-placement="top" data-content="Use these buttons to pan around your apps and widgets.">
+            <div id="gridpagination" title="<strong>Main Grid Buttons</strong><i popovercontainer='grid-pagination' class='fa fa-times-circle closepopover'></i>" data-toggle="popover" data-placement="top" data-content="Use these buttons to pan around your apps and widgets.">
                 <i id='up' class="fa fa-angle-up navbutton" title="Use these buttons to pan through your apps and widgets."></i>
                 <i id='left' class="fa fa-angle-left navbutton" title="Use these buttons to pan through your apps and widgets."></i>
                 <i id='right' class="fa fa-angle-right navbutton" title="Use these buttons to pan through your apps and widgets."></i>

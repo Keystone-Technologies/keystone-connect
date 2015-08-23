@@ -447,12 +447,19 @@ html {
 }
 #home #app-tray #gridpagination {
     height: 40px;
+    width: 150px;
     line-height: 40px;
     font-size: 40px;
     margin: 0px;
     vertical-align: middle;
     text-align: center;
     position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(195, 195, 195, 0.75);
+    border-radius: 20px;
+    margin-bottom: 5px;
 }
 #home #app-tray #gridpagination ul li {
     color: inherit;
@@ -462,7 +469,7 @@ html {
     opacity: .4;
 }
 #app-tray-pagination {
-    width: 100%;
+    width: 50px;
     position: absolute;
     bottom: 0px;
     display: block;
@@ -472,6 +479,11 @@ html {
     padding: 0px;
     vertical-align: middle;
     text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(195, 195, 195, 0.75);
+    border-radius: 20px;
 }
 #home #app-tray .free-wall {
     display: inline-block;
@@ -1030,6 +1042,7 @@ iframe::-webkit-scrollbar-thumb {
 }
 .navbutton {
     cursor: pointer;
+    opacity: 1;
 }
 
 #ideawidget {
@@ -1100,11 +1113,8 @@ iframe::-webkit-scrollbar-thumb {
 }
 
 .closepopover {
-    color: #00ff00;
+    color: #ff0000;
     position: absolute;
     right: 10px;
-}
-
-.closepopover {
     cursor: pointer;
 }
