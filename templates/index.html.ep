@@ -126,7 +126,7 @@
     </a>
     </div>
     <div id='footercenter'>
-        <div class="footerbutton" id="homebutton"><i class='fa fa-home'></i></div>
+        <div class="footerbutton" id="homebutton" data-toggle="popover" data-placement="left"><i class='fa fa-home'></i></div>
     </div>
 </div>
 <div id="home">
@@ -194,7 +194,7 @@
     </div>
     <div id="app-tray" class="text-center col-xs-12">
         <div class="row" id="row">
-            <div id="gridpagination" title="<strong>Main Grid Buttons</strong><i popovercontainer='gridpagination' class='fa fa-times-circle closepopover' onclick='closepopover(event);'></i>" data-toggle="popover" data-placement="top" data-content="Use these buttons to pan around your apps and widgets.">
+            <div id="gridpagination" data-toggle="popover" data-placement="top">
                 <i id='up' class="fa fa-angle-up navbutton" title="Use these buttons to pan through your apps and widgets."></i>
                 <i id='left' class="fa fa-angle-left navbutton" title="Use these buttons to pan through your apps and widgets."></i>
                 <i id='right' class="fa fa-angle-right navbutton" title="Use these buttons to pan through your apps and widgets."></i>
@@ -203,7 +203,7 @@
             <div id='app-drawer-container'>
                 <div id="app-drawer" class="list-inline free-wall"></div>
             </div>
-            <div id="app-tray-pagination" title="<strong>App Tray Buttons</strong><i popovercontainer='app-tray-pagination' class='fa fa-times-circle closepopover' onclick='closepopover(event);'></i>" data-toggle="popover" data-placement="top" data-content="Use these buttons to scroll through your app tray apps.">
+            <div id="app-tray-pagination" data-toggle="popover" data-placement="right">
                 <i class="fa fa-angle-left navbutton" title="Use these buttons to pan through the app tray."></i>
                 <i class="fa fa-angle-right navbutton" title="Use these buttons to pan through the app tray."></i>
             </div>

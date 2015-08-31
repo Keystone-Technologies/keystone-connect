@@ -25,6 +25,9 @@ $(window).load(function(){
     $("#loadingcover").css('opacity', .5);
     $("#gridpagination").popover('show');
     $("#app-tray-pagination").popover('show');
+    $("#homebutton").popover('show');
+    $("#8-3").popover('show');
+    $("#2-3").popover('show');
     setTimeout(function(){
         console.log('timeout fired');
         $("#banner").remove();
@@ -186,14 +189,39 @@ $(document).ready(function () {
     $("#gridpagination").popover({
         trigger: 'click',
         container: "body",
-        html: true
+        html: true,
+        title: "<strong>Main Grid Buttons</strong><i popovercontainer='gridpagination' class='fa fa-times-circle closepopover' onclick='closepopover(event);'></i>",
+        content: "Use these buttons to pan around your apps and widgets."
     }).popover('hide');
     $("#app-tray-pagination").popover({
         trigger: 'click',
         container: "body",
-        html: true
+        html: true,
+        title: "<strong>App Tray Buttons</strong><i popovercontainer='app-tray-pagination' class='fa fa-times-circle closepopover' onclick='closepopover(event);'></i>",
+        content: "Use these buttons to scroll through your app tray apps."
     }).popover('hide');
-    popovernumber = 2;
+    $("#homebutton").popover({
+        trigger: 'click',
+        container: "body",
+        html: true,
+        title: "<strong>Home Button</strong><i popovercontainer='homebutton' class='fa fa-times-circle closepopover' onclick='closepopover(event);'></i>",
+        content: "Click this button to return to your home position at any time.",
+    }).popover('hide');
+    $("#8-3").popover({
+        trigger: 'click',
+        container: "body",
+        html: true,
+        content: "Click on a folder to see the apps inside.",
+        title: "<strong>Folders</strong><i popovercontainer='8-3' class='fa fa-times-circle closepopover' onclick='closepopover(event);'></i>"
+    }).popover('hide');
+    $("#2-3").popover({
+        trigger: 'click',
+        container: "body",
+        html: true,
+        content: "Interactive widgets show information like today's menu, upcoming events, and community chat.",
+        title: "<strong>Widgets</strong><i popovercontainer='2-3' class='fa fa-times-circle closepopover' onclick='closepopover(event);'></i>"
+    }).popover('hide');
+    popovernumber = 4;
 });
 
 //Large amount of duplicate code from document ready function, need to create function
@@ -239,7 +267,6 @@ function closepopover(e){
     var popoverelement = (e.target.getAttribute('popovercontainer'));
     $("#" + popoverelement).popover('destroy');
     popovernumber --;
-    console.log
     if (popovernumber <= 0){
         $("#loadingcover").remove();
     }

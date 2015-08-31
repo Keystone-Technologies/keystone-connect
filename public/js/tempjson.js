@@ -63,7 +63,7 @@ var firstWallJSON = [
     { "width": 3, "height": 1, "initialPosition":"0-4", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 0, "text": "My Social Networks" },
     { "width": 3, "height": 1, "initialPosition":"0-7", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 1, "text": "My Health" },
     { "width": 2, "height": 1, "initialPosition":"1-4", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 2, "text": "My Office" },
-    { "width": 2, "height": 2, "initialPosition":"1-6", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 3, "text": "My Connect" },
+    { "width": 2, "height": 2, "initialPosition":"1-6", "link":"http://www.google.com", "src": "", "class": "folder", "id": "bigfolder", "folderid": 3, "text": "My Connect" },
     { "width": 2, "height": 1, "initialPosition":"1-8", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 4, "text": "My Home" },
     { "width": 2, "height": 1, "initialPosition":"2-4", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 5, "text": "My Finances" },
     { "width": 2, "height": 1, "initialPosition":"2-8", "link":"http://www.google.com", "src": "", "class": "folder", "folderid": 6, "text": "My Faith" },
